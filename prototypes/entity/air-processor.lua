@@ -1,0 +1,85 @@
+data:extend({
+  {
+    type = "item",
+    name = "lars-air-processor",
+    icons = angelsmods.functions.add_number_icon_layer({
+      {
+        icon = "__angelspetrochemgraphics__/graphics/icons/air-filter.png",
+        icon_size = 32,
+      },
+    }, 4, angelsmods.petrochem.number_tint),
+    subgroup = "angels-petrochem-buildings-electrolyser",
+    order = "b[lars-air-processor]-a",
+    place_result = "lars-air-processor",
+    stack_size = 10,
+  },
+    {
+    type = "assembling-machine",
+    name = "lars-air-processor",
+    icons = angelsmods.functions.add_number_icon_layer({
+      {
+        icon = "__angelspetrochemgraphics__/graphics/icons/air-filter.png",
+        icon_size = 32,
+      },
+    }, 4, angelsmods.petrochem.number_tint),
+    flags = { "placeable-neutral", "player-creation" },
+    collision_mask = angelsmods.functions.set_building_collision_mask("asm", { "elevated_rail" }),
+    minable = { mining_time = 2, result = "lars-air-processor" },
+    fast_replaceable_group = "lars-air-processor",
+    max_health = 300,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = { { -2.4, -2.4 }, { 2.4, 2.4 } },
+    selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } },
+    drawing_box_vertical_extension = 0.3,
+    module_slots = 2,
+    allowed_effects = { "consumption", "speed", "productivity", "pollution" },
+    crafting_categories = { "lars-air-process" },
+    crafting_speed = 1,
+    energy_source = {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions_per_minute = { pollution = 2.5 },
+    },
+    energy_usage = "3MW",
+    graphics_set = {
+      animation = {
+        filename = "__angelspetrochemgraphics__/graphics/entity/air-filter/air-filter.png",
+        width = 256,
+        height = 256,
+        frame_count = 36,
+        line_length = 6,
+        shift = { 0.5, -0.5 },
+        animation_speed = 0.5,
+      },
+    },
+    impact_category = "metal",
+    working_sound = {
+      sound = { filename = "__base__/sound/idle1.ogg", volume = 1 },
+      idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
+    },
+    fluid_boxes = {
+      {
+        production_type = "input",
+        pipe_picture = angelsmods.petrochem.electrolyserpictures(),
+        pipe_covers = pipecoverspictures(),
+        volume = 1000,
+        pipe_connections = { { flow_direction = "input", direction = defines.direction.north, position = { 0, -2 } } },
+      },
+      {
+        production_type = "output",
+        pipe_picture = angelsmods.petrochem.electrolyserpictures(),
+        pipe_covers = pipecoverspictures(),
+        volume = 10,
+        pipe_connections = { { flow_direction = "output", position = { -1, 2 }, direction = defines.direction.south } },
+      },
+      {
+        production_type = "output",
+        pipe_picture = angelsmods.petrochem.electrolyserpictures(),
+        pipe_covers = pipecoverspictures(),
+        volume = 10,
+        pipe_connections = { { flow_direction = "output", position = { 1, 2 }, direction = defines.direction.south } },
+      },
+    },
+  },
+})
