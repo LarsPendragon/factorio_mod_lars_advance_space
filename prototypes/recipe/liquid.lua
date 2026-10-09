@@ -71,6 +71,7 @@ data:extend({
         { type = "fluid", name = "lars-liquid-hydroxide", amount = 1 },
         { type = "item", name = "angels-slag", amount = 9 },
       },
+      surface_conditions = { { property = "pressure", min = 0, max = 300 } },
       always_show_products = true,
       icons = angelsmods.functions.create_viscous_liquid_fluid_icon(nil, { { 0, 255, 255 }, { 0, 255, 255 } }),
       crafting_machine_tint = angelsmods.functions.get_recipe_tints({

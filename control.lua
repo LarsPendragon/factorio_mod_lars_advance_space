@@ -27,32 +27,34 @@ end
 -------------
 -- 监听放置、拆除事件，过滤储液罐
 -------------
+
 script.on_event(defines.events.on_built_entity, function(event)
-    cpt.record_tank(event)
+    --cpt.record_tank(event)
 end, {
     {filter = "type", type = "storage-tank"}
 }
 )
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
-    cpt.record_tank(event)
+    --cpt.record_tank(event)
 end, {
     {filter = "type", type = "storage-tank"}
 }
 )
 
 script.on_event(defines.events.on_player_mined_entity, function(event)
-    cpt.remove_tank(event)
+    --cpt.remove_tank(event)
 end, {
     {filter = "type", type = "storage-tank"}
 }
 )
 
 script.on_event(defines.events.on_robot_mined_entity, function(event)
-    cpt.remove_tank(event)
+    --cpt.remove_tank(event)
 end, {
     {filter = "type", type = "storage-tank"}
 }
 )
+
 
 
