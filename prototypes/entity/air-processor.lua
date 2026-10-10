@@ -41,7 +41,7 @@ data:extend({
       usage_priority = "secondary-input",
       emissions_per_minute = { pollution = 2.5 },
     },
-    energy_usage = "3MW",
+    energy_usage = "1MW",
     graphics_set = {
       animation = {
         filename = "__angelspetrochemgraphics__/graphics/entity/air-filter/air-filter.png",
