@@ -6,10 +6,10 @@ require("src.pressure-tank")
 -- 加载存档时
 -------------
 script.on_load(function()
-    script.on_nth_tick(60, function(event)
-        script.on_nth_tick(60, nil)
-        cpt.init_tank_when_load()
-    end)
+    --script.on_nth_tick(60, function(event)
+    --    script.on_nth_tick(60, nil)
+    --    cpt.init_tank_when_load()
+    --end)
     -- 初始化储液罐表
 end
 )
