@@ -12,8 +12,19 @@ data:extend({
     {
         type = "recipe-category",
         name = "lars-air-process"
-    }
+    },
+    {
+        type = "recipe-category",
+        name = "lars-rocket-silo"
+    },
+    {
+        type = "recipe-category",
+        name = "lars-rocket-silo-2"
+    },
 })
+
+-- 火箭发射井类别
+table.insert(data.raw["rocket-silo"]["rocket-silo"].crafting_categories, "lars-rocket-silo")
 
 -- 低温工厂添加新的类别
 local cryo = data.raw["assembling-machine"]["cryogenic-plant"]

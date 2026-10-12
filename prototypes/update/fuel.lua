@@ -18,3 +18,10 @@ angelsmods.functions.make_void("lars-kerosene", "chemical")
 angelsmods.functions.make_void("lars-diesel-fuel", "chemical")
 angelsmods.functions.make_void("lars-liquid-hydroxide", "chemical")
 
+-- 火箭燃料不能用作载具燃料
+data.raw.item["rocket-fuel"].fuel_value = nil
+data.raw.item["rocket-fuel"].fuel_emissions_multiplier = nil
+data.raw.item["rocket-fuel"].fuel_glow_color = nil
+data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = nil
+data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = nil
+
