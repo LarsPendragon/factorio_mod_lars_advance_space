@@ -110,7 +110,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "rocket-building",
+    category = "lars-rocket-silo",
     ingredients =
     {
       { type = "item", name = "processing-unit", amount = 1 },
@@ -136,7 +136,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "rocket-building",
+    category = "lars-rocket-silo-2",
     ingredients =
     {
       { type = "item", name = "bob-advanced-processing-unit", amount = 1 },
