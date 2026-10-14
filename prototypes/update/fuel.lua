@@ -25,3 +25,90 @@ data.raw.item["rocket-fuel"].fuel_glow_color = nil
 data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = nil
 data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = nil
 
+-- 核电相关科技平衡性优化
+if data.raw.technology["kovarex-enrichment-process"] then
+  data.raw.technology["kovarex-enrichment-process"].unit = {
+    count = 600,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "production-science-pack", 1},
+      { "space-science-pack", 1},
+    },
+    time = 30,
+  }
+end
+if data.raw.technology["angels-thorium-power"] then
+  data.raw.technology["angels-thorium-power"].unit = {
+    count = 1200,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "production-science-pack", 1},
+      { "utility-science-pack", 1},
+      { "space-science-pack", 1},
+    },
+    time = 70,
+  }
+end
+if data.raw.technology["angels-fusion-power-1"] then
+  data.raw.technology["angels-fusion-power-1"].unit = {
+    count = 3000,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "production-science-pack", 1},
+      { "utility-science-pack", 1},
+      { "space-science-pack", 1},
+    },
+    time = 120,
+  }
+end
+if data.raw.technology["bob-rtg"] then
+  data.raw.technology["bob-rtg"].unit = {
+    count = 200,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "production-science-pack", 1},
+      { "utility-science-pack", 1},
+      { "space-science-pack", 1},
+    },
+    time = 30,
+  }
+end
+if data.raw.technology["bob-heavy-spidertron"] then
+  data.raw.technology["bob-heavy-spidertron"].unit = {
+    count = 3000,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "military-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "production-science-pack", 1},
+      { "utility-science-pack", 1},
+      { "space-science-pack", 1},
+      { "agricultural-science-pack", 1},
+    },
+    time = 45,
+  }
+end
+if data.raw.technology["bob-robots-4"] then
+  data.raw.technology["bob-robots-4"].unit = {
+    count = 500,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "bob-advanced-logistic-science-pack", 1},
+      { "production-science-pack", 1},
+      { "utility-science-pack", 1},
+      { "space-science-pack", 1},
+    },
+    time = 45,
+  }
+end

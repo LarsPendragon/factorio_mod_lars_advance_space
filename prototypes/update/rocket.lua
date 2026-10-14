@@ -6,14 +6,21 @@ if data.raw.recipe["angels-powder-aluminium"] then
 end
 
 -- 隐藏不需要的科技
-if data.raw.technology["bob-head-shield"] then -- bob隔热瓦
-  data.raw.technology["bob-head-shield"].hidden = true
-  data.raw.technology["bob-head-shield"].visible_when_disabled = false
+if data.raw.technology["bob-heat-shield"] then -- bob隔热瓦
+  data.raw.technology["bob-heat-shield"].hidden = true
+  data.raw.technology["bob-heat-shield"].visible_when_disabled = false
+  data.raw.technology["bob-heat-shield"].effects = {}
 end
 
 -- 隔热瓦图标更改
 if mods["reskins-bobs"] then
   data.raw.item["lars-heat-shield-tile-2"].icons = angelsmods.functions.add_number_icon_layer({
+    {
+      icon = "__reskins-bobs__/graphics/icons/revamp/bob-heat-shield-tile.png",
+      icon_size = 64,
+    },
+  }, 2, angelsmods.petrochem.number_tint)
+  data.raw.recipe["lars-heat-shield-tile-2"].icons = angelsmods.functions.add_number_icon_layer({
     {
       icon = "__reskins-bobs__/graphics/icons/revamp/bob-heat-shield-tile.png",
       icon_size = 64,
@@ -49,6 +56,7 @@ OV.remove_unlock("rocket-silo", "rocket-part")
 
 -- 修改火箭发射井配方目录
 data.raw["rocket-silo"]["rocket-silo"].fixed_recipe = nil
+data.raw["rocket-silo"]["rocket-silo"].rocket_parts_required = 100
 
 -- 修改火箭组件
 OV.remove_unlock("rocket-silo", "rocket-part")
@@ -76,3 +84,6 @@ data.raw.recipe["rocket-fuel"].order = "hcb"
 -- 修改物流接驳站相关
 --data.raw["cargo-landing-pad"]["cargo-landing-pad"].fast_replaceable_group = "cargo-landing-pad"
 --data.raw["cargo-bay"]["cargo-bay"].fast_replaceable_group = "cargo-bay"
+
+-- 测试用
+--OV.add_unlock("rocket-silo", "lars-TFMG-radiator")

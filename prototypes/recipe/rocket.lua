@@ -54,6 +54,7 @@ data:extend({
       { type = "item", name = "angels-powder-aluminium", amount = 20 },
     },
     results = { { type = "item", name = "lars-solid-rocket-fuel", amount = 1 } },
+    enabled = false,
     order = "hca",
   },
   {
@@ -74,6 +75,7 @@ data:extend({
       { type = "item", name = "bob-cobalt-steel-alloy", amount = 2 },
     },
     results = { { type = "item", name = "rocket-fuel", amount = 1 } },
+    enabled = false,
     order = "hcc",
   },
   {
@@ -94,6 +96,7 @@ data:extend({
       { type = "item", name = "bob-cobalt-steel-alloy", amount = 5 },
     },
     results = { { type = "item", name = "rocket-fuel", amount = 5 } },
+    enabled = false,
     order = "hcd",
   },
   {
@@ -110,7 +113,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "rocket-building",
+    category = "lars-rocket-silo",
     ingredients =
     {
       { type = "item", name = "processing-unit", amount = 1 },
@@ -136,7 +139,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "rocket-building",
+    category = "lars-rocket-silo-2",
     ingredients =
     {
       { type = "item", name = "bob-advanced-processing-unit", amount = 1 },

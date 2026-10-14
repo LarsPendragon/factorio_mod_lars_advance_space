@@ -1,6 +1,8 @@
 require("prototypes.category")
+require("prototypes.thermal")
 
 require("prototypes.entity.air-processor")
+require("prototypes.entity.radiator")
 require("prototypes.entity.rocket")
 
 require("prototypes.item.gas")
@@ -11,6 +13,7 @@ require("prototypes.item.rocket")
 require("prototypes.recipe.air-processor")
 require("prototypes.recipe.liquid")
 require("prototypes.recipe.electromagnetic")
+require("prototypes.recipe.radiator")
 require("prototypes.recipe.rocket")
 require("prototypes.recipe.life-quality")
 

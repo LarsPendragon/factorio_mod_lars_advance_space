@@ -36,7 +36,7 @@ data.extend({
         icon_size = 64,
       },
     }, 2, angelsmods.petrochem.number_tint),
-    subgroup = "space-related",
+    subgroup = "space-interactors",
     order = "a[rocket-silo]-b",
     inventory_move_sound = mechanical_large_inventory_move,
     pick_sound = mechanical_large_inventory_pickup,
@@ -51,7 +51,7 @@ data.extend({
     icon = "__base__/graphics/icons/rocket-silo.png",
     flags = {"placeable-player", "player-creation"},
     fast_transfer_modules_into_module_slots_only = true,
-    crafting_categories = {"rocket-building", "lars-rocket-silo", "lars-rocket-silo-2"},
+    crafting_categories = {"rocket-building", "lars-rocket-silo-2"},
     fast_replaceable_group = "rocket-silo",
     rocket_parts_required = 100,
     rocket_quick_relaunch_start_offset = -0.625,
@@ -60,6 +60,7 @@ data.extend({
       is_input_station = false,
       is_output_station = true,
       hatch_definitions = { silo_cargo_hatch({0, 0}) },
+      prefer_packed_cargo_units = true,
     },
     crafting_speed = 1.5,
     to_be_inserted_to_rocket_inventory_size = 1,
@@ -85,6 +86,7 @@ data.extend({
       offsets = {{0, 1}},
       damage_type_filters = "fire"
     },
+
     hole_clipping_box = { {-2.75, -1.15}, {2.75, 2.25} },
     resistances =
     {
@@ -377,6 +379,14 @@ data.extend({
       fade_in_ticks = 10,
       fade_out_ticks = 15
     },
+
+    -- space age new params
+    launch_to_space_platforms = true,
+    to_be_inserted_to_rocket_inventory_size = 20,
+    logistic_trash_inventory_size = 20,
+    surface_conditions = {{property = "pressure", min = 1}},
+    rocket_parts_required = 50,
+    heating_energy = "300kW",
   },
 
 
@@ -391,7 +401,7 @@ data.extend({
         icon_size = 64,
       },
     }, 2, angelsmods.petrochem.number_tint),
-    subgroup = "space-related",
+    subgroup = "space-interactors",
     order = "c[cargo-landing-pad]-b",
     inventory_move_sound = mechanical_large_inventory_move,
     pick_sound = mechanical_large_inventory_pickup,
@@ -414,6 +424,8 @@ data.extend({
     minable = {mining_time = 1, result = "lars-cargo-landing-pad-2"},
     fast_replaceable_group = "cargo-landing-pad",
     inventory_size = 60,
+    trash_inventory_size = 20,
+    surface_conditions ={{ property = "gravity", min = 1}},
     radar_range = 10,
     radar_visualisation_color = {0.059, 0.092, 0.235, 0.275},
     open_sound = {filename =  "__base__/sound/open-close/mechanical-large-open.ogg", volume = 0.5},

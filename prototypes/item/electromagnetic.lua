@@ -11,7 +11,7 @@ data:extend({
     subgroup = "bob-electronic-components",
     order = "d-a[magnetic-coil]",
     stack_size = 200,
-    weight = 2,
+    weight = 2000,
   },
   {
     -- 高强度磁线圈
@@ -23,7 +23,7 @@ data:extend({
     subgroup = "bob-electronic-components",
     order = "d-b[silver-coil]",
     stack_size = 200,
-    weight = 2,
+    weight = 2000,
   },
   {
     -- 超级磁线圈
@@ -35,6 +35,6 @@ data:extend({
     subgroup = "bob-electronic-components",
     order = "d-c[gold-coil]",
     stack_size = 200,
-    weight = 2,
+    weight = 2000,
   },
 })
