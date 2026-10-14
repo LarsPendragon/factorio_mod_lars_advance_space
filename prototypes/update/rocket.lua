@@ -86,4 +86,4 @@ data.raw.recipe["rocket-fuel"].order = "hcb"
 --data.raw["cargo-bay"]["cargo-bay"].fast_replaceable_group = "cargo-bay"
 
 -- 测试用
---OV.add_unlock("rocket-silo", "radiator")
+OV.add_unlock("rocket-silo", "lars-TFMG-radiator")

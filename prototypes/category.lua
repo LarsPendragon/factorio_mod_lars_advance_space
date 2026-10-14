@@ -1,3 +1,4 @@
+-- ITEM SUBGROUP
 data:extend({
     {
         type = "item-subgroup",
@@ -5,6 +6,16 @@ data:extend({
         group = "angels-petrochem-refining",
         order = "z[lars-fuel-refining]",
     },
+    {
+        type = "item-subgroup",
+        name = "space-radiator",
+        group = "space",
+        order = "ca"
+    },
+})
+
+-- RECIPE CATEGORY
+data:extend({
     {
         type = "recipe-category",
         name = "lars-liquid-gas"
@@ -20,6 +31,10 @@ data:extend({
     {
         type = "recipe-category",
         name = "lars-rocket-silo-2"
+    },
+    {
+        type = "recipe-category",
+        name = "radiator"
     },
 })
 
