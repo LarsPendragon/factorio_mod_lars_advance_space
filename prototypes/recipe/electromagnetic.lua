@@ -8,7 +8,7 @@ data:extend({
     category = "crafting",
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
-    energy_required = 2,
+    energy_required = 0.5,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -30,7 +30,7 @@ data:extend({
     category = "crafting",
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
-    energy_required = 2,
+    energy_required = 1,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -52,7 +52,7 @@ data:extend({
     category = "crafting",
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
-    energy_required = 2,
+    energy_required = 1,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {

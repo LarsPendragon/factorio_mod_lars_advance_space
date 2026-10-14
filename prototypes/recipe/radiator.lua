@@ -6,7 +6,7 @@ data:extend({
     icon = "__TFMG-thermal__/graphics/small-radiator/small-radiator-icon.png",
     icon_size = 64,
     category = "crafting",
-    enabled = nil,
+    enabled = false,
     energy_required = 1,
     ingredients = {
       { type = "item", name = "steel-plate", amount = 1 },

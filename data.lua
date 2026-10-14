@@ -1,4 +1,5 @@
 require("prototypes.category")
+require("prototypes.thermal")
 
 require("prototypes.entity.air-processor")
 require("prototypes.entity.radiator")
