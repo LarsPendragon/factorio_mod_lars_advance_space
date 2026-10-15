@@ -12,7 +12,7 @@ require("utils")
 -- 氧化星岩 -> 冰 -> 水 -> (+煤滤芯)纯化水 -> 氢气 -> (+碳、水)推进器燃料 (废气可由排气阀排出)
 --                                       -> 氧气 -> (+铁板)推进器氧化剂 (废气可由排气阀排出)
 
--- todo: 高级氧化星岩粉碎配方
+-- 
 
 -- 金属星岩粉碎
 change_recipe_results("metallic-asteroid-crushing", {

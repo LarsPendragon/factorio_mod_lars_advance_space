@@ -13,7 +13,7 @@ data:extend({
       { type = "item", name = "iron-plate", amount = 10 },
     },
     results = { { type = "item", name = "lars-emission-valve", amount = 1 } },
-    order = "d[emission]-a",
+    order = "d[emission]",
   },
   {
     -- 太空氢气排放
