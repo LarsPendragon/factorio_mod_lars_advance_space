@@ -42,6 +42,7 @@ data:extend({
       emissions_per_minute = { pollution = 2.5 },
     },
     energy_usage = "1MW",
+    surface_conditions = {{property = "pressure", min = 1000, max = 2000}},
     graphics_set = {
       animation = {
         filename = "__angelspetrochemgraphics__/graphics/entity/air-filter/air-filter.png",

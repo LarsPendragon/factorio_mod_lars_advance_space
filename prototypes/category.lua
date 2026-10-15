@@ -24,6 +24,10 @@ data:extend({
         type = "recipe-category",
         name = "lars-air-process"
     },
+        {
+        type = "recipe-category",
+        name = "lars-air-emission"
+    },
     {
         type = "recipe-category",
         name = "lars-rocket-silo"

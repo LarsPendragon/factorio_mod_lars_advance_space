@@ -3,7 +3,7 @@ local OV = angelsmods.functions.OV
 angelsmods.functions.modify_barreling_recipes()
 -- 禁用液体燃料
 OV.remove_unlock("flammables", "bob-liquid-fuel")
-OV.remove_unlock("flammables", "bob-enriched-fuel")
+--OV.remove_unlock("flammables", "bob-enriched-fuel")
 OV.remove_unlock("bob-fluid-canister-processing", "bob-liquid-fuel-barrel")
 OV.remove_unlock("bob-fluid-canister-processing", "empty-bob-liquid-fuel-barrel")
 -- 禁用液氢液氧
@@ -24,6 +24,28 @@ data.raw.item["rocket-fuel"].fuel_emissions_multiplier = nil
 data.raw.item["rocket-fuel"].fuel_glow_color = nil
 data.raw.item["rocket-fuel"].fuel_acceleration_multiplier = nil
 data.raw.item["rocket-fuel"].fuel_top_speed_multiplier = nil
+
+-- 修改需要液体燃料的配方
+if data.raw.recipe["bob-rocket-body"] then
+  data.raw.recipe["bob-rocket-body"].ingredients = {
+    { type = "item", name = "advanced-circuit", amount = 1 },
+    { type = "item", name = "bob-rocket-engine", amount = 1 },
+    { type = "item", name = "bob-aluminium-plate", amount = 1 },
+    { type = "fluid", name = "lars-diesel-fuel", amount = 10 },
+  }
+end
+if data.raw.recipe["bob-fire-capsule"] then
+  data.raw.recipe["bob-fire-capsule"].ingredients = {
+    { type = "item", name = "electronic-circuit", amount = 3 },
+    { type = "item", name = "steel-plate", amount = 3 },
+    { type = "fluid", name = "lars-diesel-fuel", amount = 100 },
+  }
+end
+if data.raw.recipe["bob-enriched-fuel"] then
+  data.raw.recipe["bob-enriched-fuel"].ingredients = {
+    { type = "fluid", name = "lars-diesel-fuel", amount = 100 },
+  }
+end
 
 -- 核电相关科技平衡性优化
 if data.raw.technology["kovarex-enrichment-process"] then
