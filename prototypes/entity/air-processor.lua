@@ -13,7 +13,7 @@ data:extend({
     place_result = "lars-air-processor",
     stack_size = 10,
   },
-    {
+  {
     type = "assembling-machine",
     name = "lars-air-processor",
     icons = angelsmods.functions.add_number_icon_layer({
@@ -71,14 +71,14 @@ data:extend({
         production_type = "output",
         pipe_picture = angelsmods.petrochem.electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-        volume = 10,
+        volume = 100,
         pipe_connections = { { flow_direction = "output", position = { -1, 2 }, direction = defines.direction.south } },
       },
       {
         production_type = "output",
         pipe_picture = angelsmods.petrochem.electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-        volume = 10,
+        volume = 100,
         pipe_connections = { { flow_direction = "output", position = { 1, 2 }, direction = defines.direction.south } },
       },
     },
