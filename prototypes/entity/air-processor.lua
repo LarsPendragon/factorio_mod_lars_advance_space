@@ -13,7 +13,7 @@ data:extend({
     place_result = "lars-air-processor",
     stack_size = 10,
   },
-    {
+  {
     type = "assembling-machine",
     name = "lars-air-processor",
     icons = angelsmods.functions.add_number_icon_layer({
@@ -42,6 +42,7 @@ data:extend({
       emissions_per_minute = { pollution = 2.5 },
     },
     energy_usage = "1MW",
+    surface_conditions = {{property = "pressure", min = 1000, max = 2000}},
     graphics_set = {
       animation = {
         filename = "__angelspetrochemgraphics__/graphics/entity/air-filter/air-filter.png",
@@ -70,14 +71,14 @@ data:extend({
         production_type = "output",
         pipe_picture = angelsmods.petrochem.electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-        volume = 10,
+        volume = 100,
         pipe_connections = { { flow_direction = "output", position = { -1, 2 }, direction = defines.direction.south } },
       },
       {
         production_type = "output",
         pipe_picture = angelsmods.petrochem.electrolyserpictures(),
         pipe_covers = pipecoverspictures(),
-        volume = 10,
+        volume = 100,
         pipe_connections = { { flow_direction = "output", position = { 1, 2 }, direction = defines.direction.south } },
       },
     },

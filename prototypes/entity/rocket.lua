@@ -384,7 +384,7 @@ data.extend({
     launch_to_space_platforms = true,
     to_be_inserted_to_rocket_inventory_size = 20,
     logistic_trash_inventory_size = 20,
-    surface_conditions = {{property = "pressure", min = 1}},
+    surface_conditions = {{property = "pressure", min = 10}},
     rocket_parts_required = 50,
     heating_energy = "300kW",
   },

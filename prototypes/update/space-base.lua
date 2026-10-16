@@ -72,7 +72,7 @@ add_place_pressure_condition("assembling-machine", "angels-ore-floatation-cell-2
 add_place_pressure_condition("assembling-machine", "angels-ore-floatation-cell-3", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-ore-leaching-plant", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-ore-leaching-plant-2", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-ore-leaching-plant-3", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-ore-leaching-plant-3", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-ore-refinery", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-ore-refinery-2", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-powderizer", SPACE_NOT_ALLOW, nil)
@@ -85,7 +85,7 @@ add_place_pressure_condition("assembling-machine", "angels-filtration-unit-2", S
 add_place_pressure_condition("assembling-machine", "angels-filtration-unit-3", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-crystallizer", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-crystallizer-2", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-crystallizer-3", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-crystallizer-3", SPACE_NOT_ALLOW, nil)
 
 -- 天使系列：资源冶炼
 add_place_pressure_condition("assembling-machine", "angels-ore-processing-machine", SPACE_NOT_ALLOW, nil)
@@ -107,7 +107,7 @@ add_place_pressure_condition("assembling-machine", "angels-blast-furnace", SPACE
 add_place_pressure_condition("assembling-machine", "angels-chemical-furnace", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-chemical-furnace-2", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-chemical-furnace-3", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-chemical-furnace-4", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-chemical-furnace-4", SPACE_NOT_ALLOW, nil)
 
 -- 天使系列：铸造
 add_place_pressure_condition("assembling-machine", "angels-induction-furnace", SPACE_NOT_ALLOW, nil)
@@ -145,9 +145,9 @@ add_place_pressure_condition("assembling-machine", "angels-air-filter", SPACE_NO
 add_place_pressure_condition("assembling-machine", "angels-air-filter-2", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-air-filter-3", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-liquifier", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-liquifier-2", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-liquifier-3", SPACE_NOT_ALLOW, nil)
-add_place_pressure_condition("assembling-machine", "angels-liquifier-4", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-liquifier-2", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-liquifier-3", SPACE_NOT_ALLOW, nil)
+--add_place_pressure_condition("assembling-machine", "angels-liquifier-4", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "chemical-plant", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-gas-refinery-small", SPACE_NOT_ALLOW, nil)
 add_place_pressure_condition("assembling-machine", "angels-gas-refinery-small-2", SPACE_NOT_ALLOW, nil)
