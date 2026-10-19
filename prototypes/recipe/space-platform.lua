@@ -25,6 +25,7 @@ data:extend({
     ),
     category = "lars-air-emission",
     energy_required = 1,
+    enabled = false,
     subgroup = "space-processing",
     ingredients = {
       { type = "fluid", name = "angels-gas-hydrogen", amount = 100 },
@@ -42,6 +43,7 @@ data:extend({
     ),
     category = "lars-air-emission",
     energy_required = 1,
+    enabled = false,
     subgroup = "space-processing",
     ingredients = {
       { type = "fluid", name = "angels-gas-oxygen", amount = 100 },

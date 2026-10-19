@@ -82,13 +82,9 @@ change_recipe_ingredients("advanced-thruster-oxidizer", {
 })
 
 -- 太空科技补充
---if data.raw.technology["space-platform"] then
---  table.insert(data.raw.technology["space-platform"].effects, {
---    type = "unlock-recipe",
---    recipe = "lars-emission-valve",
---  })
---end
 OV.add_unlock("space-platform", "lars-emission-valve")
+OV.add_unlock("space-platform", "lars-hydrogen-emission")
+OV.add_unlock("space-platform", "lars-oxygen-emission")
 OV.add_unlock("space-platform", "coal-synthesis")
 OV.add_unlock("space-platform", "ice-melting")
 
