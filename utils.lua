@@ -1,11 +1,74 @@
+utils = utils or {}
+
 function change_recipe_ingredients(recipe_name, ingredients)
-    if data.raw.recipe[recipe_name] then
-        data.raw.recipe[recipe_name].ingredients = ingredients
-    end
+  if data.raw.recipe[recipe_name] then
+    data.raw.recipe[recipe_name].ingredients = ingredients
+  end
 end
 
 function change_recipe_results(recipe_name, results)
-    if data.raw.recipe[recipe_name] then
-        data.raw.recipe[recipe_name].results = results
-    end
+  if data.raw.recipe[recipe_name] then
+    data.raw.recipe[recipe_name].results = results
+  end
 end
+
+local function get_bioprocess_item(item_name)
+  local item = data.raw.item[item_name]
+  if not item then
+    item = data.raw.capsule[item_name]
+    if not item then
+      return nil
+    end
+  end
+  return item
+end
+
+-- 添加变质信息，输入参数为变质时间（秒）和变质产物
+function utils.add_spoil(item_name, spoil_seconds, spoil_result)
+  if not spoil_seconds or spoil_seconds <= 0 then
+    utils.remove_spoil(item_name)
+    return
+  end
+  local item = get_bioprocess_item(item_name)
+  if not item then
+    return
+  end
+  if not spoil_result then -- 默认变质物
+    spoil_result = "spoilage"
+  end
+  item.spoil_ticks = spoil_seconds * 60
+  item.spoil_result = spoil_result
+end
+
+function utils.modify_spoil_time(item_name, spoil_seconds)
+  if not spoil_seconds or spoil_seconds <= 0 then
+    utils.remove_spoil(item_name)
+    return
+  end
+  local item = get_bioprocess_item(item_name)
+  if not item then
+    return
+  end
+  item.spoil_ticks = spoil_seconds * 60
+end
+
+function utils.remove_spoil(item_name)
+  local item = get_bioprocess_item(item_name)
+  if not item then
+    return
+  end
+  item.spoil_ticks = nil
+  item.spoil_result = nil
+end
+
+function utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
+  if not data.raw.recipe[recipe_name] then
+    return
+  end
+  if (is_always_fresh == nil) or (is_always_fresh ~= false) then
+    data.raw.recipe[recipe_name].result_is_always_fresh = true
+  else
+    data.raw.recipe[recipe_name].result_is_always_fresh = false
+  end
+end
+
