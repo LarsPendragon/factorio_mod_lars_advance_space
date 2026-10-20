@@ -53,7 +53,6 @@ data.extend({
     fast_transfer_modules_into_module_slots_only = true,
     crafting_categories = {"rocket-building", "lars-rocket-silo-2"},
     fast_replaceable_group = "rocket-silo",
-    rocket_parts_required = 100,
     rocket_quick_relaunch_start_offset = -0.625,
     cargo_station_parameters =
     {
@@ -63,8 +62,6 @@ data.extend({
       prefer_packed_cargo_units = true,
     },
     crafting_speed = 1.5,
-    to_be_inserted_to_rocket_inventory_size = 1,
-    logistic_trash_inventory_size = 0,
     icon_draw_specification = {shift = {0, 2}},
     module_slots = 4,
     icons_positioning =

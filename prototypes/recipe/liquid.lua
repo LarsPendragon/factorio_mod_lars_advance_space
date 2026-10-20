@@ -60,7 +60,7 @@ data:extend({
     type = "recipe",
     name = "lars-liquid-oxygen-hydroxide",
     category = "lars-liquid-gas",
-    --subgroup = "angels-water-cleaning",
+    subgroup = "lars-liquid",
     energy_required = 10,
     enabled = false,
     ingredients = {
@@ -68,7 +68,7 @@ data:extend({
     },
     results = {
       { type = "fluid", name = "lars-liquid-oxygen", amount = 8 },
-      { type = "fluid", name = "lars-liquid-hydroxide", amount = 1 },
+      { type = "fluid", name = "lars-liquid-hydrogen", amount = 1 },
       { type = "item", name = "angels-slag", amount = 9 },
     },
     surface_conditions = { { property = "pressure", min = 0, max = 300 } },
@@ -76,9 +76,9 @@ data:extend({
     icons = angelsmods.functions.create_viscous_liquid_fluid_icon(nil, { { 0, 255, 255 }, { 0, 255, 255 } }),
     crafting_machine_tint = angelsmods.functions.get_recipe_tints({
       "lars-liquid-oxygen",
-      "lars-liquid-hydroxide",
+      "lars-liquid-hydrogen",
     }),
-    order = "a[oxygen]",
+    order = "a",
   },
 
   -- 基于煤滤芯的水净化

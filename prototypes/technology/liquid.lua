@@ -48,6 +48,10 @@ data:extend({
           type = "unlock-recipe",
           recipe = "lars-rocket-fuel-hydroxide",
         },
+        {
+          type = "unlock-recipe",
+          recipe = "lars-liquid-hydrogen-gas",
+        },
       },
       unit = {
         count = 1000,

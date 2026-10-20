@@ -18,6 +18,12 @@ data:extend({
     group = "angels-smelting",
     order = "r[rhodium]"
   },
+  {
+    type = "item-subgroup",
+    name = "lars-liquid",
+    group = "fluids",
+    order = "b"
+  },
 })
 
 -- RECIPE CATEGORY

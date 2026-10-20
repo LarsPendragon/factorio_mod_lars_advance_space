@@ -72,3 +72,39 @@ function utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
   end
 end
 
+-- 能否放置在太空
+function utils.can_place_in_space(entity_name, entity_type)
+  if not entity_type then
+    entity_type = "assembling_machine"
+  end
+  local entity = data.raw[entity_type][entity_name]
+  if not entity then
+    return false
+  else
+    return utils.can_entity_place_in_space(entity)
+  end
+end
+
+function utils.can_entity_place_in_space(entity)
+  if not entity then
+    return false
+  end
+  --local can_place = true
+  if not entity.surface_conditions then
+    return true
+  end
+  for _, condition in pairs(entity.surface_conditions) do
+    if condition.property == "gravity" and condition.min and condition.min > 0 then
+      return false
+      --can_place = false
+    elseif condition.property == "pressure" and condition.min and condition.min > 0 then
+      return false
+      --can_place = false
+    elseif condition.property == "magnetic_field" and condition.min and condition.min > 0 then
+      return false
+      --can_place = false
+    end
+  end
+  return true
+end
+

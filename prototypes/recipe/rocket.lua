@@ -91,7 +91,7 @@ data:extend({
     category = "lars-liquid-gas",
     energy_required = 5,
     ingredients = {
-      { type = "fluid", name = "lars-liquid-hydroxide", amount = 10 },
+      { type = "fluid", name = "lars-liquid-hydrogen", amount = 10 },
       { type = "fluid", name = "lars-liquid-oxygen", amount = 10 },
       { type = "item", name = "bob-cobalt-steel-alloy", amount = 5 },
     },

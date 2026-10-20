@@ -24,5 +24,6 @@ require("prototypes.recipe.life-quality")
 require("prototypes.technology.air-processor")
 require("prototypes.technology.liquid")
 require("prototypes.technology.ore-process")
+require("prototypes.technology.radiator")
 require("prototypes.technology.rocket")
 
