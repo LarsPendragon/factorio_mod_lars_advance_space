@@ -123,31 +123,31 @@ local function get_thermal_defination(name)
   local thermal_info = {
     surface_conditions = condition_space,
     heat_ratio = 0.5,
-    max_working_temperature = 250,
-    max_safe_temperature = 150,
+    max_working_temperature = 150,
+    max_safe_temperature = 250,
     default_temperature = 0,
     heat_when_disabled_by_script=false,
   }
   if string.find(name, "angels-induction-furnace") then
     thermal_info.heat_ratio = 0.7
     thermal_info.max_working_temperature = 1500
-    thermal_info.max_safe_temperature = 1500
+    thermal_info.max_safe_temperature = 1501
   elseif string.find(name, "angels-casting-machine") then
     thermal_info.heat_ratio = 0.5
     thermal_info.max_working_temperature = 1500
-    thermal_info.max_safe_temperature = 1500
+    thermal_info.max_safe_temperature = 1501
   elseif string.find(name, "angels-blast-furnace") then
     thermal_info.heat_ratio = 0.9
     thermal_info.max_working_temperature = 1700
-    thermal_info.max_safe_temperature = 1700
+    thermal_info.max_safe_temperature = 1701
   elseif string.find(name, "angels-chemical-furnace") then
     thermal_info.heat_ratio = 0.85
     thermal_info.max_working_temperature = 1700
-    thermal_info.max_safe_temperature = 1700
+    thermal_info.max_safe_temperature = 1701
   elseif string.find(name, "furnace") then
     thermal_info.heat_ratio = 0.9
     thermal_info.max_working_temperature = 1200
-    thermal_info.max_safe_temperature = 1200
+    thermal_info.max_safe_temperature = 1201
   end
   return thermal_info
 end
