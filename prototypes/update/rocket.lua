@@ -41,6 +41,7 @@ data.raw.technology["rocket-silo"].prerequisites = {
   "low-density-structure",
   "lars-solid-rocket-fuel",
   "angels-invar-smelting-1",
+  "processing-unit",
 }
 data.raw.recipe["rocket-silo"].ingredients = {
   { type = "item", name = "electric-engine-unit", amount = 100 },

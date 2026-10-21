@@ -10,7 +10,7 @@ local pressure_tank_list = {
 -- 低温液体种类
 local pressure_fluid_list = {
     ["lars-liquid-oxygen"] = true,
-    ["lars-liquid-hydroxide"] = true,
+    ["lars-liquid-hydrogen"] = true,
     ["lars-liquid-nitrogen"] = true
 }
 

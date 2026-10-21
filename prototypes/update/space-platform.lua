@@ -24,12 +24,12 @@ change_recipe_results("metallic-asteroid-crushing", {
 -- 碳质星岩粉碎
 change_recipe_results("carbonic-asteroid-crushing", {
   {type = "item", name = "angels-coal-crushed", amount = 20}, -- 粉碎煤
-  {type = "item", name = "sulfur", amount =3},
+  {type = "item", name = "sulfur", amount = 3},
   {type = "item", name = "carbonic-asteroid-chunk", amount = 1, probability = 0.2},
 })
 -- 氧化星岩粉碎
 change_recipe_results("oxide-asteroid-crushing", {
-  {type = "item", name = "ice", amount = 10},
+  {type = "item", name = "ice", amount = 15},
   {type = "item", name = "lars-rhodite-ore", amount = 1, probability = 0.001},
   {type = "item", name = "oxide-asteroid-chunk", amount = 1, probability = 0.2},
 })
@@ -51,7 +51,7 @@ change_recipe_results("advanced-carbonic-asteroid-crushing", {
 })
 -- 高级氧化星岩粉碎
 change_recipe_results("advanced-oxide-asteroid-crushing", {
-  {type = "item", name = "ice", amount = 8},
+  {type = "item", name = "ice", amount = 12},
   {type = "item", name = "lars-rhodite-ore", amount = 2},
   {type = "item", name = "oxide-asteroid-chunk", amount = 1, probability = 0.05},
 })

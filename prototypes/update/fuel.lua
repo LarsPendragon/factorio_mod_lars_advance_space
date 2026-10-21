@@ -9,14 +9,14 @@ OV.remove_unlock("bob-fluid-canister-processing", "empty-bob-liquid-fuel-barrel"
 -- 禁用液氢液氧
 OV.remove_unlock("bob-fluid-canister-processing", "lars-liquid-oxygen-barrel")
 OV.remove_unlock("bob-fluid-canister-processing", "empty-lars-liquid-oxygen-barrel")
-OV.remove_unlock("bob-fluid-canister-processing", "lars-liquid-hydroxide-barrel")
-OV.remove_unlock("bob-fluid-canister-processing", "empty-lars-liquid-hydroxide-barrel")
+OV.remove_unlock("bob-fluid-canister-processing", "lars-liquid-hydrogen-barrel")
+OV.remove_unlock("bob-fluid-canister-processing", "empty-lars-liquid-hydrogen-barrel")
 
 
 -- 燃烧塔处理
 angelsmods.functions.make_void("lars-kerosene", "chemical")
 angelsmods.functions.make_void("lars-diesel-fuel", "chemical")
-angelsmods.functions.make_void("lars-liquid-hydroxide", "chemical")
+angelsmods.functions.make_void("lars-liquid-hydrogen", "chemical")
 
 -- 火箭燃料不能用作载具燃料
 data.raw.item["rocket-fuel"].fuel_value = nil

@@ -33,13 +33,13 @@ data:extend({
     {
         -- 液氢
         type = "fluid",
-        name = "lars-liquid-hydroxide",
+        name = "lars-liquid-hydrogen",
         icons = angelsmods.functions.create_liquid_fluid_icon(
           { "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png", 72 },
           "HHH"
         ),
         subgroup = "angels-petrochem-solids-fluids",
-        order = "f(hydroxide)",
+        order = "f[hydrogen]",
         default_temperature = -253,
         heat_capacity = "0.1kJ",
         base_color = { r = 0.93, g = 1, b = 1 },
@@ -51,7 +51,7 @@ data:extend({
         type = "fluid",
         name = "lars-liquid-nitrogen",
         icons = angelsmods.functions.create_liquid_fluid_icon(
-          { "__angelspetrochemgraphics__/graphics/icons/molecules/nitrogen.png", 72 },
+          { "__angelspetrochemgraphics__/graphics/icons/molecules/nitrogen.png", 64 },
           "NNN"
         ),
         subgroup = "angels-petrochem-solids-fluids",

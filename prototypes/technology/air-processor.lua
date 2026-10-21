@@ -65,6 +65,14 @@ data:extend({
           type = "unlock-recipe",
           recipe = "lars-compressed-air-depress-2",
         },
+        {
+          type = "unlock-recipe",
+          recipe = "lars-liquid-nitrogen-gas",
+        },
+        {
+          type = "unlock-recipe",
+          recipe = "lars-liquid-oxygen-gas",
+        },
       },
       unit = {
         count = 120,
