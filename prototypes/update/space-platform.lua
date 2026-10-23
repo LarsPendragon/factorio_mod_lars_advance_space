@@ -1,5 +1,5 @@
 local OV = angelsmods.functions.OV
-require("utils")
+require("lars-utils")
 
 -- 备注：太空预计的建造通路
 -- 金属星岩 -> 铁质混合物 -> 铁锭+锰锭 -> 铁板

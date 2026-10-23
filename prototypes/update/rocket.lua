@@ -1,9 +1,17 @@
+require("lars-utils")
 local OV = angelsmods.functions.OV
 
 -- 铝粉
 if data.raw.recipe["angels-powder-aluminium"] then
   OV.add_unlock("angels-aluminium-smelting-2", "lars-powder-aluminium")
 end
+
+-- 钨铜合金修改（改用angel的熔融铜）
+change_recipe_ingredients("bob-copper-tungsten-alloy", {
+  {type = "item", name = "angels-powder-copper", amount = 10},
+  {type = "item", name = "bob-powdered-tungsten", amount = 15},
+  {type = "fluid", name = "angels-liquid-molten-copper", amount = 20},
+})
 
 -- 隐藏不需要的科技
 if data.raw.technology["bob-heat-shield"] then -- bob隔热瓦

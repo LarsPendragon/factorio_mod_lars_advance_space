@@ -1,4 +1,4 @@
-require("utils")
+require("lars-utils")
 
 -- 根据设置修改变质时间
 local fish_spoil_seconds = settings.startup["lars-fish-spoilage-time-seconds"].value

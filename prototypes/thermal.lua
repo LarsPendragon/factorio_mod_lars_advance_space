@@ -1,7 +1,7 @@
 -- TFMG 的热量管理需要定义在 data 阶段而非 update 阶段
 TFMG_thermal = TFMG_thermal or {}
 
-require("utils")
+require("lars-utils")
 
 local condition_space = {
   {

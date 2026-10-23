@@ -1,3 +1,5 @@
+local item_sounds = require("__base__.prototypes.item_sounds")
+
 data:extend({
   {
     -- 铑金矿
@@ -8,19 +10,10 @@ data:extend({
     subgroup = "lars-rhodium",
     order = "a",
     stack_size = 100,
-    drop_sound = {
-      filename = "__base__/sound/item/metal-large-inventory-move.ogg",
-      volume = 0.7,
-    },
-    inventory_move_sound = {
-      filename = "__base__/sound/item/metal-large-inventory-move.ogg",
-      volume = 0.7,
-    },
-    pick_sound = {
-      filename = "__base__/sound/item/metal-large-inventory-pickup.ogg",
-      volume = 0.7,
-    },
-    weight = 50000,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    weight = 10 * kg,
   },
   {
     -- 铑金矿泥
@@ -40,7 +33,7 @@ data:extend({
     subgroup = "lars-rhodium",
     order = "b",
     stack_size = 100,
-    weight = 50000,
+    weight = 20 * kg,
   },
   {
     -- 铑粉
@@ -60,7 +53,7 @@ data:extend({
     subgroup = "lars-rhodium",
     order = "c",
     stack_size = 100,
-    weight = 50000,
+    weight = 10 * kg,
   },
   {
     -- 铑催化剂
@@ -71,6 +64,6 @@ data:extend({
     subgroup = "lars-rhodium",
     order = "d",
     stack_size = 100,
-    weight = 25000,
+    weight = 50 * kg,
   },
 })

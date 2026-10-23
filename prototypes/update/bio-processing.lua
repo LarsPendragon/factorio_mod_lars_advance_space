@@ -1,5 +1,5 @@
 local OV = angelsmods.functions.OV
-require("utils")
+require("lars-utils")
 
 local MINUTE = 60
 local HOUR = 60 * 60
