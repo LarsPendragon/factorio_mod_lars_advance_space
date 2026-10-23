@@ -24,6 +24,12 @@ data:extend({
     group = "fluids",
     order = "b"
   },
+  {
+    type = "item-subgroup",
+    name = "lars-vulcanus-ores",
+    group = "bob-resource-products",
+    order = "h-a[vulcanus]"
+  },
 })
 
 -- RECIPE CATEGORY
@@ -51,6 +57,10 @@ data:extend({
   {
     type = "recipe-category",
     name = "radiator"
+  },
+    {
+    type = "recipe-category",
+    name = "lars-metallurgy"
   },
 })
 

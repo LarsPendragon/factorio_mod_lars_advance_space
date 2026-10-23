@@ -1,16 +1,20 @@
 require("prototypes.category")
 require("prototypes.thermal")
 
+--require("prototypes.entity.resource")
+
 require("prototypes.entity.air-processor")
 require("prototypes.entity.radiator")
 require("prototypes.entity.rocket")
 require("prototypes.entity.space-platform")
+require("prototypes.entity.vulcanus")
 
 require("prototypes.item.gas")
 require("prototypes.item.liquid")
 require("prototypes.item.electromagnetic")
 require("prototypes.item.ore-process")
 require("prototypes.item.rocket")
+require("prototypes.item.vulcanus")
 
 require("prototypes.recipe.air-processor")
 require("prototypes.recipe.liquid")
@@ -20,10 +24,13 @@ require("prototypes.recipe.radiator")
 require("prototypes.recipe.rocket")
 require("prototypes.recipe.space-platform")
 require("prototypes.recipe.life-quality")
+require("prototypes.recipe.vulcanus.entity")
+require("prototypes.recipe.vulcanus.ore-process")
 
 require("prototypes.technology.air-processor")
 require("prototypes.technology.liquid")
 require("prototypes.technology.ore-process")
 require("prototypes.technology.radiator")
 require("prototypes.technology.rocket")
+require("prototypes.technology.vulcanus")
 

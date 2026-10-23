@@ -200,6 +200,9 @@ add_place_condition("assembling-machine", "angels-steam-cracker-2", PRESSURE, SP
 add_place_condition("assembling-machine", "angels-steam-cracker-3", PRESSURE, SPACE_NOT_ALLOW, nil)
 add_place_condition("assembling-machine", "angels-steam-cracker-4", PRESSURE, SPACE_NOT_ALLOW, nil)
 add_place_condition("assembling-machine", "angels-flare-stack", PRESSURE, SPACE_NOT_ALLOW, nil)
+add_place_condition("assembling-machine", "angels-air-filter", PRESSURE, EARTH_PRESSURE, GRASS_PRESSURE)
+add_place_condition("assembling-machine", "angels-air-filter", PRESSURE, EARTH_PRESSURE, GRASS_PRESSURE)
+add_place_condition("assembling-machine", "angels-air-filter", PRESSURE, EARTH_PRESSURE, GRASS_PRESSURE)
 
 -- 天使系列：生物
 add_place_condition("assembling-machine", "angels-algae-farm", PRESSURE, EARTH_PRESSURE, GRASS_PRESSURE)

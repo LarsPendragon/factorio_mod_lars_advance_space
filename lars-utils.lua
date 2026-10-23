@@ -108,3 +108,11 @@ function utils.can_entity_place_in_space(entity)
   return true
 end
 
+function utils.hide_technology(name)
+  if data.raw.technology[name] then
+    data.raw.technology[name].hidden = true
+    data.raw.technology[name].visible_when_disabled = false
+    data.raw.technology[name].effects = {}
+  end
+end
+
