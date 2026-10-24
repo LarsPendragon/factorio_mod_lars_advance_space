@@ -39,5 +39,5 @@ if data.raw.recipe["metallurgic-science-pack"] then
     {type = "fluid", name = "lars-molten-raw-iron", amount = 200},
     {type = "fluid", name = "lars-molten-raw-copper", amount = 200},
   }
-  data.raw.recipe["metallurgic-science-pack"].category = "lars-metallurgy"
+  data.raw.recipe["metallurgic-science-pack"].categories = {"lars-metallurgy"}
 end

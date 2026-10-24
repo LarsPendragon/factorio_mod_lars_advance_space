@@ -14,7 +14,7 @@ data:extend({
     -- 铝粉
     type = "recipe",
     name = "lars-powder-aluminium",
-    category = "angels-powderizing-1",
+    categories = {"angels-powderizing-1"},
     subgroup = "angels-aluminium",
     energy_required = 0.5,
     enabled = false,

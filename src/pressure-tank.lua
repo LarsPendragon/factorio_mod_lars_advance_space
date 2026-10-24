@@ -74,7 +74,7 @@ function cpt.destroy_over_pressure_tank(event)
         if tank and pressure_tank_list[tank.name] then
             not_pressure = false
         end
-        local fluid = tank.fluidbox[1]
+        local fluid = tank.get_fluid(1)
         if not_pressure and fluid and pressure_fluid_list[fluid.name] then
             tank.damage(300, "player")
         end
@@ -91,7 +91,7 @@ function cpt.easy_destroy_over_pressure_tank()
             if tank and pressure_tank_list[tank.name] then
                 not_pressure = false
             end
-            local fluid = tank.fluidbox[1]
+            local fluid = tank.get_fluid(1)
             if not_pressure and fluid and pressure_fluid_list[fluid.name] then
                 tank.damage(300, "player")
             end

@@ -59,7 +59,7 @@ data:extend({
     type = "technology",
     name = "lars-solid-rocket-fuel",
     icon = "__angelspetrochemgraphics__/graphics/icons/rocket-fuel.png",
-    icon_size = 96,
+    icon_size = 32,
     order = "r",
     prerequisites = {
       "angels-rocket-booster-1",
@@ -86,7 +86,7 @@ data:extend({
     type = "technology",
     name = "lars-rocket-fuel-kerosene",
     icon = "__angelspetrochemgraphics__/graphics/icons/rocket-fuel.png",
-    icon_size = 96,
+    icon_size = 32,
     order = "r",
     prerequisites = {
       "rocket-fuel",

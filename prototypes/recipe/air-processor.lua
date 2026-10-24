@@ -5,7 +5,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-air-process",
-    category = "crafting",
+    categories = {"crafting"},
     --subgroup = "lars-air-process",
     energy_required = 8,
     enabled = false,
@@ -33,7 +33,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-purify-compressed-air",
-    category = "lars-air-process",
+    categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
     energy_required = 8,
@@ -59,7 +59,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-cooling-compressed-air",
-    category = "angels-cooling",
+    categories = {"angels-cooling"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
     energy_required = 8,
@@ -86,7 +86,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-cooling-compressed-air-2",
-    category = "angels-cooling",
+    categories = {"angels-cooling"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
     energy_required = 1,
@@ -112,7 +112,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-compressed-air-depress",
-    category = "lars-air-process",
+    categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
     energy_required = 32,
@@ -137,7 +137,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-compressed-air-depress-2",
-    category = "lars-air-process",
+    categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
     energy_required = 16,
@@ -167,7 +167,7 @@ data:extend({
       { "__angelspetrochemgraphics__/graphics/icons/molecules/nitrogen.png", 64 },
       "NNN"
     ),
-    category = "chemistry",
+    categories = {"chemistry"},
     subgroup = "lars-liquid",
     energy_required = 10,
     enabled = false,
@@ -193,7 +193,7 @@ data:extend({
       { "__angelspetrochemgraphics__/graphics/icons/molecules/oxygen.png", 72 },
       "OOO"
     ),
-    category = "chemistry",
+    categories = {"chemistry"},
     subgroup = "lars-liquid",
     energy_required = 10,
     enabled = false,
@@ -219,7 +219,7 @@ data:extend({
       { "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png", 72 },
       "HHH"
     ),
-    category = "chemistry",
+    categories = {"chemistry"},
     subgroup = "lars-liquid",
     energy_required = 10,
     enabled = false,

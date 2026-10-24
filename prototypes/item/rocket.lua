@@ -65,7 +65,7 @@ data:extend({
         icon_size = 32,
     },
     }, 1, angelsmods.petrochem.number_tint),
-    category = "chemistry",
+    categories = {"chemistry"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-fuel",
     order = "b[lars-solid-rocket-fuel]-c1",

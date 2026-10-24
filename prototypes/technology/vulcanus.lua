@@ -16,7 +16,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "calcite" -- 临时解决方案
+      entities = {"calcite"} -- 临时解决方案
     }
   },
   {
@@ -38,7 +38,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "big-volcanic-rock"
+      entities = {"big-volcanic-rock"},
     }
   }
 })

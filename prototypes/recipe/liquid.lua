@@ -5,7 +5,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-refining-kerosene",
-    category = "oil-processing",
+    categories = {"oil-processing"},
     subgroup = "lars-fuel-refining",
     energy_required = 5,
     enabled = false,
@@ -33,7 +33,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-white-waste-water-purification",
-    category = "angels-water-treatment",
+    categories = {"angels-water-treatment"},
     subgroup = "angels-water-cleaning",
     energy_required = 2,
     enabled = false,
@@ -59,7 +59,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-liquid-oxygen-hydroxide",
-    category = "lars-liquid-gas",
+    categories = {"lars-liquid-gas"},
     subgroup = "lars-liquid",
     energy_required = 10,
     enabled = false,
@@ -85,7 +85,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-coal-water-purified",
-    category = "chemistry",
+    categories = {"chemistry"},
     subgroup = "angels-water-treatment",
     energy_required = 1,
     icons = angelsmods.functions.create_liquid_recipe_icon({

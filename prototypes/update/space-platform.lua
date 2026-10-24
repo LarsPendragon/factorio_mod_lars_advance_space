@@ -19,19 +19,19 @@ require("lars-utils")
 change_recipe_results("metallic-asteroid-crushing", {
   {type = "item", name = "angels-ore8-crushed", amount = 18}, -- 碎铁质混合物
   {type = "item", name = "angels-slag", amount = 1},
-  {type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2},
+  {type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability  = 0.2},
 })
 -- 碳质星岩粉碎
 change_recipe_results("carbonic-asteroid-crushing", {
   {type = "item", name = "angels-coal-crushed", amount = 20}, -- 粉碎煤
   {type = "item", name = "sulfur", amount = 3},
-  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, probability = 0.2},
+  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability  = 0.2},
 })
 -- 氧化星岩粉碎
 change_recipe_results("oxide-asteroid-crushing", {
   {type = "item", name = "ice", amount = 15},
-  {type = "item", name = "lars-rhodite-ore", amount = 1, probability = 0.001},
-  {type = "item", name = "oxide-asteroid-chunk", amount = 1, probability = 0.2},
+  {type = "item", name = "lars-rhodite-ore", amount = 1, independent_probability  = 0.001},
+  {type = "item", name = "oxide-asteroid-chunk", amount = 1, independent_probability  = 0.2},
 })
 
 -- 高级金属星岩粉碎
@@ -40,20 +40,20 @@ change_recipe_results("advanced-metallic-asteroid-crushing", {
   {type = "item", name = "angels-ore9-crushed", amount = 6}, -- 碎铜质混合物
   {type = "item", name = "angels-ore9-crushed", amount = 6}, -- 碎铜质混合物
   {type = "item", name = "angels-slag", amount = 1},
-  {type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.05},
+  {type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability  = 0.05},
 })
 -- 高级碳质星岩粉碎
 change_recipe_results("advanced-carbonic-asteroid-crushing", {
   {type = "item", name = "angels-coal-crushed", amount = 16}, -- 粉碎煤
   {type = "item", name = "sulfur", amount = 4},
   {type = "item", name = "bob-lead-ore", amount = 4},
-  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, probability = 0.05},
+  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability  = 0.05},
 })
 -- 高级氧化星岩粉碎
 change_recipe_results("advanced-oxide-asteroid-crushing", {
   {type = "item", name = "ice", amount = 12},
   {type = "item", name = "lars-rhodite-ore", amount = 2},
-  {type = "item", name = "oxide-asteroid-chunk", amount = 1, probability = 0.05},
+  {type = "item", name = "oxide-asteroid-chunk", amount = 1, independent_probability = 0.05},
 })
 
 -- 推进器燃料

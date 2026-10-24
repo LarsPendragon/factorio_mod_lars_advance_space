@@ -5,7 +5,7 @@ data:extend({
     name = "lars-TFMG-radiator",
     icon = "__TFMG-thermal__/graphics/small-radiator/small-radiator-icon.png",
     icon_size = 64,
-    category = "crafting",
+    categories = {"crafting"},
     enabled = false,
     energy_required = 1,
     ingredients = {
@@ -20,7 +20,7 @@ data:extend({
     name = "lars-space-radiator",
     icon = "__TFMG-thermal__/graphics/small-radiator/small-radiator-icon.png",
     icon_size = 64,
-    category = "crafting",
+    categories = {"crafting"},
     enabled = false,
     energy_required = 10,
     ingredients = {
@@ -38,7 +38,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-TFMG-radiato-working",
-    category = "radiator",
+    categories = {"radiator"},
     icon = "__base__/graphics/icons/signal/signal-fire.png",
     energy_required = 100,
     enabled = false,
@@ -49,7 +49,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-radiato-working",
-    category = "radiator",
+    categories = {"radiator"},
     icon = "__base__/graphics/icons/signal/signal-fire.png",
     energy_required = 30,
     enabled = false,

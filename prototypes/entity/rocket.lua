@@ -10,6 +10,7 @@ local mechanical_large_inventory_pickup = {
   volume = 0.8,
   aggregation = {max_count = 1, remove = true},
 }
+local sounds = require("__base__/prototypes/entity/sounds")
 
 function planet_upper_hatch(hatch_offset, slice_offset, travel_offset, sky_slice_offset, hatch_illumination_index)
   return
@@ -21,7 +22,7 @@ function planet_upper_hatch(hatch_offset, slice_offset, travel_offset, sky_slice
     travel_height = travel_offset or 1,
     pod_shadow_offset = {2, 2.5};
     illumination_graphic_index = hatch_illumination_index,
-    cargo_unit_entity_to_spawn = "",
+    cargo_unit_entity_to_spawn = nil,
     receiving_cargo_units = {"cargo-pod"}
   }
 end
@@ -66,7 +67,7 @@ data.extend({
     module_slots = 4,
     icons_positioning =
     {
-      {inventory_index = defines.inventory.assembling_machine_modules, shift = {0, 3.3}}
+      {inventory_index = defines.inventory.crafter_modules, shift = {0, 3.3}}
     },
     show_recipe_icon = false,
     allowed_effects = {"consumption", "speed", "productivity", "pollution"},
@@ -303,7 +304,7 @@ data.extend({
       frame_count = 32,
       line_length = 8,
       animation_speed = 0.4,
-      shift = util.by_pixel(-100, 111),
+      shift = util.by_pixel(-99.5, 111.5),
       scale = 0.5
     },
 
@@ -376,7 +377,8 @@ data.extend({
       fade_in_ticks = 10,
       fade_out_ticks = 15
     },
-
+    default_launched_signal = {type = "virtual", name = "signal-R"},
+    
     -- space age new params
     launch_to_space_platforms = true,
     to_be_inserted_to_rocket_inventory_size = 20,
@@ -411,7 +413,7 @@ data.extend({
     type = "cargo-landing-pad",
     name = "lars-cargo-landing-pad-2",
     icon = "__base__/graphics/icons/cargo-landing-pad.png",
-    flags = {"placeable-player", "player-creation", "no-automated-item-insertion"},
+    flags = {"placeable-player", "player-creation", "no-automated-item-insertion", "hide-alt-info"},
     collision_box = {{-3.9, -3.9}, {3.9, 3.9}},
     selection_box = {{-4, -4}, {4, 4}},
     build_grid_size = 2,
@@ -420,8 +422,8 @@ data.extend({
     dying_explosion = "rocket-silo-explosion",
     minable = {mining_time = 1, result = "lars-cargo-landing-pad-2"},
     fast_replaceable_group = "cargo-landing-pad",
-    inventory_size = 60,
-    trash_inventory_size = 20,
+    inventory_size = 80,
+    trash_inventory_size = 30,
     surface_conditions ={{ property = "gravity", min = 1}},
     radar_range = 10,
     radar_visualisation_color = {0.059, 0.092, 0.235, 0.275},
@@ -565,17 +567,17 @@ data.extend({
           }
       }
     },
-    robot_landing_location_offset = {-2.1, -2.8},
-    robot_opened_duration = 7,
-    robot_animation = util.sprite_load("__base__/graphics/entity/cargo-hubs/hubs/planet-hub-drone-hatch",
-                      {
-                        frame_count = 7,
-                        scale = 0.5,
-                        shift = {0, -0.5},
-                      }),
-    robot_animation_sound = {
-      variations = sound_variations("__base__/sound/passive-provider-chest-open", 5, 0.3),
-      aggregation = {max_count = 1, remove = true}
+    robot_door =
+    {
+      location_offset = {-2.1, -2.8},
+      opened_duration = 7,
+      animation = util.sprite_load("__base__/graphics/entity/cargo-hubs/hubs/planet-hub-drone-hatch",
+                  {
+                    frame_count = 7,
+                    scale = 0.5,
+                    shift = {0, -0.5},
+                  }),
+      animation_sound = sounds.logistics_chest_open,
     },
     cargo_station_parameters =
     {
@@ -586,50 +588,15 @@ data.extend({
         planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
         planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
         planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3),
-
-        planet_upper_hatch({0.5, -3.5},  2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_1),
-        planet_upper_hatch({2, -3.5},    2.25, 3, -0.5, procession_graphic_catalogue_types.planet_hatch_emission_in_2),
-        planet_upper_hatch({1.25, -2.5}, 1.25, 3, -1  , procession_graphic_catalogue_types.planet_hatch_emission_in_3)
       },
       giga_hatch_definitions =
       {
-        planet_upper_giga_hatch({0,1,2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29})
+        planet_upper_giga_hatch({0,1,2})
       }
     },
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
-    circuit_connector = circuit_connector_definitions["cargo-landing-pad"],
+    --circuit_wire_max_distance = default_circuit_wire_max_distance,
+    --circuit_connector = circuit_connector_definitions["cargo-landing-pad"],
+    default_empty_slots_signal = { type = "virtual", name = "signal-E" },
   },
 
 
