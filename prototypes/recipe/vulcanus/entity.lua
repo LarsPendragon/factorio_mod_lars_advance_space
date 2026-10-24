@@ -3,7 +3,7 @@ data:extend({
   -- 岩浆精炼厂
     type = "recipe",
     name = "lars-foundry",
-    category = "crafting-with-fluid",
+    categories = {"crafting-with-fluid"},
     surface_conditions =
     {
       {

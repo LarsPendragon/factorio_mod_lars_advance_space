@@ -7,7 +7,7 @@ data:extend({
     icon_size = 32,
     energy_required = 2,
     enabled = false,
-    category = "crafting",
+    categories = {"crafting"},
     subgroup = "space-platform",
     ingredients = {
       { type = "item", name = "iron-plate", amount = 10 },
@@ -23,7 +23,7 @@ data:extend({
       { "__angelspetrochemgraphics__/graphics/icons/molecules/hydrogen.png", 72 },
       "HHH"
     ),
-    category = "lars-air-emission",
+    categories = {"lars-air-emission"},
     energy_required = 1,
     enabled = false,
     subgroup = "space-processing",
@@ -41,7 +41,7 @@ data:extend({
       { "__angelspetrochemgraphics__/graphics/icons/molecules/oxygen.png", 72 },
       "OOO"
     ),
-    category = "lars-air-emission",
+    categories = {"lars-air-emission"},
     energy_required = 1,
     enabled = false,
     subgroup = "space-processing",

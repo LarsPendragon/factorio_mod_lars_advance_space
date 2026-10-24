@@ -66,9 +66,9 @@ function utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
     return
   end
   if (is_always_fresh == nil) or (is_always_fresh ~= false) then
-    data.raw.recipe[recipe_name].result_is_always_fresh = true
+    data.raw.recipe[recipe_name].always_fresh = true
   else
-    data.raw.recipe[recipe_name].result_is_always_fresh = false
+    data.raw.recipe[recipe_name].always_fresh = false
   end
 end
 

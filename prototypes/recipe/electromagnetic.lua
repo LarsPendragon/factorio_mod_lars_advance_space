@@ -5,7 +5,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-magnetic-coil",
-    category = "crafting",
+    categories = {"crafting"},
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
     energy_required = 0.5,
@@ -27,7 +27,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-silver-coil",
-    category = "crafting",
+    categories = {"crafting"},
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
     energy_required = 1,
@@ -49,7 +49,7 @@ data:extend({
   {
     type = "recipe",
     name = "lars-gold-coil",
-    category = "crafting",
+    categories = {"crafting"},
     group = "intermediate-products",
     subgroup = "bob-electronic-components",
     energy_required = 1,

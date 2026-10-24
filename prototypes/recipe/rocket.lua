@@ -9,7 +9,7 @@ data:extend({
         icon_size = 32,
     },
     }, 1, angelsmods.petrochem.number_tint),
-    category = "crafting",
+    categories = {"crafting"},
     energy_required = 40,
     ingredients = {
       { type = "item", name = "bob-silicon-nitride", amount = 20 },
@@ -28,7 +28,7 @@ data:extend({
         icon_size = 32,
     },
     }, 2, angelsmods.petrochem.number_tint),
-    category = "angels-sintering-4",
+    categories = {"angels-sintering-4"},
     energy_required = 30,
     ingredients = {
       { type = "item", name = "bob-silicon-nitride", amount = 20 },
@@ -47,7 +47,7 @@ data:extend({
         icon_size = 32,
       },
     }, 1, angelsmods.petrochem.number_tint),
-    category = "chemistry",
+    categories = {"chemistry"},
     energy_required = 30,
     ingredients = {
       { type = "item", name = "angels-rocket-booster", amount = 10 },
@@ -67,7 +67,7 @@ data:extend({
         icon_size = 32,
       },
     }, 3, angelsmods.petrochem.number_tint),
-    category = "chemistry",
+    categories = {"chemistry"},
     energy_required = 10,
     ingredients = {
       { type = "fluid", name = "lars-kerosene", amount = 60 },
@@ -88,7 +88,7 @@ data:extend({
         icon_size = 32,
       },
     }, 4, angelsmods.petrochem.number_tint),
-    category = "lars-liquid-gas",
+    categories = {"lars-liquid-gas"},
     energy_required = 5,
     ingredients = {
       { type = "fluid", name = "lars-liquid-hydrogen", amount = 10 },
@@ -113,7 +113,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "lars-rocket-silo",
+    categories = {"lars-rocket-silo"},
     ingredients =
     {
       { type = "item", name = "processing-unit", amount = 1 },
@@ -139,7 +139,7 @@ data:extend({
     enabled = false,
     hide_from_player_crafting = true,
     auto_recycle = false,
-    category = "lars-rocket-silo-2",
+    categories = {"lars-rocket-silo-2"},
     ingredients =
     {
       { type = "item", name = "bob-advanced-processing-unit", amount = 1 },
@@ -168,7 +168,7 @@ data.extend({
     enabled = false,
     auto_recycle = false,
     subgroup = "space-interactors",
-    category = "crafting",
+    categories = {"crafting"},
     ingredients =
     {
       { type = "item", name = "electric-engine-unit", amount = 100 },
@@ -190,7 +190,7 @@ data.extend({
     enabled = false,
     auto_recycle = false,
     subgroup = "space-interactors",
-    category = "crafting",
+    categories = {"crafting"},
     ingredients =
     {
       { type = "item", name = "cargo-landing-pad", amount = 1 },
@@ -211,7 +211,7 @@ data.extend({
     enabled = false,
     auto_recycle = false,
     subgroup = "space-platform",
-    category = "crafting",
+    categories = {"crafting"},
     ingredients =
     {
       { type = "item", name = "cargo-bay", amount = 2 },

@@ -4,7 +4,7 @@ data:extend({
     -- 铑金矿湿法处理
     type = "recipe",
     name = "lars-rhodite-ore-process",
-    category = "angels-ore-refining-t3",
+    categories = {"angels-ore-refining-t3"},
     subgroup = "lars-rhodium",
     order = "a",
     energy_required = 4,
@@ -40,7 +40,7 @@ data:extend({
     -- 铑金矿还原冶炼
     type = "recipe",
     name = "lars-rhodite-reduction-smelting",
-    category = "angels-chemical-smelting-3",
+    categories = {"angels-chemical-smelting-3"},
     subgroup = "lars-rhodium",
     order = "b",
     energy_required = 4,
@@ -72,7 +72,7 @@ data:extend({
     -- 自催化铑处理
     type = "recipe",
     name = "lars-rhodite-autocatalytic-processing",
-    category = "angels-chemical-smelting-3",
+    categories = {"angels-chemical-smelting-3"},
     subgroup = "lars-rhodium",
     order = "c",
     energy_required = 4,
@@ -105,7 +105,7 @@ data:extend({
     type = "recipe",
     name = "lars-rhodium-catalyst",
     icon = "__lars_advance_space__/graphics/icons/rhodium-catalyst.png",
-    category = "angels-crystallizing-2",
+    categories = {"angels-crystallizing-2"},
     subgroup = "lars-rhodium",
     order = "d",
     energy_required = 2,
