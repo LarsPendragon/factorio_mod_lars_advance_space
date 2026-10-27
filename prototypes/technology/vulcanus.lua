@@ -20,6 +20,7 @@ data:extend({
     }
   },
   {
+    -- 岩浆处理
     type = "technology",
     name = "lars-foundry",
     icon = "__space-age__/graphics/technology/foundry.png",
@@ -40,5 +41,31 @@ data:extend({
       type = "mine-entity",
       entities = {"big-volcanic-rock"},
     }
-  }
+  },
+  {
+    -- 岩石转化
+    type = "technology",
+    name = "lars-rock-change",
+    icon = "__space-age__/graphics/technology/foundry.png",
+    icon_size = 256,
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-metamorphic-rock-generate"},
+      {type = "unlock-recipe", recipe = "lars-sedimentary-rock-generate"},
+    },
+    prerequisites = {
+      "lars-foundry",
+      "lars-igneous-rock-processing",
+    },
+    unit = {
+      count = 350,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+      },
+    },
+  },
 })

@@ -26,9 +26,15 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "lars-vulcanus-ores",
+    name = "lars-vulcanus-rocks",
     group = "bob-resource-products",
-    order = "h-a[vulcanus]"
+    order = "h-a[rock]"
+  },
+  {
+    type = "item-subgroup",
+    name = "lars-vulcanus-rock-recipe",
+    group = "bob-resource-products",
+    order = "h-b[rock-recipe]"
   },
 })
 

@@ -116,3 +116,11 @@ function utils.hide_technology(name)
   end
 end
 
+function utils.get_default_icon()
+  return {
+    {
+      icon = "__base__/graphics/icons/upgrade-planner.png",
+      icon_size = 32,
+    },
+  }
+end

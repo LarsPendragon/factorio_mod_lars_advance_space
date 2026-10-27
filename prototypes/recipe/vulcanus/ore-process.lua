@@ -1,4 +1,16 @@
--- VULCANUS
+-- VULCANUS 基础
+-- 火成岩：原始矿物 -> 花岗岩 -> 铁 + 锡
+--                 -> 安山岩 -> 铜 + 铝
+--                 -> 正长石 -> 铅 + 银
+-- 变质岩：火成岩 + 岩浆 + 压缩空气 -> 方解石 -> 蒸汽
+--                               -> 板岩 -> 钛 + 铂
+--                               -> 片岩 -> 镍 + 金
+-- 沉积岩：火成岩 + 岩浆 + 水 -> 方解石 -> 蒸汽
+--                          -> 砂岩 -> 锰 + 锌
+--                          -> 页岩 -> 原油 + 天然气 + 
+
+require("lars-utils")
+
 data:extend({
   {
     -- 火成岩切割
@@ -7,7 +19,7 @@ data:extend({
     icon = "__lars_advance_space__/graphics/icons/igneous-rock.png",
     icon_size = 128,
     categories = {"advanced-crafting"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "a",
     energy_required = 0.5,
     enabled = false,
@@ -23,13 +35,57 @@ data:extend({
     always_show_products = true,
   },
   {
+    -- 形成变质岩
+    type = "recipe",
+    name = "lars-metamorphic-rock-generate",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/metamorphic-rock.png",
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-rock-recipe",
+    order = "c[metamorphic-rock]",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-igneous-rock", amount = 1 },
+      { type = "fluid", name = "lava", amount = 100 },
+      { type = "fluid", name = "angels-gas-compressed-air", amount = 50 },
+    },
+    results = {
+      { type = "item", name = "lars-metamorphic-rock", amount = 5},
+    },
+    always_show_products = true,
+  },
+  {
+    -- 形成沉积岩
+    type = "recipe",
+    name = "lars-sedimentary-rock-generate",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/sedimentary-rock.png",
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-rock-recipe",
+    order = "d[sedimentary-rock]",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-igneous-rock", amount = 1 },
+      { type = "fluid", name = "lava", amount = 100 },
+      { type = "fluid", name = "steam", amount = 100 },
+    },
+    results = {
+      { type = "item", name = "lars-sedimentary-rock", amount = 5},
+    },
+    always_show_products = true,
+  },
+  {
     -- 基础花岗岩转化岩浆
     type = "recipe",
     name = "lars-granite-lava-process",
     icon = "__space-age__/graphics/icons/fluid/molten-iron.png",
     icon_size = 64,
     categories = {"lars-metallurgy"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "b-a[granite]",
     energy_required = 8,
     enabled = false,
@@ -51,7 +107,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/fluid/molten-copper.png",
     icon_size = 64,
     categories = {"lars-metallurgy"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "b-b[syenite]",
     energy_required = 8,
     enabled = false,
@@ -73,7 +129,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/foundry.png",
     icon_size = 64,
     categories = {"lars-metallurgy"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "b-c[andesite]",
     energy_required = 8,
     enabled = false,
@@ -96,7 +152,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/casting-iron.png",
     icon_size = 64,
     categories = {"angels-casting"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "c-a[raw-iron]",
     energy_required = 4,
     enabled = false,
@@ -117,7 +173,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/casting-steel.png",
     icon_size = 64,
     categories = {"angels-casting"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "c-b[raw-iron-steel]",
     energy_required = 4,
     enabled = false,
@@ -139,7 +195,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/casting-copper.png",
     icon_size = 64,
     categories = {"angels-casting"},
-    subgroup = "lars-vulcanus-ores",
+    subgroup = "lars-vulcanus-rock-recipe",
     order = "c-c[raw-copper]",
     energy_required = 4,
     enabled = false,
@@ -154,3 +210,4 @@ data:extend({
     always_show_products = true,
   },
 })
+

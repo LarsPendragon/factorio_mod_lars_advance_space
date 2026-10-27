@@ -41,3 +41,26 @@ if data.raw.recipe["metallurgic-science-pack"] then
   }
   data.raw.recipe["metallurgic-science-pack"].categories = {"lars-metallurgy"}
 end
+
+-- 方解石修改
+change_recipe_ingredients("acid-neutralisation", {
+  {type = "item", name = "lars-calcite", amount = 1},
+  {type = "fluid", name = "sulfuric-acid", amount = 100},
+})
+change_recipe_results("acid-neutralisation", {
+  {type = "item", name = "angels-solid-calcium-sulfate", amount = 5},
+  {type = "fluid", name = "steam", amount = 1000, temperature = 500},
+})
+change_recipe_ingredients("cliff-explosives", {
+  {type = "item", name = "lars-metamorphic-rock", amount = 1},
+  {type = "item", name = "lars-sedimentary-rock", amount = 1},
+  {type = "item", name = "grenade", amount = 1},
+  {type = "item", name = "explosives", amount = 10},
+})
+change_recipe_ingredients("artillery-she;;", {
+  {type = "item", name = "lars-igneous-rock", amount = 1},
+  {type = "item", name = "explosive-cannon-shell", amount = 3},
+  {type = "item", name = "tungsten-plate", amount = 4},
+  {type = "item", name = "explosives", amount = 8},
+})
+
