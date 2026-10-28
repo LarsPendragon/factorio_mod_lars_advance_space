@@ -7,7 +7,7 @@ require("prototypes.entity.air-processor")
 require("prototypes.entity.radiator")
 require("prototypes.entity.rocket")
 require("prototypes.entity.space-platform")
-require("prototypes.entity.vulcanus")
+require("prototypes.entity.vulcanus.lava")
 
 require("prototypes.item.gas")
 require("prototypes.item.liquid")

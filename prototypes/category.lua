@@ -26,9 +26,33 @@ data:extend({
   },
   {
     type = "item-subgroup",
-    name = "lars-vulcanus-ores",
+    name = "lars-vulcanus-rocks",
     group = "bob-resource-products",
-    order = "h-a[vulcanus]"
+    order = "h-a[rock]"
+  },
+  {
+    type = "item-subgroup",
+    name = "lars-vulcanus-rock-recipe",
+    group = "bob-resource-products",
+    order = "h-b[rock-recipe]-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "lars-vulcanus-rock-crush",
+    group = "bob-resource-products",
+    order = "h-b[rock-recipe]-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "lars-vulcanus-lava-casting-raw",
+    group = "bob-resource-products",
+    order = "h-c[lava-casting-raw]"
+  },
+    {
+    type = "item-subgroup",
+    name = "lars-vulcanus-lava-casting",
+    group = "bob-resource-products",
+    order = "h-d[lava-casting]"
   },
 })
 

@@ -1,4 +1,5 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
+require("lars-utils")
 
 -- 祝融星
 data:extend({
@@ -8,8 +9,8 @@ data:extend({
     name = "lars-igneous-rock",
     icon_size = 128,
     icon = "__lars_advance_space__/graphics/icons/igneous-rock.png",
-    subgroup = "bob-ores",
-    order = "d-a[igneous-rock]",
+    subgroup = "lars-vulcanus-rocks",
+    order = "a-a[igneous-rock]",
     stack_size = 100,
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
@@ -23,8 +24,8 @@ data:extend({
     name = "lars-granite",
     icon_size = 128,
     icon = "__lars_advance_space__/graphics/icons/granite.png",
-    subgroup = "bob-ores",
-    order = "e-a[granite]",
+    subgroup = "lars-vulcanus-rocks",
+    order = "a-b[granite]",
     stack_size = 100,
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
@@ -38,8 +39,8 @@ data:extend({
     name = "lars-syenite",
     icon_size = 128,
     icon = "__lars_advance_space__/graphics/icons/syenite.png",
-    subgroup = "bob-ores",
-    order = "e-b[syenite]",
+    subgroup = "lars-vulcanus-rocks",
+    order = "a-c[syenite]",
     stack_size = 100,
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
@@ -53,8 +54,113 @@ data:extend({
     name = "lars-andesite",
     icon_size = 128,
     icon = "__lars_advance_space__/graphics/icons/andesite.png",
-    subgroup = "bob-ores",
-    order = "e-c[andesite]",
+    subgroup = "lars-vulcanus-rocks",
+    order = "a-d[andesite]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 变质岩
+    type = "item",
+    name = "lars-metamorphic-rock",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/metamorphic-rock.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "b-a[metamorphic-rock]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 方解石
+    type = "item",
+    name = "lars-calcite",
+    icon_size = 64,
+    icon = "__space-age__/graphics/icons/calcite.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "b-b[calcite]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 板岩
+    type = "item",
+    name = "lars-slate",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/slate.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "b-c[slate]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 片岩
+    type = "item",
+    name = "lars-schist",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/schist.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "b-d[schist]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 沉积岩
+    type = "item",
+    name = "lars-sedimentary-rock",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/sedimentary-rock.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "c-a[sedimentary-rock]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 砂岩
+    type = "item",
+    name = "lars-sandstone",
+    icon_size = 64,
+    icon = "__lars_advance_space__/graphics/icons/sandstone.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "c-b[sandstone]",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    default_import_location = "vulcanus",
+    weight = 5*kg
+  },
+  {
+    -- 页岩
+    type = "item",
+    name = "lars-shale",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/shale.png",
+    subgroup = "lars-vulcanus-rocks",
+    order = "c-c[shale]",
     stack_size = 100,
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
