@@ -15,7 +15,7 @@ data:extend({
     enabled = false,
     ingredients =
     {
-      {type = "item", name = "tungsten-carbide", amount = 20},
+      {type = "item", name = "advanced-circuit", amount = 20},
       {type = "item", name = "steel-plate", amount = 30},
       {type = "item", name = "lars-silver-coil", amount = 20},
       {type = "item", name = "lars-heat-shield-tile", amount = 5},

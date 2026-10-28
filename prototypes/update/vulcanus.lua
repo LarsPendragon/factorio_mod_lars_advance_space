@@ -29,7 +29,19 @@ change_recipe_ingredients("big-mining-drill", {
 -- 橙瓶科技修改
 if data.raw.technology["metallurgic-science-pack"] then
   data.raw.technology["metallurgic-science-pack"].prerequisites = {
+    "lars-lava-catalyze-1",
     "big-mining-drill",
+  }
+  data.raw.technology["metallurgic-science-pack"].research_trigger = nil
+  data.raw.technology["metallurgic-science-pack"].unit = {
+    count = 500,
+    time = 30,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "space-science-pack", 1 },
+    },
   }
 end
 if data.raw.recipe["metallurgic-science-pack"] then
@@ -57,10 +69,29 @@ change_recipe_ingredients("cliff-explosives", {
   {type = "item", name = "grenade", amount = 1},
   {type = "item", name = "explosives", amount = 10},
 })
-change_recipe_ingredients("artillery-she;;", {
+change_recipe_ingredients("artillery-shell", {
   {type = "item", name = "lars-igneous-rock", amount = 1},
   {type = "item", name = "explosive-cannon-shell", amount = 3},
   {type = "item", name = "tungsten-plate", amount = 4},
   {type = "item", name = "explosives", amount = 8},
 })
 
+-- 悬崖炸药科技修改
+if data.raw.technology["cliff-explosives"] then
+  data.raw.technology["cliff-explosives"].prerequisites = {
+    "explosives",
+    "military-science-pack",
+    "lars-rock-change",
+  }
+  data.raw.technology["cliff-explosives"].unit = {
+    count = 500,
+    time = 30,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "military-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "space-science-pack", 1 },
+    },
+  }
+end

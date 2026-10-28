@@ -43,6 +43,33 @@ data:extend({
     }
   },
   {
+    -- 岩浆冷却
+    type = "technology",
+    name = "lars-lava-cooling",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/technology/lava-cooling.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-lava-cooling"},
+    },
+    prerequisites = {
+      "lars-rock-crush",
+      "metallurgic-science-pack",
+    },
+    unit = {
+      count = 500,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
     -- 岩石转化
     type = "technology",
     name = "lars-rock-change",
@@ -51,6 +78,8 @@ data:extend({
     effects = {
       {type = "unlock-recipe", recipe = "lars-metamorphic-rock-generate"},
       {type = "unlock-recipe", recipe = "lars-sedimentary-rock-generate"},
+      {type = "unlock-recipe", recipe = "lars-metamorphic-rock-cut"},
+      {type = "unlock-recipe", recipe = "lars-sedimentary-rock-cut"},
     },
     prerequisites = {
       "lars-foundry",
@@ -59,6 +88,88 @@ data:extend({
     unit = {
       count = 350,
       time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "space-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 岩石破碎
+    type = "technology",
+    name = "lars-rock-crush",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/icons/metamorphic-rock.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-granite-crush"},
+      {type = "unlock-recipe", recipe = "lars-syenite-crush"},
+      {type = "unlock-recipe", recipe = "lars-andesite-crush"},
+      {type = "unlock-recipe", recipe = "lars-calcite-crush"},
+    },
+    prerequisites = {
+      "lars-rock-change",
+    },
+    unit = {
+      count = 350,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "space-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 高效岩浆催化1
+    type = "technology",
+    name = "lars-lava-catalyze-1",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/technology/lava-catalyze.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-granite-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-granite-oxygen-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-syenite-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-andesite-catalyze-casting"},
+    },
+    prerequisites = {
+      "lars-foundry",
+      "lars-igneous-rock-processing",
+    },
+    unit = {
+      count = 500,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 高效岩浆催化2
+    type = "technology",
+    name = "lars-lava-catalyze-2",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/technology/lava-catalyze.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-calcite-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-slate-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-schist-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-sandstone-catalyze-casting"},
+      {type = "unlock-recipe", recipe = "lars-shale-oil"},
+    },
+    prerequisites = {
+      "lars-lava-catalyze-1",
+      "lars-rock-change",
+    },
+    unit = {
+      count = 500,
+      time = 40,
       ingredients = {
         { "automation-science-pack", 1 },
         { "logistic-science-pack", 1 },

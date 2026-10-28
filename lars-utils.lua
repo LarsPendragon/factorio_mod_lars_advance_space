@@ -124,3 +124,47 @@ function utils.get_default_icon()
     },
   }
 end
+
+BADGE_RightBottom = "right_bottom"
+BADGE_LeftBottom = "left_bottom"
+BADGE_RightTop = "right_top"
+BADGE_LeftTop = "left_top"
+
+local function get_badge_position(badge_icon)
+  if not badge_icon then
+    return badge_icon
+  end
+  if not badge_icon.icon_size then
+    badge_icon.icon_size = 64
+  end
+  badge_icon.scale = 16 / badge_icon.icon_size
+
+  local pos = badge_icon.pos
+  local base_shift = 12 --* badge_icon.scale
+  if not pos or pos == BADGE_RightBottom then
+    badge_icon.shift = {base_shift, base_shift}
+  elseif pos == BADGE_LeftBottom then
+    badge_icon.shift = {-base_shift, base_shift}
+  elseif pos == BADGE_RightTop then
+    badge_icon.shift = {base_shift, -base_shift}
+  else
+    badge_icon.shift = {-base_shift, -base_shift}
+  end
+
+  return badge_icon
+end
+
+function utils.combine_icons(base_icon, badge_list)
+  local icons = {
+    base_icon,
+  }
+  if badge_list[1] then
+    for _, badge in pairs(badge_list) do
+      badge = get_badge_position(badge)
+      table.insert(icons, badge)
+    end
+  else
+    table.insert(icons, badge_list)
+  end
+  return icons
+end
