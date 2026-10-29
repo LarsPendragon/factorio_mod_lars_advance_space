@@ -2,10 +2,10 @@ require("lars-utils")
 local OV = angelsmods.functions.OV
 
 -- 隐藏不需要的科技
-utils.hide_technology("foundry") -- 火星的铸造机
-utils.hide_technology("calcite-processing")-- 原方解石加工
-utils.hide_technology("tungsten-carbide") -- 火星的碳化钨
-utils.hide_technology("tungsten-steel") -- 火星的钨钢
+lars_utils.hide_technology("foundry") -- 火星的铸造机
+lars_utils.hide_technology("calcite-processing")-- 原方解石加工
+lars_utils.hide_technology("tungsten-carbide") -- 火星的碳化钨
+lars_utils.hide_technology("tungsten-steel") -- 火星的钨钢
 
 -- 大型采矿机修改
 if data.raw.technology["big-mining-drill"] then

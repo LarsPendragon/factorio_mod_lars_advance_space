@@ -22,7 +22,13 @@ data:extend({
     type = "item-subgroup",
     name = "lars-liquid",
     group = "fluids",
-    order = "b"
+    order = "b-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "lars-particle",
+    group = "fluids",
+    order = "b-b"
   },
   {
     type = "item-subgroup",
@@ -82,9 +88,13 @@ data:extend({
     type = "recipe-category",
     name = "radiator"
   },
-    {
+  {
     type = "recipe-category",
     name = "lars-metallurgy"
+  },
+  {
+    type = "recipe-category",
+    name = "lars-ray-receiver"
   },
 })
 
