@@ -268,7 +268,7 @@ data:extend({
       usage_priority = "secondary-input",
       emissions_per_minute = { pollution = 2 },
     },
-    energy_usage = "2250kW",
+    energy_usage = "1250kW",
     module_slots = 5,
     allowed_effects = {"consumption", "speed"},
   },

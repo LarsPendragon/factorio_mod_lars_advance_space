@@ -92,4 +92,42 @@ data:extend({
       { type = "fluid", name = "lars-universe-ray", amount = 100 },
     },
   },
+  {
+    -- 宇宙射线弹夹转换
+    type = "recipe",
+    name = "lars-space-ray-magazine-change-1",
+    icon = "__base__/graphics/icons/firearm-magazine.png",
+    icon_size = 64,
+    categories = {"advanced-crafting"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "bob-ammo",
+    order = "a[basic-clips]-a[magazine]-1b",
+    ingredients = {
+      { type = "item", name = "firearm-magazine", amount = 1 },
+      { type = "fluid", name = "lars-universe-ray", amount = 20 },
+    },
+    results = {
+      { type = "item", name = "bob-bullet-magazine", amount = 1 },
+    },
+  },
+  {
+    -- 宇宙射线穿甲弹夹转换
+    type = "recipe",
+    name = "lars-space-ray-magazine-change-2",
+    icon = "__base__/graphics/icons/piercing-rounds-magazine.png",
+    icon_size = 64,
+    categories = {"advanced-crafting"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "bob-ammo",
+    order = "a[basic-clips]-a[magazine]-2b",
+    ingredients = {
+      { type = "item", name = "piercing-rounds-magazine", amount = 1 },
+      { type = "fluid", name = "lars-universe-ray", amount = 20 },
+    },
+    results = {
+      { type = "item", name = "bob-ap-bullet-magazine", amount = 1 },
+    },
+  },
 })

@@ -27,8 +27,8 @@ data:extend({
   {
     type = "item-subgroup",
     name = "lars-particle",
-    group = "fluids",
-    order = "b-b"
+    group = "space",
+    order = "x-a[particle]"
   },
   {
     type = "item-subgroup",
@@ -95,6 +95,10 @@ data:extend({
   {
     type = "recipe-category",
     name = "lars-ray-receiver"
+  },
+  {
+    type = "recipe-category",
+    name = "lars-particle-process"
   },
 })
 

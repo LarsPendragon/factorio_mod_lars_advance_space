@@ -29,27 +29,25 @@ change_recipe_ingredients("big-mining-drill", {
 -- 橙瓶科技修改
 if data.raw.technology["metallurgic-science-pack"] then
   data.raw.technology["metallurgic-science-pack"].prerequisites = {
-    "lars-lava-catalyze-1",
+    "lars-foundry",
     "big-mining-drill",
+    "lars-photon-catalysator",
   }
-  data.raw.technology["metallurgic-science-pack"].research_trigger = nil
-  data.raw.technology["metallurgic-science-pack"].unit = {
-    count = 500,
-    time = 30,
-    ingredients = {
-      { "automation-science-pack", 1 },
-      { "logistic-science-pack", 1 },
-      { "chemical-science-pack", 1 },
-      { "space-science-pack", 1 },
-    },
+  data.raw.technology["metallurgic-science-pack"].research_trigger ={
+    type = "craft-item",
+    item = "lars-photon-catalysator"
   }
 end
 if data.raw.recipe["metallurgic-science-pack"] then
   data.raw.recipe["metallurgic-science-pack"].ingredients = {
     {type = "item", name = "tungsten-plate", amount = 10},
     {type = "item", name = "tungsten-carbide", amount = 15},
+    {type = "item", name = "lars-photon-catalysator", amount = 1},
     {type = "fluid", name = "lars-molten-raw-iron", amount = 200},
     {type = "fluid", name = "lars-molten-raw-copper", amount = 200},
+  }
+  data.raw.recipe["metallurgic-science-pack"].results = {
+    {type = "item", name = "metallurgic-science-pack", amount = 4},
   }
   data.raw.recipe["metallurgic-science-pack"].categories = {"lars-metallurgy"}
 end
@@ -95,3 +93,6 @@ if data.raw.technology["cliff-explosives"] then
     },
   }
 end
+
+-- 钛补充
+OV.add_unlock("angels-titanium-smelting-1", "lars-titanium-dioxide")

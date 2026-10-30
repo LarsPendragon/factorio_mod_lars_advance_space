@@ -545,7 +545,7 @@ data:extend({
     name = "lars-calcite-catalyze-casting",
     icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-silicon.png",
         icon_size = 64,
       },
       {
@@ -577,7 +577,7 @@ data:extend({
     name = "lars-slate-catalyze-casting",
     icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-titanium.png",
         icon_size = 64,
       },
       {
@@ -609,7 +609,7 @@ data:extend({
     name = "lars-schist-catalyze-casting",
     icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-nickel.png",
         icon_size = 64,
       },
       {
@@ -641,7 +641,7 @@ data:extend({
     name = "lars-sandstone-catalyze-casting",
     icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-zinc.png",
         icon_size = 64,
       },
       {
@@ -673,12 +673,12 @@ data:extend({
     name = "lars-shale-oil",
     icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__base__/graphics/icons/fluid/crude-oil.png",
         icon_size = 64,
       },
       {
         {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
-        {icon = "__lars_advance_space__/graphics/icons/sandstone.png", icon_size = 64, pos=BADGE_RightTop},
+        {icon = "__lars_advance_space__/graphics/icons/shale.png", icon_size = 64, pos=BADGE_RightTop},
       }
     ),
     categories = {"lars-metallurgy"},

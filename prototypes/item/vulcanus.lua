@@ -199,4 +199,79 @@ data:extend({
     flow_color = {0.93, 0.68, 0.2},
     auto_barrel = false
   },
+  {
+    -- 光子
+    type = "fluid",
+    name = "lars-photon",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-starfield-sparse.png",
+    icon_size = 64,
+    subgroup = "lars-particle",
+    order = "b[photon]-a",
+    default_temperature = 0,
+    --heat_capacity = "1.0kJ",
+    base_color = { r = 1, g = 1, b = 1 },
+    flow_color = { r = 1, g = 1, b = 1 },
+    max_temperature = 0,
+    auto_barrel = false,
+  },
+})
+
+data:extend({
+  {
+    -- 二氧化钛
+    type = "item",
+    name = "lars-titanium-dioxide",
+    icon = "__angelssmeltinggraphics__/graphics/icons/plate-chrome.png",
+    icon_size = 32,
+    subgroup = "angels-titanium",
+    order = "e-b",
+    stack_size = 200,
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    weight = 5*kg
+  },
+  {
+    -- 光子催化剂
+    type = "item",
+    name = "lars-photon-catalysator",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-material-2.png",
+    subgroup = "lars-particle",
+    order = "b[photon]-b",
+    stack_size = 100,
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    weight = 10*kg
+  },
+  {
+    -- 光容器
+    type = "item",
+    name = "lars-yttrium-silicate",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-observation-frame.png",
+    icon_size = 64,
+    subgroup = "lars-particle",
+    order = "b[photon]-c",
+    stack_size = 20,
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    weight = 10*kg
+  },
+  {
+    -- 存储光子的光容器
+    type = "item",
+    name = "lars-yttrium-silicate-full",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-observation-frame-infrared.png",
+    icon_size = 64,
+    subgroup = "lars-particle",
+    order = "b[photon]-d",
+    stack_size = 20,
+    spoil_ticks = 60 * 60 * 60, -- 1 hour
+    spoil_result = "lars-yttrium-silicate",
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    weight = 10*kg
+  },
 })
