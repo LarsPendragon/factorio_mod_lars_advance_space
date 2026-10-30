@@ -7,7 +7,7 @@ data:extend({
     icon_size = 64,
     prerequisites = {
       "angels-metallurgy-5",
-      "space-science-pack",
+      "lars-space-ray-catch",
       "angels-gold-smelting-2",
       "angels-advanced-ore-refining-4",
       "angels-slag-processing-3",

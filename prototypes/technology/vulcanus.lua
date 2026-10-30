@@ -179,4 +179,60 @@ data:extend({
       },
     },
   },
+  {
+    -- 光催化
+    type = "technology",
+    name = "lars-photon-catalysator",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-gravimetrics-laboratory.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-photon-catch"},
+      {type = "unlock-recipe", recipe = "lars-particle-laboratory"},
+      {type = "unlock-recipe", recipe = "lars-photon-catalysator"},
+    },
+    prerequisites = {
+      "lars-space-ray-catch",
+      "planet-discovery-vulcanus",
+    },
+    unit = {
+      count = 600,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "space-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 光子存储
+    type = "technology",
+    name = "lars-photon-storage",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-observation-frame-infrared.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-yttrium-silicate"},
+      {type = "unlock-recipe", recipe = "lars-photon-storage"},
+      {type = "unlock-recipe", recipe = "lars-photon-extract"},
+    },
+    prerequisites = {
+      "lars-lava-catalyze-2",
+      "angels-silicon-smelting-3",
+      "lars-photon-catalysator",
+      "metallurgic-science-pack",
+    },
+    unit = {
+      count = 1000,
+      time = 40,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
 })

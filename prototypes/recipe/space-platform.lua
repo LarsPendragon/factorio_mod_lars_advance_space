@@ -51,4 +51,83 @@ data:extend({
     results = {},
     order = "e[oxygen]",
   },
+  {
+    -- 射线接收器
+    type = "recipe",
+    name = "lars-space-ray-receiver",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-telescope-radio.png",
+    icon_size = 64,
+    categories = {"crafting"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "lars-particle",
+    order = "a[space-ray-receiver]-a",
+    ingredients = {
+      {type = "item", name = "bob-radar-3", amount = 2},
+      {type = "item", name = "low-density-structure", amount = 50},
+      {type = "item", name = "bob-titanium-plate", amount = 150},
+      {type = "item", name = "processing-unit", amount = 50},
+      {type = "item", name = "lars-silver-coil", amount = 20},
+      {type = "item", name = "bob-glass", amount = 50},
+      {type = "item", name = "bob-silicon-wafer", amount = 200},
+    },
+    results = {
+      { type = "item", name = "lars-space-ray-receiver", amount = 1 },
+    },
+  },
+  {
+    -- 宇宙射线捕获
+    type = "recipe",
+    name = "lars-space-ray-catch",
+    icon = "__lars_advance_space__/graphics/icons/universe-ray.png",
+    icon_size = 128,
+    categories = {"lars-ray-receiver"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "lars-particle",
+    order = "b[space-ray]-a",
+    surface_conditions = {{property = "pressure", min = 0, max = 0}},
+    ingredients = {},
+    results = {
+      { type = "fluid", name = "lars-universe-ray", amount = 100 },
+    },
+  },
+  {
+    -- 宇宙射线弹夹转换
+    type = "recipe",
+    name = "lars-space-ray-magazine-change-1",
+    icon = "__base__/graphics/icons/firearm-magazine.png",
+    icon_size = 64,
+    categories = {"advanced-crafting"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "bob-ammo",
+    order = "a[basic-clips]-a[magazine]-1b",
+    ingredients = {
+      { type = "item", name = "firearm-magazine", amount = 1 },
+      { type = "fluid", name = "lars-universe-ray", amount = 20 },
+    },
+    results = {
+      { type = "item", name = "bob-bullet-magazine", amount = 1 },
+    },
+  },
+  {
+    -- 宇宙射线穿甲弹夹转换
+    type = "recipe",
+    name = "lars-space-ray-magazine-change-2",
+    icon = "__base__/graphics/icons/piercing-rounds-magazine.png",
+    icon_size = 64,
+    categories = {"advanced-crafting"},
+    energy_required = 1,
+    enabled = false,
+    subgroup = "bob-ammo",
+    order = "a[basic-clips]-a[magazine]-2b",
+    ingredients = {
+      { type = "item", name = "piercing-rounds-magazine", amount = 1 },
+      { type = "fluid", name = "lars-universe-ray", amount = 20 },
+    },
+    results = {
+      { type = "item", name = "bob-ap-bullet-magazine", amount = 1 },
+    },
+  },
 })

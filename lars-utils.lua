@@ -1,4 +1,4 @@
-utils = utils or {}
+lars_utils = lars_utils or {}
 
 function change_recipe_ingredients(recipe_name, ingredients)
   if data.raw.recipe[recipe_name] then
@@ -24,9 +24,9 @@ local function get_bioprocess_item(item_name)
 end
 
 -- 添加变质信息，输入参数为变质时间（秒）和变质产物
-function utils.add_spoil(item_name, spoil_seconds, spoil_result)
+function lars_utils.add_spoil(item_name, spoil_seconds, spoil_result)
   if not spoil_seconds or spoil_seconds <= 0 then
-    utils.remove_spoil(item_name)
+    lars_utils.remove_spoil(item_name)
     return
   end
   local item = get_bioprocess_item(item_name)
@@ -40,9 +40,9 @@ function utils.add_spoil(item_name, spoil_seconds, spoil_result)
   item.spoil_result = spoil_result
 end
 
-function utils.modify_spoil_time(item_name, spoil_seconds)
+function lars_utils.modify_spoil_time(item_name, spoil_seconds)
   if not spoil_seconds or spoil_seconds <= 0 then
-    utils.remove_spoil(item_name)
+    lars_utils.remove_spoil(item_name)
     return
   end
   local item = get_bioprocess_item(item_name)
@@ -52,7 +52,7 @@ function utils.modify_spoil_time(item_name, spoil_seconds)
   item.spoil_ticks = spoil_seconds * 60
 end
 
-function utils.remove_spoil(item_name)
+function lars_utils.remove_spoil(item_name)
   local item = get_bioprocess_item(item_name)
   if not item then
     return
@@ -61,7 +61,7 @@ function utils.remove_spoil(item_name)
   item.spoil_result = nil
 end
 
-function utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
+function lars_utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
   if not data.raw.recipe[recipe_name] then
     return
   end
@@ -73,7 +73,7 @@ function utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
 end
 
 -- 能否放置在太空
-function utils.can_place_in_space(entity_name, entity_type)
+function lars_utils.can_place_in_space(entity_name, entity_type)
   if not entity_type then
     entity_type = "assembling_machine"
   end
@@ -81,11 +81,11 @@ function utils.can_place_in_space(entity_name, entity_type)
   if not entity then
     return false
   else
-    return utils.can_entity_place_in_space(entity)
+    return lars_utils.can_entity_place_in_space(entity)
   end
 end
 
-function utils.can_entity_place_in_space(entity)
+function lars_utils.can_entity_place_in_space(entity)
   if not entity then
     return false
   end
@@ -108,7 +108,7 @@ function utils.can_entity_place_in_space(entity)
   return true
 end
 
-function utils.hide_technology(name)
+function lars_utils.hide_technology(name)
   if data.raw.technology[name] then
     data.raw.technology[name].hidden = true
     data.raw.technology[name].visible_when_disabled = false
@@ -116,7 +116,7 @@ function utils.hide_technology(name)
   end
 end
 
-function utils.get_default_icon()
+function lars_utils.get_default_icon()
   return {
     {
       icon = "__base__/graphics/icons/upgrade-planner.png",
@@ -154,7 +154,7 @@ local function get_badge_position(badge_icon)
   return badge_icon
 end
 
-function utils.combine_icons(base_icon, badge_list)
+function lars_utils.combine_icons(base_icon, badge_list)
   local icons = {
     base_icon,
   }

@@ -14,6 +14,11 @@ local pressure_fluid_list = {
     ["lars-liquid-nitrogen"] = true
 }
 
+-- 粒子流体种类
+local particle_fluid_list = {
+    ["lars-universe-ray"] = true,
+}
+
 function cpt.add_tank_to_table(entity)
     if eneity.unit_number then
         storage.cpt_current_tank_table[entity.unit_number] = entity
@@ -81,20 +86,46 @@ function cpt.destroy_over_pressure_tank(event)
     end
 end
 
+
+local function check_pressure_container(entity)
+    if entity and pressure_tank_list[entity.name] then
+        return
+    end
+    local fluid = entity.get_fluid(1)
+    if fluid and pressure_fluid_list[fluid.name] then
+        entity.damage(300, "player")
+    end
+end
+
+local function check_particle_container(entity)
+    if not entity then
+        return
+    end
+    local capacity = entity.get_fluid_capacity(1)
+    local fluid = entity.get_fluid(1)
+    if capacity and capacity > 0 and fluid and particle_fluid_list[fluid.name] then
+        if fluid.amount / capacity < 0.15 then
+            entity.clear_fluids()
+        else
+            entity.remove_fluid(1, fluid.amount/2)
+        end
+    end
+end
+
 -- 高负载但是简单实现
 function cpt.easy_destroy_over_pressure_tank()
     if game.tick % 300 ~= 0 then return end -- 5s
     for _, surface in pairs(game.surfaces) do
+        -- 储液罐
         local tanks = surface.find_entities_filtered{type = "storage-tank"}
         for _, tank in pairs(tanks) do
-            local not_pressure = true
-            if tank and pressure_tank_list[tank.name] then
-                not_pressure = false
-            end
-            local fluid = tank.get_fluid(1)
-            if not_pressure and fluid and pressure_fluid_list[fluid.name] then
-                tank.damage(300, "player")
-            end
+            check_pressure_container(tank)
+            check_particle_container(tank)
+        end
+        -- 管道
+        local pipes = surface.find_entities_filtered{type = {"pipe", "pipe-to-ground"}}
+        for _, pipe in pairs(pipes) do
+            check_particle_container(pipe)
         end
     end
 end

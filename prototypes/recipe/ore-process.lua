@@ -81,7 +81,7 @@ data:extend({
     ingredients = {
       { type = "item", name = "lars-rhodite-ore", amount = 12 },
       { type = "item", name = "lars-rhodium-catalyst", amount = 1 },
-      { type = "fluid", name = "angels-gas-hydrogen", amount = 20 },
+      { type = "fluid", name = "lars-universe-ray", amount = 20 },
     },
     results = {
       { type = "item", name = "lars-rhodium-powder", amount = 12 },

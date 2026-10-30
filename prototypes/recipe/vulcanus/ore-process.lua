@@ -283,7 +283,7 @@ data:extend({
     -- 花岗岩破碎
     type = "recipe",
     name = "lars-granite-crush",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__lars_advance_space__/graphics/icons/granite.png",
         icon_size = 128,
@@ -315,7 +315,7 @@ data:extend({
     -- 正长石破碎
     type = "recipe",
     name = "lars-syenite-crush",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__lars_advance_space__/graphics/icons/syenite.png",
         icon_size = 128,
@@ -347,7 +347,7 @@ data:extend({
     -- 安山石破碎
     type = "recipe",
     name = "lars-andesite-crush",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__lars_advance_space__/graphics/icons/andesite.png",
         icon_size = 128,
@@ -379,7 +379,7 @@ data:extend({
     -- 方解石破碎
     type = "recipe",
     name = "lars-calcite-crush",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__space-age__/graphics/icons/calcite.png",
         icon_size = 64,
@@ -415,7 +415,7 @@ data:extend({
     -- 岩浆的花岗岩催化
     type = "recipe",
     name = "lars-granite-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/molten-iron.png",
         icon_size = 64,
@@ -447,7 +447,7 @@ data:extend({
     -- 岩浆的花岗岩与氧气催化
     type = "recipe",
     name = "lars-granite-oxygen-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/molten-steel.png",
         icon_size = 64,
@@ -479,7 +479,7 @@ data:extend({
     -- 岩浆的正长石催化
     type = "recipe",
     name = "lars-syenite-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/molten-lead.png",
         icon_size = 64,
@@ -511,7 +511,7 @@ data:extend({
     -- 岩浆的安山石催化
     type = "recipe",
     name = "lars-andesite-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
         icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
         icon_size = 64,
@@ -543,9 +543,9 @@ data:extend({
     -- 岩浆的方解石催化
     type = "recipe",
     name = "lars-calcite-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-silicon.png",
         icon_size = 64,
       },
       {
@@ -575,9 +575,9 @@ data:extend({
     -- 岩浆的板岩催化
     type = "recipe",
     name = "lars-slate-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-titanium.png",
         icon_size = 64,
       },
       {
@@ -607,9 +607,9 @@ data:extend({
     -- 岩浆的片岩催化
     type = "recipe",
     name = "lars-schist-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-nickel.png",
         icon_size = 64,
       },
       {
@@ -639,9 +639,9 @@ data:extend({
     -- 岩浆的砂岩催化
     type = "recipe",
     name = "lars-sandstone-catalyze-casting",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-zinc.png",
         icon_size = 64,
       },
       {
@@ -671,14 +671,14 @@ data:extend({
     -- 页岩油提取
     type = "recipe",
     name = "lars-shale-oil",
-    icons = utils.combine_icons(
+    icons = lars_utils.combine_icons(
       {
-        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon = "__base__/graphics/icons/fluid/crude-oil.png",
         icon_size = 64,
       },
       {
         {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
-        {icon = "__lars_advance_space__/graphics/icons/sandstone.png", icon_size = 64, pos=BADGE_RightTop},
+        {icon = "__lars_advance_space__/graphics/icons/shale.png", icon_size = 64, pos=BADGE_RightTop},
       }
     ),
     categories = {"lars-metallurgy"},
