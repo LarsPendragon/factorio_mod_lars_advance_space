@@ -6,6 +6,8 @@ local HOUR = 60 * 60
 local DEFAULT_SPOIL_TIME = 7550 -- 默认变质时间7550秒
 local DEFAULT_SPOILAGE = "spoilage"
 
+OV.add_unlock("angels-gardens", "lars-spoilage-recycle-seed")
+
 -- 给天使生物添加变质时间
 -- 鱼类 ：7550s；肉类：3600s
 lars_utils.add_spoil("angels-alien-fish-1-raw", DEFAULT_SPOIL_TIME, DEFAULT_SPOILAGE)

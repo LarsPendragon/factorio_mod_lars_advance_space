@@ -88,7 +88,10 @@ end
 
 
 local function check_pressure_container(entity)
-    if entity and pressure_tank_list[entity.name] then
+    if not (entity and entity.valid) then
+        return
+    end
+    if pressure_tank_list[entity.name] then
         return
     end
     local fluid = entity.get_fluid(1)
@@ -98,7 +101,7 @@ local function check_pressure_container(entity)
 end
 
 local function check_particle_container(entity)
-    if not entity then
+    if not (entity and entity.valid) then
         return
     end
     local capacity = entity.get_fluid_capacity(1)

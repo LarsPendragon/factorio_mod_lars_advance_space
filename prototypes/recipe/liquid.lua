@@ -61,7 +61,7 @@ data:extend({
     name = "lars-liquid-oxygen-hydroxide",
     categories = {"lars-liquid-gas"},
     subgroup = "lars-liquid",
-    energy_required = 10,
+    energy_required = 4,
     enabled = false,
     ingredients = {
       { type = "fluid", name = "water", amount = 900 },

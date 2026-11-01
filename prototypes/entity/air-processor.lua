@@ -41,7 +41,7 @@ data:extend({
       usage_priority = "secondary-input",
       emissions_per_minute = { pollution = 2.5 },
     },
-    energy_usage = "1MW",
+    energy_usage = "600kW",
     surface_conditions = {{property = "pressure", min = 1000, max = 2000}},
     graphics_set = {
       animation = {
