@@ -180,6 +180,37 @@ data:extend({
     },
   },
   {
+    -- 高效岩浆催化3
+    type = "technology",
+    name = "lars-lava-catalyze-3",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/technology/lava-catalyze.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-granite-catalyze-crystallize"},
+      {type = "unlock-recipe", recipe = "lars-syenite-catalyze-crystallize"},
+      {type = "unlock-recipe", recipe = "lars-andesite-catalyze-crystallize"},
+      {type = "unlock-recipe", recipe = "lars-slate-catalyze-crystallize"},
+      {type = "unlock-recipe", recipe = "lars-schist-catalyze-crystallize"},
+      {type = "unlock-recipe", recipe = "lars-sandstone-catalyze-crystallize"},
+    },
+    prerequisites = {
+      "lars-lava-catalyze-2",
+      "metallurgic-science-pack",
+    },
+    unit = {
+      count = 750,
+      time = 40,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
     -- 光催化
     type = "technology",
     name = "lars-photon-catalysator",

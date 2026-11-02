@@ -62,13 +62,20 @@ function lars_utils.remove_spoil(item_name)
 end
 
 function lars_utils.set_recipe_always_fresh(recipe_name, is_always_fresh)
-  if not data.raw.recipe[recipe_name] then
+  local recipe = data.raw.recipe[recipe_name]
+  if not recipe then
     return
   end
   if (is_always_fresh == nil) or (is_always_fresh ~= false) then
-    data.raw.recipe[recipe_name].always_fresh = true
+    recipe.always_fresh = true
+    if not recipe.results then
+      return
+    end
+    for _, result in pairs(recipe.results) do
+      result.always_fresh = true
+    end
   else
-    data.raw.recipe[recipe_name].always_fresh = false
+    recipe.always_fresh = false
   end
 end
 

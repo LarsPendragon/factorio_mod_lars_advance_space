@@ -36,7 +36,7 @@ data:extend({
     categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
-    energy_required = 8,
+    energy_required = 2,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -62,7 +62,7 @@ data:extend({
     categories = {"angels-cooling"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
-    energy_required = 8,
+    energy_required = 2,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -89,15 +89,15 @@ data:extend({
     categories = {"angels-cooling"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
-    energy_required = 1,
+    energy_required = 2,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
-      { type = "fluid", name = "lars-purify-compressed-air", amount = 50 },
+      { type = "fluid", name = "lars-purify-compressed-air", amount = 100 },
       { type = "fluid", name = "lars-liquid-nitrogen", amount = 1 },
     },
     results = {
-      { type = "fluid", name = "lars-cooled-compressed-air", amount = 50, temperature = -120 },
+      { type = "fluid", name = "lars-cooled-compressed-air", amount = 100, temperature = -120 },
     },
     always_show_products = true,
     icons = angelsmods.functions.create_gas_recipe_icon(
@@ -115,7 +115,7 @@ data:extend({
     categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
-    energy_required = 32,
+    energy_required = 8,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -140,7 +140,7 @@ data:extend({
     categories = {"lars-air-process"},
     group = "angels-petrochem-refining",
     subgroup = "angels-petrochem-nitrogen",
-    energy_required = 16,
+    energy_required = 4,
     enabled = false,
     hide_from_signal_gui = true,
     ingredients = {
@@ -169,13 +169,13 @@ data:extend({
     ),
     categories = {"chemistry"},
     subgroup = "lars-liquid",
-    energy_required = 10,
+    energy_required = 1,
     enabled = false,
     ingredients = {
       { type = "fluid", name = "lars-liquid-nitrogen", amount = 1 },
     },
     results = {
-      { type = "fluid", name = "angels-gas-nitrogen", amount = 150 },
+      { type = "fluid", name = "angels-gas-nitrogen", amount = 200 },
     },
     always_show_products = true,
     crafting_machine_tint = angelsmods.functions.get_recipe_tints({
@@ -195,13 +195,13 @@ data:extend({
     ),
     categories = {"chemistry"},
     subgroup = "lars-liquid",
-    energy_required = 10,
+    energy_required = 1,
     enabled = false,
     ingredients = {
       { type = "fluid", name = "lars-liquid-oxygen", amount = 1 },
     },
     results = {
-      { type = "fluid", name = "angels-gas-oxygen", amount = 150 },
+      { type = "fluid", name = "angels-gas-oxygen", amount = 200 },
     },
     always_show_products = true,
     crafting_machine_tint = angelsmods.functions.get_recipe_tints({
@@ -221,13 +221,13 @@ data:extend({
     ),
     categories = {"chemistry"},
     subgroup = "lars-liquid",
-    energy_required = 10,
+    energy_required = 1,
     enabled = false,
     ingredients = {
       { type = "fluid", name = "lars-liquid-hydrogen", amount = 1 },
     },
     results = {
-      { type = "fluid", name = "angels-gas-hydrogen", amount = 150 },
+      { type = "fluid", name = "angels-gas-hydrogen", amount = 200 },
     },
     always_show_products = true,
     crafting_machine_tint = angelsmods.functions.get_recipe_tints({
