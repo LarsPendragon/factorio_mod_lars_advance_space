@@ -701,3 +701,205 @@ data:extend({
     always_show_products = true,
   },
 })
+
+
+
+-- 岩浆结晶金属矿
+data:extend({
+  {
+    -- 岩浆的花岗岩结晶
+    type = "recipe",
+    name = "lars-granite-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__base__/graphics/icons/iron-ore.png",
+        icon_size = 64,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/granite.png", icon_size = 128, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "a[granite]-b",
+    energy_required = 4,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-granite", amount = 1 },
+      { type = "item", name = "angels-catalysator-green", amount = 1 },
+      { type = "fluid", name = "lava", amount = 600 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-blue", amount = 4},
+      { type = "item", name = "iron-ore", amount = 50 },
+      { type = "item", name = "bob-tin-ore", amount = 25 },
+    },
+    always_show_products = true,
+  },
+  {
+    -- 岩浆的正长石结晶
+    type = "recipe",
+    name = "lars-syenite-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__bobores__/graphics/icons/lead-ore.png",
+        icon_size = 32,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/syenite.png", icon_size = 128, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "b[syenite]-b",
+    energy_required = 4,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-syenite", amount = 1 },
+      { type = "item", name = "angels-catalysator-green", amount = 1 },
+      { type = "fluid", name = "lava", amount = 600 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-cyan", amount = 4},
+      { type = "item", name = "bob-lead-ore", amount = 50 },
+      { type = "item", name = "bob-silver-ore", amount = 25 },
+    },
+    always_show_products = true,
+  },
+  {
+    -- 岩浆的安山石结晶
+    type = "recipe",
+    name = "lars-andesite-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__base__/graphics/icons/copper-ore.png",
+        icon_size = 64,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/andesite.png", icon_size = 128, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "c[andesite]-b",
+    energy_required = 4,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-andesite", amount = 1 },
+      { type = "item", name = "angels-catalysator-brown", amount = 1 },
+      { type = "fluid", name = "lava", amount = 600 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-yellow", amount = 4},
+      { type = "item", name = "copper-ore", amount = 50 },
+      { type = "item", name = "bob-bauxite-ore", amount = 25 },
+    },
+    always_show_products = true,
+  },
+  {
+    -- 岩浆的板岩结晶
+    type = "recipe",
+    name = "lars-slate-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__bobores__/graphics/icons/rutile-ore.png",
+        icon_size = 32,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/slate.png", icon_size = 128, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "e[slate]-b",
+    energy_required = 6,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-slate", amount = 1 },
+      { type = "item", name = "angels-catalysator-green", amount = 1 },
+      { type = "item", name = "angels-catalysator-orange", amount = 1 },
+      { type = "fluid", name = "lava", amount = 600 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-lightgreen", amount = 4},
+      { type = "item", name = "bob-rutile-ore", amount = 50 },
+      { type = "item", name = "angels-platinum-ore", amount = 25 },
+    },
+    always_show_products = true,
+  },
+  {
+    -- 岩浆的片岩结晶
+    type = "recipe",
+    name = "lars-schist-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__bobores__/graphics/icons/nickel-ore.png",
+        icon_size = 32,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/schist.png", icon_size = 128, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "f[schist]-b",
+    energy_required = 6,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-schist", amount = 1 },
+      { type = "item", name = "angels-catalysator-green", amount = 1 },
+      { type = "item", name = "angels-catalysator-orange", amount = 1 },
+      { type = "fluid", name = "lava", amount = 600 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-red", amount = 4},
+      { type = "item", name = "bob-nickel-ore", amount = 50 },
+      { type = "item", name = "bob-gold-ore", amount = 25 },
+    },
+    always_show_products = true,
+  },
+  {
+    -- 岩浆的砂岩结晶
+    type = "recipe",
+    name = "lars-sandstone-catalyze-crystallize",
+    icons = lars_utils.combine_icons(
+      {
+        icon = "__bobores__/graphics/icons/zinc-ore.png",
+        icon_size = 32,
+      },
+      {
+        {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64, pos=BADGE_LeftTop},
+        {icon = "__lars_advance_space__/graphics/icons/sandstone.png", icon_size = 64, pos=BADGE_RightTop},
+      }
+    ),
+    categories = {"lars-metallurgy"},
+    subgroup = "lars-vulcanus-lava-casting",
+    order = "g[sandstone]-b",
+    energy_required = 6,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "lars-sandstone", amount = 1 },
+      { type = "item", name = "angels-catalysator-green", amount = 1 },
+      { type = "item", name = "angels-catalysator-orange", amount = 1 },
+      { type = "fluid", name = "lava", amount = 800 },
+    },
+    results = {
+      { type = "item", name = "angels-geode-purple", amount = 4},
+      { type = "item", name = "bob-zinc-ore", amount = 50 },
+      { type = "item", name = "angels-solid-glass-mixture", amount = 20 },
+      { type = "item", name = "angels-solid-cement", amount = 20 },
+    },
+    always_show_products = true,
+  },
+})
