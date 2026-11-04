@@ -41,10 +41,11 @@ data:extend({
     name = "lars-particle-laboratory",
     icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-gravimetrics-laboratory.png",
     icon_size = 64,
-    subgroup = "lars-particle",
-    order = "d[particle-laboratory]-a",
+    subgroup = "lars-particle-machine",
+    order = "a",
     place_result = "lars-particle-laboratory",
-    stack_size = 10,
+    stack_size = 1,
+    weight = 1000 * kg,
   },
   {
     type = "assembling-machine",
@@ -230,3 +231,157 @@ data:extend({
     allowed_effects = {"consumption", "speed"},
   },
 })
+
+
+data:extend({
+  -- 粒子加速器
+  {
+    type = "item",
+    name = "lars-particle-accelerator",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-particle-accelerator.png",
+    icon_size = 64,
+    subgroup = "lars-particle-machine",
+    order = "b",
+    place_result = "lars-particle-accelerator",
+    stack_size = 1,
+    weight = 1000 * kg,
+  },
+  {
+    type = "assembling-machine",
+    name = "lars-particle-accelerator",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-particle-accelerator.png",
+    icon_size = 64,
+    flags = {"placeable-neutral","placeable-player", "player-creation"},
+    minable = {mining_time = 1, result = "lars-particle-accelerator"},
+    max_health = 1500,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    alert_icon_shift = util.by_pixel(0, -12),
+    collision_box = {{-4.3, -4.3}, {4.3, 4.3}},
+    selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+    drawing_box_vertical_extension = 1.5,
+    use_mirroring = true,
+    circuit_connector = circuit_connector_definitions.create_vector
+    (
+      universal_connector_template,
+      {
+        { variation = 18, main_offset = {3.5, 4}, shadow_offset = {3.5, 4}, show_shadow = true },
+        { variation = 18, main_offset = {3.5, 4}, shadow_offset = {3.5, 4}, show_shadow = true },
+        { variation = 18, main_offset = {3.5, 4}, shadow_offset = {3.5, 4}, show_shadow = true },
+        { variation = 18, main_offset = {3.5, 4}, shadow_offset = {3.5, 4}, show_shadow = true },
+      }
+    ),
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+    resistances =
+    {
+      {
+        type = "impact",
+        percent = 10
+      }
+    },
+    fluid_boxes = {
+      {
+          production_type = "input",
+          pipe_covers = pipecoverspictures(),
+          volume = 1000,
+          pipe_connections = {{ flow_direction="input", position = {0, -4}, direction = defines.direction.north }},
+          secondary_draw_orders = { north = -1 }
+      },
+      {
+          production_type = "input",
+          pipe_covers = pipecoverspictures(),
+          volume = 1000,
+          pipe_connections = {{ flow_direction="input", position = {-4, 0}, direction = defines.direction.west }},
+          secondary_draw_orders = { north = -1 }
+      },
+      {
+          production_type = "output",
+          pipe_covers = pipecoverspictures(),
+          volume = 1000,
+          pipe_connections = {{ flow_direction="output", position = {0, 4}, direction = defines.direction.south }},
+          secondary_draw_orders = { north = -1 }
+      },
+      {
+          production_type = "output",
+          pipe_covers = pipecoverspictures(),
+          volume = 1000,
+          pipe_connections = {{ flow_direction="output", position = {4, 0}, direction = defines.direction.east }},
+          secondary_draw_orders = { north = -1 }
+      },
+    },
+    open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
+    impact_category = "metal-large",
+    working_sound = {
+      apparent_volume = 1.5,
+      idle_sound = {
+        filename = "__base__/sound/idle1.ogg",
+        volume = 0.6
+      },
+      sound = {
+        {
+          filename = "__base__/sound/electric-furnace.ogg",
+          volume = 0.8
+        }
+      }
+    },
+    collision_mask = {
+      layers ={
+        item = true,
+        object = true,
+        player = true,
+      },
+    },
+    graphics_set = {
+      animation =
+      {
+        layers =
+        {
+          {
+            filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/particle-accelerator/particle-accelerator.png",
+            priority = "high",
+            width = 3540/6,
+            height = 4032/6,
+            frame_count = 32,
+            line_length = 6,
+            shift = util.by_pixel(0, -24),
+            animation_speed = 1,
+            scale = 0.5,
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/particle-accelerator/particle-accelerator-shadow.png",
+            priority = "high",
+            width = 692,
+            height = 526,
+            frame_count = 1,
+            line_length = 1,
+            repeat_count = 32,
+            shift = util.by_pixel(32, 16),
+            animation_speed = 1,
+            scale = 0.5,
+          },
+        },
+      },
+      working_visualisations =
+      {
+        {
+          effect = "uranium-glow", -- changes alpha based on energy source light intensity
+          light = {intensity = 0.8, size = 32, shift = {0.0, 0.0}, color = {r = 0.1, g = 0.5, b = 1}}
+        },
+      },
+    },
+    crafting_categories = {"lars-particle-accelerator"},
+    crafting_speed = 1,
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions_per_minute = { pollution = 10 },
+    },
+    energy_usage = "100MW",
+    module_slots = 3,
+    allowed_effects = {"consumption", "speed"},
+  },
+})
+

@@ -123,6 +123,12 @@ function lars_utils.hide_technology(name)
   end
 end
 
+function lars_utils.hide_recipe_in_wiki(name)
+  if data.raw.recipe[name] then
+    data.raw.recipe[name].hidden_in_factoriopedia = true
+  end
+end
+
 function lars_utils.get_default_icon()
   return {
     {

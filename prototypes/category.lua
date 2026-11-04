@@ -32,6 +32,12 @@ data:extend({
   },
   {
     type = "item-subgroup",
+    name = "lars-particle-machine",
+    group = "space",
+    order = "x-b[machine]"
+  },
+  {
+    type = "item-subgroup",
     name = "lars-vulcanus-rocks",
     group = "bob-resource-products",
     order = "h-a[rock]"
@@ -99,6 +105,10 @@ data:extend({
   {
     type = "recipe-category",
     name = "lars-particle-process"
+  },
+  {
+    type = "recipe-category",
+    name = "lars-particle-accelerator"
   },
 })
 

@@ -1,14 +1,3 @@
--- VULCANUS 基础
--- 火成岩：原始矿物 -> 花岗岩 -> 铁 + 锡
---                 -> 安山岩 -> 铜 + 铝
---                 -> 正长石 -> 铅 + 银
--- 变质岩：火成岩 + 岩浆 + 压缩空气 -> 方解石 -> 蒸汽
---                               -> 板岩 -> 钛 + 铂
---                               -> 片岩 -> 镍 + 金
--- 沉积岩：火成岩 + 岩浆 + 水 -> 方解石 -> 蒸汽
---                          -> 砂岩 -> 锰 + 锌
---                          -> 页岩 -> 原油 + 天然气 + 
-
 require("lars-utils")
 
 data:extend({
@@ -900,6 +889,392 @@ data:extend({
       { type = "item", name = "angels-solid-glass-mixture", amount = 20 },
       { type = "item", name = "angels-solid-cement", amount = 20 },
     },
+    always_show_products = true,
+  },
+})
+
+data:extend({
+  -- 焊接剂混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-solder-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-solder"),
+      4,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-solder-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 360 },
+      { type = "fluid", name = "angels-liquid-molten-lead", amount = 360 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-solder", amount = 720 },
+    },
+    order = "b[liquid-molten-solder]-d",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-solder"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-solder-mix-casting-2",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-solder"),
+      5,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-solder-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 360 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 360 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-solder", amount = 720 },
+    },
+    order = "b[liquid-molten-solder]-e",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-solder"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-solder-mix-casting-3",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-solder"),
+      6,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-solder-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 180 },
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 180 },
+      { type = "fluid", name = "angels-liquid-molten-silver", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-solder", amount = 540 },
+    },
+    order = "b[liquid-molten-solder]-f",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-solder"),
+    always_show_products = true,
+  },
+
+  -- 青铜混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-bronze-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-bronze"),
+      4,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 540 },
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-bronze", amount = 720 },
+    },
+    order = "a[bronze]-a[liquid-molten-bronze]-d",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-bronze"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-bronze-mix-casting-2",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-bronze"),
+      5,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 270 },
+      { type = "fluid", name = "angels-liquid-molten-nickel", amount = 90 },
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-bronze", amount = 540 },
+    },
+    order = "a[bronze]-a[liquid-molten-bronze]-e",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-bronze"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-bronze-mix-casting-3",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-bronze"),
+      6,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 270 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 90 },
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-bronze", amount = 540 },
+    },
+    order = "a[bronze]-a[liquid-molten-bronze]-f",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-bronze"),
+    always_show_products = true,
+  },
+
+  -- 黄铜混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-brass-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-brass"),
+      4,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 540 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-brass", amount = 720 },
+    },
+    order = "b[brass]-a[liquid-molten-brass]-d",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-brass"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-brass-mix-casting-2",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-brass"),
+      5,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 270 },
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 90 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-brass", amount = 540 },
+    },
+    order = "b[brass]-a[liquid-molten-brass]-e",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-brass"),
+    always_show_products = true,
+  },
+  {
+    type = "recipe",
+    name = "lars-brass-mix-casting-3",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-brass"),
+      6,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 270 },
+      { type = "fluid", name = "angels-liquid-molten-lead", amount = 90 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-brass", amount = 540 },
+    },
+    order = "b[brass]-a[liquid-molten-brass]-f",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-brass"),
+    always_show_products = true,
+  },
+
+  -- 炮铜混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-gunmetal-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-gunmetal"),
+      2,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 1,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 360 },
+      { type = "fluid", name = "angels-liquid-molten-tin", amount = 90 },
+      { type = "fluid", name = "angels-liquid-molten-zinc", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 1 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-gunmetal", amount = 540 },
+    },
+    order = "c[gunmetal]-a[liquid-molten-gunmetal]-2",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-gunmetal"),
+    always_show_products = true,
+  },
+
+  -- 殷钢混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-invar-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-invar"),
+      2,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-steel", amount = 540 },
+      { type = "fluid", name = "angels-liquid-molten-nickel", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-invar", amount = 720 },
+    },
+    order = "d[invar]-a[liquid-molten-invar]-2",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-invar"),
+    always_show_products = true,
+  },
+
+  -- 钴钢混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-cobalt-steel-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-cobalt-steel"),
+      2,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-3" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-steel", amount = 540 },
+      { type = "fluid", name = "angels-liquid-molten-cobalt", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-cobalt-steel", amount = 720 },
+    },
+    order = "e[cobalt-steel]-a[liquid-molten-cobalt-steel]-2",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-cobalt-steel"),
+    always_show_products = true,
+  },
+
+  -- 镍钛混合催化熔炼
+  {
+    type = "recipe",
+    name = "lars-nitinol-mix-casting-1",
+    icons = angelsmods.functions.add_number_icon_layer(
+      angelsmods.functions.get_object_icons("angels-liquid-molten-nitinol"),
+      2,
+      angelsmods.smelting.number_tint
+    ),
+    categories = { "angels-casting-4" },
+    subgroup = "angels-alloys-casting",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-titanium", amount = 540 },
+      { type = "fluid", name = "angels-liquid-molten-nickel", amount = 180 },
+      { type = "item", name = "lars-photon-catalysator", amount = 2 },
+    },
+    results = {
+      { type = "fluid", name = "angels-liquid-molten-nitinol", amount = 720 },
+    },
+    order = "f[nitinol]-a[liquid-molten-nitinol]-2",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-liquid-molten-nitinol"),
+    always_show_products = true,
+  },
+})
+
+data:extend({
+  -- 钨熔炼
+  {
+    type = "recipe",
+    name = "lars-liquid-molten-tungsten",
+    icon = "__angelssmeltinggraphics__/graphics/technology/casting-tungsten-tech.png",
+    icon_size = 256,
+    categories = { "angels-induction-smelting-4" },
+    subgroup = "angels-tungsten-casting",
+    energy_required = 4,
+    enabled = false,
+    auto_recycle = false,
+    hide_from_signal_gui = true,
+    ingredients = {
+      { type = "fluid", name = "lars-high-energy-photon", amount = 60 },
+      { type = "item", name = "tungsten-ore", amount = 24 },
+    },
+    results = {
+      { type = "fluid", name = "lars-liquid-molten-tungsten", amount = 240 },
+    },
+    order = "a",
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("lars-liquid-molten-tungsten"),
     always_show_products = true,
   },
 })
