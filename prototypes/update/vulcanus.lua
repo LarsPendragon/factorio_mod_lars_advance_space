@@ -7,6 +7,23 @@ lars_utils.hide_technology("calcite-processing")-- 原方解石加工
 lars_utils.hide_technology("tungsten-carbide") -- 火星的碳化钨
 lars_utils.hide_technology("tungsten-steel") -- 火星的钨钢
 
+-- 从百科中隐藏配方
+lars_utils.hide_recipe_in_wiki("molten-iron-from-lava")
+lars_utils.hide_recipe_in_wiki("molten-copper-from-lava")
+lars_utils.hide_recipe_in_wiki("iron-ore-melting")
+lars_utils.hide_recipe_in_wiki("copper-ore-melting")
+lars_utils.hide_recipe_in_wiki("casting-iron")
+lars_utils.hide_recipe_in_wiki("casting-copper")
+lars_utils.hide_recipe_in_wiki("casting-steel")
+lars_utils.hide_recipe_in_wiki("casting-iron-gear-wheel")
+lars_utils.hide_recipe_in_wiki("casting-iron-stick")
+lars_utils.hide_recipe_in_wiki("casting-low-density-structure")
+lars_utils.hide_recipe_in_wiki("concrete-from-molten-iron")
+lars_utils.hide_recipe_in_wiki("casting-copper-cable")
+lars_utils.hide_recipe_in_wiki("casting-copper-cable")
+lars_utils.hide_recipe_in_wiki("bob-carbon-from-acid")
+lars_utils.hide_recipe_in_wiki("rocket-part")
+
 -- 大型采矿机修改
 if data.raw.technology["big-mining-drill"] then
   data.raw.technology["big-mining-drill"].prerequisites = {
@@ -94,5 +111,34 @@ if data.raw.technology["cliff-explosives"] then
   }
 end
 
+-- 轻质框架增产科技修改
+if data.raw.technology["low-density-structure-productivity"] then
+  data.raw.technology["low-density-structure-productivity"].prerequisites = {
+    "lars-complicated-casting-1",
+  }
+end
+
 -- 钛补充
 OV.add_unlock("angels-titanium-smelting-1", "lars-titanium-dioxide")
+
+-- 感应炉 MK4 修改
+if data.raw["assembling-machine"]["angels-induction-furnace-4"] then
+  data.raw["assembling-machine"]["angels-induction-furnace-4"].fluid_boxes = {
+    {
+      production_type = "input",
+      pipe_covers = pipecoverspictures(),
+      volume = 1000,
+      pipe_connections = {
+        { flow_direction = "input", position = { -2, -2 }, direction = defines.direction.south },
+      },
+    },
+    {
+      production_type = "output",
+      pipe_covers = pipecoverspictures(),
+      volume = 1000,
+      pipe_connections = {
+        { flow_direction = "output", position = { 2, -2 }, direction = defines.direction.north },
+      },
+    },
+  }
+end

@@ -26,6 +26,8 @@ local pressure_fluid_list = {
 local particle_fluid_list = {
     ["lars-universe-ray"] = true,
     ["lars-photon"] = true,
+    ["lars-electron"] = true,
+    ["lars-high-energy-photon"] = true,
 }
 
 local function init_table()

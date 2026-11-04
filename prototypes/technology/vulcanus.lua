@@ -180,6 +180,68 @@ data:extend({
     },
   },
   {
+    -- 复杂浇筑1
+    type = "technology",
+    name = "lars-complicated-casting-1",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-pyroflux-smelting.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-low-density-structure-casting"},
+      {type = "unlock-recipe", recipe = "lars-heat-shield-tile-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-iron-gear-wheel-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-steel-gear-wheel-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-brass-gear-wheel-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-titanium-gear-wheel-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-steel-bearing-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-brass-bearing-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-titanium-bearing-casting"},
+      {type = "unlock-recipe", recipe = "lars-magnetic-coil-casting"},
+      {type = "unlock-recipe", recipe = "lars-silver-coil-casting"},
+    },
+    prerequisites = {
+      "metallurgic-science-pack",
+    },
+    unit = {
+      count = 600,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 复杂浇筑2
+    type = "technology",
+    name = "lars-complicated-casting-2",
+    icon_size = 256,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-pyroflux-smelting.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-bob-nitinol-gear-wheel-casting"},
+      {type = "unlock-recipe", recipe = "lars-bob-nitinol-bearing-casting"},
+      {type = "unlock-recipe", recipe = "lars-gold-coil-casting"},
+    },
+    prerequisites = {
+      "lars-complicated-casting-1",
+      "bob-nitinol-processing",
+    },
+    unit = {
+      count = 750,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
     -- 高效岩浆催化3
     type = "technology",
     name = "lars-lava-catalyze-3",
@@ -226,7 +288,7 @@ data:extend({
       "planet-discovery-vulcanus",
     },
     unit = {
-      count = 600,
+      count = 500,
       time = 30,
       ingredients = {
         { "automation-science-pack", 1 },
@@ -261,6 +323,190 @@ data:extend({
         { "logistic-science-pack", 1 },
         { "chemical-science-pack", 1 },
         { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 光电效应
+    type = "technology",
+    name = "lars-photoelectric-effect",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-naquium-processor.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-photoelectric-plate"},
+      {type = "unlock-recipe", recipe = "lars-photoelectric-effect"},
+    },
+    prerequisites = {
+      "metallurgic-science-pack",
+      "bob-nitinol-processing",
+    },
+    unit = {
+      count = 300,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 粒子加速器
+    type = "technology",
+    name = "lars-particle-accelerator",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-particle-accelerator.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-particle-accelerator"},
+      {type = "unlock-recipe", recipe = "lars-electron-speedup"},
+    },
+    prerequisites = {
+      "lars-photoelectric-effect",
+    },
+    unit = {
+      count = 500,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 光催化熔炼1
+    type = "technology",
+    name = "lars-photon-catalysator-casting-1",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-material-2.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-solder-mix-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-solder-mix-casting-2"},
+      {type = "unlock-recipe", recipe = "lars-bronze-mix-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-bronze-mix-casting-2"},
+      {type = "unlock-recipe", recipe = "lars-brass-mix-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-invar-mix-casting-1"},
+    },
+    prerequisites = {
+      "lars-lava-catalyze-3",
+      "lars-photon-catalysator",
+      "angels-solder-smelting-2",
+      "angels-bronze-smelting-2",
+      "angels-brass-smelting-1",
+      "angels-invar-smelting-1",
+    },
+    unit = {
+      count = 750,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 光催化熔炼2
+    type = "technology",
+    name = "lars-photon-catalysator-casting-2",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-material-2.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-solder-mix-casting-3"},
+      {type = "unlock-recipe", recipe = "lars-bronze-mix-casting-3"},
+      {type = "unlock-recipe", recipe = "lars-brass-mix-casting-2"},
+      {type = "unlock-recipe", recipe = "lars-brass-mix-casting-3"},
+      {type = "unlock-recipe", recipe = "lars-gunmetal-mix-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-cobalt-steel-mix-casting-1"},
+    },
+    prerequisites = {
+      "lars-photon-catalysator-casting-1",
+      "angels-solder-smelting-3",
+      "angels-bronze-smelting-3",
+      "angels-brass-smelting-2",
+      "angels-gunmetal-smelting-1",
+      "angels-cobalt-smelting-1",
+    },
+    unit = {
+      count = 1000,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 光催化熔炼3
+    type = "technology",
+    name = "lars-photon-catalysator-casting-3",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-material-2.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-brass-mix-casting-3"},
+      {type = "unlock-recipe", recipe = "lars-nitinol-mix-casting-1"},
+    },
+    prerequisites = {
+      "lars-photon-catalysator-casting-2",
+      "angels-bronze-smelting-3",
+      "angels-nitinol-smelting-1",
+    },
+    unit = {
+      count = 1250,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "space-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
+  {
+    -- 钨熔炼
+    type = "technology",
+    name = "lars-molten-tungsten",
+    icon = "__angelssmeltinggraphics__/graphics/technology/casting-tungsten-tech.png",
+    icon_size = 256,
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-liquid-molten-tungsten"},
+      {type = "unlock-recipe", recipe = "lars-tungsten-plate-casting-1"},
+      {type = "unlock-recipe", recipe = "lars-tungsten-carbide-casting"},
+      {type = "unlock-recipe", recipe = "lars-copper-tungsten-alloy-casting"},
+      {type = "unlock-recipe", recipe = "lars-heat-shield-tile-casting-2"},
+      {type = "unlock-recipe", recipe = "lars-bob-tungsten-gear-wheel-casting"},
+    },
+    prerequisites = {
+      "lars-complicated-casting-2",
+      "lars-particle-accelerator",
+    },
+    unit = {
+      count = 1000,
+      time = 30,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 },
         { "space-science-pack", 1 },
         { "metallurgic-science-pack", 1 },
       },

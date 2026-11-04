@@ -200,17 +200,65 @@ data:extend({
     auto_barrel = false
   },
   {
+    -- 熔融钨
+    type = "fluid",
+    name = "lars-liquid-molten-tungsten",
+    icon = "__angelssmeltinggraphics__/graphics/technology/casting-tungsten-tech.png",
+    icon_size = 256,
+    subgroup = "angels-tungsten-casting",
+    order = "g-a-a",
+    default_temperature = 3425,
+    max_temperature = 3500,
+    heat_capacity = "0.01kJ",
+    base_color = { 033, 148, 214 },
+    flow_color = { 033, 148, 214 },
+    auto_barrel = false
+  },
+  {
     -- 光子
     type = "fluid",
     name = "lars-photon",
     icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-starfield-sparse.png",
     icon_size = 64,
     subgroup = "lars-particle",
-    order = "b[photon]-a",
+    order = "b[photon]-a[base]-a",
     default_temperature = 0,
     --heat_capacity = "1.0kJ",
     base_color = { r = 1, g = 1, b = 1 },
     flow_color = { r = 1, g = 1, b = 1 },
+    min_temperature = 0,
+    max_temperature = 0,
+    auto_barrel = false,
+  },
+  {
+    -- 高能光子
+    type = "fluid",
+    name = "lars-high-energy-photon",
+    icon = "__lars_advance_space__/graphics/icons/high-energy-photon.png",
+    icon_size = 128,
+    subgroup = "lars-particle",
+    order = "b[photon]-a[base]-b",
+    default_temperature = 0,
+    --heat_capacity = "1.0kJ",
+    base_color = { r = 1, g = 1, b = 1 },
+    flow_color = { r = 1, g = 1, b = 1 },
+    min_temperature = 0,
+    max_temperature = 0,
+    auto_barrel = false,
+  },
+  {
+    -- 电子
+    type = "fluid",
+    name = "lars-electron",
+    icon = "__lars_advance_space__/graphics/icons/electron.png",
+    icon_size = 128,
+    subgroup = "lars-particle",
+    order = "c[electron]-a[base]-a",
+    default_temperature = 0,
+    --heat_capacity = "1.0kJ",
+    base_color = { r = 79, g = 152, b = 203 },
+    flow_color = { r = 79, g = 152, b = 203 },
+    min_temperature = 0,
     max_temperature = 0,
     auto_barrel = false,
   },
@@ -273,5 +321,19 @@ data:extend({
     pick_sound = item_sounds.metal_large_inventory_pickup,
     drop_sound = item_sounds.metal_large_inventory_move,
     weight = 10*kg
+  },
+  {
+    -- 光电基板
+    type = "item",
+    name = "lars-photoelectric-plate",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-naquium-processor.png",
+    icon_size = 64,
+    subgroup = "lars-particle",
+    order = "c[electron]-b",
+    stack_size = 20,
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    weight = 25*kg
   },
 })
