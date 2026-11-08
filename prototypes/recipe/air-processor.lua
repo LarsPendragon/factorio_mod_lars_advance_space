@@ -122,8 +122,8 @@ data:extend({
       { type = "fluid", name = "lars-cooled-compressed-air", amount = 200 },
     },
     results = {
-      { type = "fluid", name = "lars-liquid-oxygen", amount = 1 },
-      { type = "fluid", name = "lars-liquid-nitrogen", amount = 4 },
+      { type = "fluid", name = "lars-liquid-oxygen", amount = 2 },
+      { type = "fluid", name = "lars-liquid-nitrogen", amount = 3 },
     },
     always_show_products = true,
     icons = angelsmods.functions.create_gas_recipe_icon(
@@ -147,8 +147,8 @@ data:extend({
       { type = "fluid", name = "lars-cooled-compressed-air", amount = 200, maximum_temperature = -120 },
     },
     results = {
-      { type = "fluid", name = "lars-liquid-oxygen", amount = 1 },
-      { type = "fluid", name = "lars-liquid-nitrogen", amount = 4 },
+      { type = "fluid", name = "lars-liquid-oxygen", amount = 2 },
+      { type = "fluid", name = "lars-liquid-nitrogen", amount = 3 },
     },
     always_show_products = true,
     icons = angelsmods.functions.create_gas_recipe_icon(
