@@ -249,6 +249,198 @@ local vulcanus_casting_list = {
     time = 8,
     tier = 4,
   },
+  { -- 铁管道浇筑
+    name = "lars-iron-pipe-casting",
+    results = {
+      { type = "item", name = "pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-iron", amount = 100 },
+    },
+    time = 2.5,
+  },
+  { -- 铁地下管道浇筑
+    name = "lars-iron-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-iron", amount = 300 },
+    },
+    time = 0.5,
+  },
+  { -- 铜管道浇筑
+    name = "lars-copper-pipe-casting",
+    results = {
+      { type = "item", name = "bob-copper-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 100 },
+    },
+    time = 2.5,
+  },
+  { -- 铜地下管道浇筑
+    name = "lars-copper-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-copper-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 300 },
+    },
+    time = 0.5,
+  },
+  { -- 青铜管道浇筑
+    name = "lars-bronze-pipe-casting",
+    results = {
+      { type = "item", name = "bob-bronze-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-bronze", amount = 100 },
+    },
+    time = 2.5,
+  },
+  { -- 青铜地下管道浇筑
+    name = "lars-bronze-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-bronze-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-bronze", amount = 300 },
+    },
+    time = 0.5,
+  },
+  { -- 钢管道浇筑
+    name = "lars-steel-pipe-casting",
+    results = {
+      { type = "item", name = "bob-steel-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-steel", amount = 100 },
+    },
+    time = 2.5,
+  },
+  { -- 钢地下管道浇筑
+    name = "lars-steel-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-steel-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-steel", amount = 300 },
+    },
+    time = 0.5,
+  },
+  { -- 塑料管道浇筑
+    name = "lars-plastic-pipe-casting",
+    results = {
+      { type = "item", name = "bob-plastic-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-plastic", amount = 100 },
+    },
+    time = 2.5,
+    tier = 2,
+  },
+  { -- 塑料地下管道浇筑
+    name = "lars-plastic-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-plastic-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-plastic", amount = 300 },
+    },
+    time = 0.5,
+    tier = 2,
+  },
+  { -- 黄铜管道浇筑
+    name = "lars-brass-pipe-casting",
+    results = {
+      { type = "item", name = "bob-brass-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-brass", amount = 100 },
+    },
+    time = 2.5,
+    tier = 2,
+  },
+  { -- 黄铜地下管道浇筑
+    name = "lars-brass-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-brass-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-brass", amount = 300 },
+    },
+    time = 0.5,
+    tier = 2,
+  },
+  { -- 钛管道浇筑
+    name = "lars-titanium-pipe-casting",
+    results = {
+      { type = "item", name = "bob-titanium-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-titanium", amount = 100 },
+    },
+    time = 2.5,
+    tier = 3,
+  },
+  { -- 钛地下管道浇筑
+    name = "lars-titanium-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-titanium-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "angels-liquid-molten-titanium", amount = 300 },
+    },
+    time = 0.5,
+    tier = 3,
+  },
+  { -- 钨管道浇筑
+    name = "lars-tungsten-pipe-casting",
+    results = {
+      { type = "item", name = "bob-tungsten-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "lars-liquid-molten-tungsten", amount = 100 },
+    },
+    time = 2.5,
+    tier = 4,
+  },
+  { -- 钨地下管道浇筑
+    name = "lars-tungsten-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-tungsten-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "lars-liquid-molten-tungsten", amount = 300 },
+    },
+    time = 0.5,
+    tier = 4,
+  },
+  { -- 钨铜管道浇筑
+    name = "lars-copper-tungsten-pipe-casting",
+    results = {
+      { type = "item", name = "bob-copper-tungsten-pipe", amount = 10 },
+    },
+    ingredients = {
+      { type = "fluid", name = "lars-liquid-molten-tungsten", amount = 60 },
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 120 },
+    },
+    time = 2.5,
+    tier = 4,
+  },
+  { -- 钨铜地下管道浇筑
+    name = "lars-copper-tungsten-pipe-to-ground-casting",
+    results = {
+      { type = "item", name = "bob-tungsten-pipe-to-ground", amount = 4 },
+    },
+    ingredients = {
+      { type = "fluid", name = "lars-liquid-molten-tungsten", amount = 180 },
+      { type = "fluid", name = "angels-liquid-molten-copper", amount = 360 },
+    },
+    time = 0.5,
+    tier = 4,
+  },
 }
 
 for _, casting_recipe in pairs(vulcanus_casting_list) do

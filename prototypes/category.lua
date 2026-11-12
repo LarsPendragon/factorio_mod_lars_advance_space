@@ -92,6 +92,10 @@ data:extend({
   },
   {
     type = "recipe-category",
+    name = "lars-special-rocket"
+  },
+  {
+    type = "recipe-category",
     name = "radiator"
   },
   {

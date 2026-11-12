@@ -114,7 +114,7 @@ end
 -- 轻质框架增产科技修改
 if data.raw.technology["low-density-structure-productivity"] then
   data.raw.technology["low-density-structure-productivity"].prerequisites = {
-    "lars-complicated-casting-1",
+    "lars-complicated-casting-2",
   }
 end
 

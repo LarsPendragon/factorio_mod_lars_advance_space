@@ -13,6 +13,10 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
+        recipe = "lars-toughened-glass",
+      },
+      {
+        type = "unlock-recipe",
         recipe = "lars-space-radiator",
       },
     },
