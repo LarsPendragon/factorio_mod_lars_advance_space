@@ -14,7 +14,7 @@ data:extend({
     {
       { type = "item", name = "bob-steel-pipe", amount = 2 },
       { type = "item", name = "bob-silicon-nitride", amount = 2 },
-      { type = "fluid", name = "lars-photon", amount = 50 },
+      --{ type = "fluid", name = "lars-photon", amount = 50 },
     },
     results = {{ type = "item", name = "rocket-part", amount = 1}},
     --allow_productivity = true
