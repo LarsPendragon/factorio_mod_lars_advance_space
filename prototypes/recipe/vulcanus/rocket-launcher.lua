@@ -1,5 +1,25 @@
 data:extend({
   {
+    -- 光帆燃料
+    type = "recipe",
+    name = "lars-light-sail-fuel",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-methane-gas.png",
+    icon_size = 64,
+    energy_required = 1,
+    --enabled = false,
+    --hide_from_player_crafting = true,
+    auto_recycle = false,
+    categories = {"lars-particle-process"},
+    ingredients =
+    {
+      { type = "item", name = "bob-steel-pipe", amount = 1 },
+      { type = "item", name = "bob-silicon-nitride", amount = 1 },
+      { type = "fluid", name = "lars-photon", amount = 50 },
+    },
+    results = {{ type = "fluid", name = "lars-light-sail-fuel", amount = 200}},
+    --allow_productivity = true
+  },
+  {
     -- 火箭组件
     type = "recipe",
     name = "lars-rocket-part-vulcanus",
@@ -12,15 +32,13 @@ data:extend({
     categories = {"lars-special-rocket"},
     ingredients =
     {
-      { type = "item", name = "bob-steel-pipe", amount = 2 },
-      { type = "item", name = "bob-silicon-nitride", amount = 2 },
-      --{ type = "fluid", name = "lars-photon", amount = 50 },
+      { type = "fluid", name = "lars-light-sail-fuel", amount = 100 },
     },
     results = {{ type = "item", name = "rocket-part", amount = 1}},
     --allow_productivity = true
   },
   {
-    -- 可回收火箭发射井
+    -- 光帆发射器
     type = "recipe",
     name = "lars-rocket-launcher-vulcanus",
     icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-rocket-launch-pad.png",

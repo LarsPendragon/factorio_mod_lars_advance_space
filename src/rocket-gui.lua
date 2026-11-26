@@ -1,4 +1,5 @@
 GUI_base = require("src.gui-base")
+Rocket_interface = require("src.rapid-rocket-launcher")
 
 local lars_rocket_vulcanus_name = "lars-rocket-launcher-vulcanus"
 local lars_rocket_vulcanus_root = lars_rocket_vulcanus_name
@@ -15,10 +16,10 @@ local function get_gui_settings(entity)
   return gui_settings[name]
 end
 
----@param weight integer
+---@param weight integer 重量（克）
 ---@return string
 local function weight_text(weight)
-  return "总重量: " .. weight .. " kg"
+  return "总重量: " .. weight/1000 .. " kg"
 end
 
 local lars_rocket_gui = {}
@@ -39,6 +40,19 @@ function lars_rocket_gui.get_platforms(force, surface)
     end
   end
   return platforms, labels
+end
+
+function lars_rocket_gui.get_platform_by_name(force, surface, name)
+  if not surface or not surface.name then return nil end
+  local planet = game.planets[surface.name]
+  if not (planet and force) then return nil end
+  local current_platforms = planet.get_space_platforms(force)
+  for _, platform in pairs(current_platforms) do
+    if platform.valid and platform.name == name and platform.hub and platform.hub.valid then
+      return platform
+    end
+  end
+  return nil
 end
 
 function lars_rocket_gui.open(player, entity)
@@ -67,17 +81,39 @@ function lars_rocket_gui.open(player, entity)
 
   --canvas.add{type = "button", name = "test_btn", caption = "测试按钮"}
   -- 平台选择
+  local platform_section_label = canvas.add{type = "label", name = "platform_section_label", caption = "发射目标平台"}
   local platform_section = canvas.add{type = "flow", name = "platform_section", direction = "horizontal"}
   local platforms, labels = lars_rocket_gui.get_platforms(player.force, entity.surface)
+
+  -- 判断是否已有选择的平台
+  local info = {}
+  if storage.lars_rocket_info then
+    info = storage.lars_rocket_info[entity.unit_number]
+  end
+  local saved_platform_name = info.target_platform_name or nil
+  if saved_platform_name then log("GUI: selected_platform: " .. saved_platform_name)
+  else log("GUI: selected_platform: nil") end
+  
+  local selectd_platform_index = 1
+  if saved_platform_name then
+    for i, label in ipairs(labels) do
+      if platforms[label] and platforms[label].name == saved_platform_name then
+        selectd_platform_index = i
+        break
+      end
+    end
+  end
+
   platform_section.add{
     type = "drop-down",
     name = "platform_section_list",
     items = labels,
-    selected_index = 1,
-    tags = {platforms = platforms},
+    selected_index = selectd_platform_index,
+    --tags = {platforms = platforms},
   }
 
   -- 载荷物品
+  local payload_label = canvas.add{type = "label", name = "payload_label", caption = "发射载荷（无法手动放入或取出）"}
   local scroll = canvas.add{type = "scroll-pane", name = "payload_scroll", direction = "vertical"}
   scroll.style.maximal_height = 200
   local scroll_table = scroll.add{type = "table", name = "payload_table", column_count = 10}
@@ -97,7 +133,7 @@ function lars_rocket_gui.update_gui(player, canvas, entity)
   local scroll = canvas["payload_scroll"]
   local payload_table = scroll and scroll["payload_table"]
   local weight_label = canvas["payload_weight"]
-  if not (scroll and table and weight_label) then
+  if not (scroll and payload_table and weight_label) then
     log("GUI: 未找到绘制区域")
     return
   end
@@ -158,7 +194,37 @@ function lars_rocket_gui.do_gui_update(event)
   end
 end
 
+function lars_rocket_gui.save_selected_platform(event)
+  if not (event.element.name == "platform_section_list") then return end
+  local player = game.get_player(event.player_index)
+  local canvas = player.gui.relative[lars_rocket_vulcanus_name]
+  if not canvas or not canvas.tags.unit_number then return end
+
+  local entity_id = canvas.tags.unit_number
+  local entity = Rocket_interface.get_rocket_entity_by_id(entity_id)
+  if not entity then
+    log("GUI: save selected platform entity nil")
+  return end
+  local selected_label = event.element.items[event.element.selected_index]
+  local platform = lars_rocket_gui.get_platform_by_name(player.force, entity.surface, selected_label)
+  if not platform then log("GUI: nil platform")
+  elseif not (platform.valid) then log("GUI: platform invalid") end
+
+  if platform and platform.valid then
+    log("GUI: save platform select")
+    if not (storage.lars_rocket_info and storage.lars_rocket_info[entity_id]) then return end
+    local container = storage.lars_rocket_info[entity_id].container
+    storage.lars_rocket_info[entity_id].target_platform_name = platform.name
+    Rocket_interface.sync_requests_to_container(container, platform)
+  end
+end
+
 -- 定时刷新gui
 script.on_nth_tick(15, function(event)
   lars_rocket_gui.do_gui_update(event)
+end)
+
+-- 更新选择平台
+script.on_event(defines.events.on_gui_selection_state_changed, function (event)
+  lars_rocket_gui.save_selected_platform(event)
 end)

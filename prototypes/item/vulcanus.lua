@@ -262,6 +262,22 @@ data:extend({
     max_temperature = 0,
     auto_barrel = false,
   },
+  {
+    -- 光帆燃料
+    type = "fluid",
+    name = "lars-light-sail-fuel",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-methane-gas.png",
+    icon_size = 64,
+    subgroup = "lars-particle",
+    order = "b[photon]-e[fluid]",
+    default_temperature = 0,
+    --heat_capacity = "1.0kJ",
+    base_color = { r = 0.8, g = 0.8, b = 0.8 },
+    flow_color = { r = 0.8, g = 0.8, b = 0.8 },
+    min_temperature = 0,
+    max_temperature = 0,
+    auto_barrel = false,
+  },
 })
 
 data:extend({

@@ -55,6 +55,16 @@ data:extend({
     open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
     close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
     impact_category = "metal-large",
+    fluid_boxes = {
+      {
+        production_type = "input",
+        pipe_picture = particlelaboratory_pipe_pictures,
+        pipe_covers = pipecoverspictures(),
+        volume = 500,
+        pipe_connections = {{ flow_direction="input", position = {0, 2.3}, direction = defines.direction.south }},
+        --secondary_draw_orders = { north = -1 }
+      },
+    },
     working_sound = {
       apparent_volume = 1.5,
       idle_sound = {
@@ -113,18 +123,32 @@ data:extend({
     },
     energy_usage = "100kW",
   },
+  -- 隐藏箱，用于存放发射器的发射载荷
   {
-    type = "container",
+    type = "logistic-container",
     name = "lars-rocket-payload-container-vulcanus",
     icon = "__base__/graphics/icons/steel-chest.png",
-    flags = {"placeable-neutral", "not-on-map"},
+    flags = {"placeable-neutral", "not-on-map", "hide-alt-info"},
     collision_box = {{0, 0}, {0, 0}},
     selection_box = {{0, 0}, {0, 0}},
+    hidden = true,
     inventory_size = 5,
+    logistic_mode = "requester",
     picture = {
       filename = "__core__/graphics/empty.png",
       width = 1,
       height = 1,
     },
+  },
+  {
+    type = "proxy-container",
+    name = "lars-rocket-payload-container-vulcanus_proxy",
+    icon = "__base__/graphics/icons/steel-chest.png",
+    flags = {"placeable-neutral", "not-on-map", "hide-alt-info"},
+    hidden = true,
+    collision_box = {{-2.3, -2.3}, {2.3, 2.3}},
+    selection_box = {{0, 0}, {0, 0}},
+    picture = { filename = "__core__/graphics/empty.png", width = 1, height = 1 },
+    draw_inventory_content = false,
   },
 })
