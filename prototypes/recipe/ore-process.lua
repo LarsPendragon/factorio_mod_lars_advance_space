@@ -120,4 +120,25 @@ data:extend({
     },
     always_show_products = true,
   },
+  {
+    -- 强化玻璃
+    type = "recipe",
+    name = "lars-toughened-glass",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-glass-stacked.png",
+    icon_size = 64,
+    categories = {"angels-casting-2"},
+    group = "angels-casting",
+    subgroup = "angels-glass-casting",
+    order = "e",
+    energy_required = 4,
+    enabled = false,
+    ingredients = {
+      { type = "item", name = "lars-titanium-dioxide", amount = 2 },
+      { type = "fluid", name = "angels-liquid-molten-glass", amount = 60 },
+    },
+    results = {
+      { type = "item", name = "lars-toughened-glass", amount = 4 },
+    },
+    always_show_products = true,
+  },
 })

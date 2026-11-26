@@ -145,7 +145,7 @@ script.on_event(defines.events.script_raised_revive, on_built_storage)
 -- 拆除时从字典移除（数组采用懒删除）
 local function on_removed_storage(event)
     local entity = event.entity
-    if entity and entity.valid and storage.lars_global.tracked_entities then
+    if entity and entity.valid and storage.lars_global.tracked_entities and storage.lars_global.tracked_entities[entity.unit_number] then
         --log("[C] Remove entity " .. entity.unit_number .. " from table done")
         storage.lars_global.tracked_entities[entity.unit_number] = nil
         -- 数组里暂不删除，处理时通过 valid 检查跳过，避免 O(n) 删除操作

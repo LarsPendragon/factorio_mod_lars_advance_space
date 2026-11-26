@@ -80,7 +80,7 @@ data:extend({
     --surface_conditions = {{property = "pressure", min = 0, max = 0}},
     ingredients = {
       { type = "item", name = "lars-photon-catalysator", amount = 2 },
-      { type = "item", name = "angels-ingot-silicon", amount = 2 },
+      { type = "item", name = "lars-toughened-glass", amount = 2 },
       { type = "fluid", name = "lava", amount = 200 },
     },
     results = {
@@ -146,6 +146,7 @@ data:extend({
     --auto_recycle = false,
     --surface_conditions = {{property = "pressure", min = 0, max = 0}},
     ingredients = {
+      { type = "item", name = "lars-toughened-glass", amount = 1 },
       { type = "item", name = "angels-solid-sodium", amount = 2 },
       { type = "item", name = "steel-plate", amount = 4 },
     },

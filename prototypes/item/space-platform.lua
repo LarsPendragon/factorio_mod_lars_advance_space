@@ -16,4 +16,15 @@ data:extend({
     max_temperature = 0,
     auto_barrel = false,
   },
+  {
+    -- 强化玻璃
+    type = "item",
+    name = "lars-toughened-glass",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-glass-stacked.png",
+    icon_size = 64,
+    subgroup = "angels-glass-casting",
+    order = "e",
+    stack_size = 100,
+    weight = 1 * kg,
+  },
 })

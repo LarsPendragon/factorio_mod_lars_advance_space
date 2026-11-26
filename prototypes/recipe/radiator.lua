@@ -26,7 +26,7 @@ data:extend({
     ingredients = {
       { type = "item", name = "copper-plate", amount = 10 },
       { type = "item", name = "bob-silicon-nitride", amount = 5 },
-      { type = "item", name = "bob-glass", amount = 5 },
+      { type = "item", name = "lars-toughened-glass", amount = 5 },
     },
     results = { { type = "item", name = "lars-space-radiator", amount = 1 } },
     order = "a",

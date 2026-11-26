@@ -147,7 +147,7 @@ data:extend({
     weight = 50 * kg,
   },
   {
-    -- TFMG mod 中的散热片，用于测试
+    -- 太空散热片
     type = "assembling-machine",
     name = "lars-space-radiator",
     icon = "__TFMG-thermal__/graphics/small-radiator/small-radiator-icon.png",
@@ -158,17 +158,17 @@ data:extend({
     max_health = 250,
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = small_radiator_connector,
-    collision_box = {{-0.8, -8.8}, {0.8, 0.8}},
+    collision_box = {{-0.8, -8.8}, {0.8, 0.5}},
     selection_box = {{-1, -9}, {1, 1.6}},
     tile_height = 1,
     tile_width = 1,
     tile_buildability_rules =
     {
-      {area = {{-0.8, -8.8}, {0.8, 0.8}}, required_tiles = {layers = {empty_space = true}}, remove_on_collision = true},
-      {area = {{-0.8, 1.2}, {0.8, 1.8}}, required_tiles = {layers = {ground_tile = true}}, colliding_tiles = {layers = {empty_space = true}}, remove_on_collision = true},
+      {area = {{-1, -9}, {1, 0}}, required_tiles = {layers = {empty_space = true}}, remove_on_collision = true},
+      {area = {{-1, 0.6}, {1, 1.5}}, required_tiles = {layers = {ground_tile = true}}, colliding_tiles = {layers = {empty_space = true}}, remove_on_collision = true},
     },
     surface_conditions = {{property = "gravity",min = 0,max = 0}},
-    collision_mask = {layers={is_object = true, is_lower_object = true, transport_belt = true, platform = true}},
+    collision_mask = {layers={is_object = true, is_lower_object = true, transport_belt = true}},
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     impact_category = "metal",
@@ -221,7 +221,7 @@ data:extend({
       connections =
       {
         {
-          position = {0, 1},
+          position = {0, 0},
           direction = defines.direction.south
         },
       },
