@@ -17,10 +17,10 @@ data:extend({
       { type = "fluid", name = "lars-photon", amount = 50 },
     },
     results = {{ type = "fluid", name = "lars-light-sail-fuel", amount = 200}},
-    --allow_productivity = true
+    allow_productivity = false,
   },
   {
-    -- 火箭组件
+    -- 火箭组件，光帆用
     type = "recipe",
     name = "lars-rocket-part-vulcanus",
     icon = "__base__/graphics/icons/rocket-part.png",
@@ -34,8 +34,8 @@ data:extend({
     {
       { type = "fluid", name = "lars-light-sail-fuel", amount = 100 },
     },
-    results = {{ type = "item", name = "rocket-part", amount = 1}},
-    --allow_productivity = true
+    results = {{ type = "item", name = "lars-launch-token", amount = 1}},
+    allow_productivity = false,
   },
   {
     -- 光帆发射器

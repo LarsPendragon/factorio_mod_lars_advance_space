@@ -278,6 +278,19 @@ data:extend({
     max_temperature = 0,
     auto_barrel = false,
   },
+  {
+    -- 火箭组件（光帆发射器token）
+    type = "item",
+    name = "lars-launch-token",
+    icon = "__base__/graphics/icons/rocket-part.png",
+    icon_size = 64,
+    subgroup = "space-interactors",
+    order = "a[rocket-silo]-d1",
+    stack_size = 1,
+    --flags = { "hidden" },
+    hidden_in_factoriopedia = true,
+    weight = 1000,
+  },
 })
 
 data:extend({
