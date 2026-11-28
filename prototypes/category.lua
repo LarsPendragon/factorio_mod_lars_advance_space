@@ -66,6 +66,12 @@ data:extend({
     group = "bob-resource-products",
     order = "h-d[lava-casting]"
   },
+  {
+    type = "item-subgroup",
+    name = "ammo-effects",
+    group = "effects",
+    order = "b-b"
+  },
 })
 
 -- RECIPE CATEGORY

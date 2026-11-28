@@ -554,4 +554,33 @@ data:extend({
       },
     },
   },
+  {
+    -- 光帆发射器
+    type = "technology",
+    name = "lars-rocket-launcher-vulcanus",
+    icon_size = 128,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/technology-delivery-cannon.png",
+    effects = {
+      {type = "unlock-recipe", recipe = "lars-light-sail-fuel"},
+      {type = "unlock-recipe", recipe = "lars-rocket-launcher-vulcanus"},
+    },
+    prerequisites = {
+      "metallurgic-science-pack",
+      "bob-nitinol-processing",
+      "bob-tungsten-processing",
+      "bob-laser-turrets-3",
+    },
+    unit = {
+      count = 1000,
+      time = 45,
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 },
+        { "metallurgic-science-pack", 1 },
+      },
+    },
+  },
 })

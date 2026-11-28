@@ -123,8 +123,8 @@ data:extend({
     },
     energy_usage = "100kW",
   },
-  -- 隐藏箱，用于存放发射器的发射载荷
   {
+    -- 隐藏箱，用于存放发射器的发射载荷
     type = "logistic-container",
     name = "lars-rocket-payload-container-vulcanus",
     icon = "__base__/graphics/icons/steel-chest.png",
@@ -141,6 +141,7 @@ data:extend({
     },
   },
   {
+    -- 代理箱，用于处理机械臂交互
     type = "proxy-container",
     name = "lars-rocket-payload-container-vulcanus_proxy",
     icon = "__base__/graphics/icons/steel-chest.png",
@@ -150,5 +151,114 @@ data:extend({
     selection_box = {{0, 0}, {0, 0}},
     picture = { filename = "__core__/graphics/empty.png", width = 1, height = 1 },
     draw_inventory_content = false,
+  },
+  {
+    -- 发射器的发射特效（光束）
+    type = "explosion",
+    name = "lars-rocket-launcher-vulcanus-beam",
+    subgroup = "ammo-effects",
+    hidden = true,
+    animations = {
+      {
+        filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-beam.png",
+        frame_count = 6,
+        height = 1,
+        priority = "extra-high",
+        width = 187
+      }
+    },
+    beam = true,
+    flags = { "not-on-map", "placeable-off-grid"},
+    light = {
+      color = {
+        b = 0.8,
+        g = 1,
+        r = 0.9
+      },
+      intensity = 1,
+      size = 20
+    },
+    rotate = true,
+    smoke = "smoke-fast",
+    smoke_count = 2,
+    smoke_slow_down_factor = 1,
+    sound = {
+      {
+        filename = "__base__/sound/fight/old/huge-explosion.ogg",
+        volume = 1
+      }
+    },
+  },
+  {
+    -- 发射器载荷降落
+    type = "artillery-projectile",
+    name = "lars-rocket-launcher-vulcanus-capsule-artillery-projectile",
+    subgroup = "ammo-effects",
+    hidden = true,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-delivery-cannon-capsule.png",
+    icon_size = 64,
+    acceleration = 0,
+    rotatable = false,
+    picture = {
+      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-capsule.png",
+      width = 58,
+      height = 94,
+      priority = "high",
+      shift = { 0, 0 },
+      scale = 0.25,
+    },
+    reveal_map = false,
+    map_color = {r=0.3, g=0.6, b=0.1},
+    chart_picture =
+    {
+      filename = "__base__/graphics/entity/artillery-projectile/artillery-shoot-map-visualization.png",
+      flags = { "icon" },
+      frame_count = 1,
+      width = 64,
+      height = 64,
+      priority = "high",
+      scale = 0.20,
+      tint = {r=0.3, g=0.6, b=0.1},
+    },
+    flags = { "not-on-map", "placeable-off-grid"},
+    light = { intensity = 0.2, size = 10},
+    smoke = {
+      {
+        deviation = {
+          0.15,
+          0.15
+        },
+        frequency = 1,
+        name = "smoke-fast",
+        --name = "smoke-explosion-particle",
+        --name = "soft-fire-smoke", -- lasts longer
+        position = {0,0},
+        slow_down_factor = 1,
+        starting_frame = 3,
+        starting_frame_deviation = 5,
+        starting_frame_speed = 0,
+        starting_frame_speed_deviation = 5
+      }
+    },
+  },
+  {
+    type = "projectile",
+    name = "lars-rocket-launcher-vulcanus-capsule-shadow",
+    subgroup = "ammo-effects",
+    hidden = true,
+    acceleration = 0,
+    rotatable = false,
+    animation = {
+      draw_as_shadow = true,
+      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-capsule-shadow.png",
+      frame_count = 1,
+      width = 98,
+      height = 50,
+      line_length = 1,
+      priority = "high",
+      shift = { 0, 0 },
+      scale = 0.5,
+    },
+    flags = { "not-on-map", "placeable-off-grid"},
   },
 })

@@ -97,6 +97,7 @@ function lars_rocket_gui.open(player, entity)
     --tags = {platforms = platforms},
   }
 
+  local weight_limit_label = canvas.add{type = "label", name = "weight_limit_label", caption = "发射限重：" .. Rocket_interface.get_payload_max_weight(entity.name)/1000 .. "kg"}
   -- 发射状态
   local status, launch_cnt = Rocket_interface.get_status_for_gui(entity.unit_number)
   local status_label = canvas.add{type = "label", name = "status_label", caption = "发射状态：" .. status}

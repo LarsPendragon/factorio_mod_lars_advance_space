@@ -1,4 +1,5 @@
 require("prototypes.category")
+require("prototypes.sound")
 require("prototypes.thermal")
 
 --require("prototypes.entity.resource")

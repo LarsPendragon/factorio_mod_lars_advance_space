@@ -14,7 +14,7 @@ local is_lars_rapid_rocket_container = {
 local rocket_payload_weight = {
   ["lars-rocket-payload-container-vulcanus"] = 100000, --100kg
 }
-local default_payload_weight = 50000 -- 50kg
+local default_payload_weight = 100000
 local default_launch_token = "lars-launch-token"
 
 local Status_No_Target = "no_target"
@@ -65,6 +65,12 @@ function lars_rapid_rocket.get_rocket_entity_by_id(entity_id)
     return storage.lars_rocket_info[entity_id].launcher_entity
   end
   return game.get_entity_by_unit_number(tonumber(entity_id))
+end
+
+
+function lars_rapid_rocket.get_payload_max_weight(launcher_name)
+  local max_weight = rocket_payload_weight[launcher_name] or default_payload_weight
+  return max_weight
 end
 
 
@@ -440,6 +446,45 @@ function lars_rapid_rocket.on_inventory_changed_trigger(launcher, container)
 end
 
 
+---根据载重限制选取载荷物品
+---@param cargo any 发射器载荷cargo inventory
+---@param max_weight number 载荷限重(g)
+---@return table collection 选取的要发射的载荷
+---@return boolean not_empty 是否为有物品的载荷（用于判断状态）
+function lars_rapid_rocket.collect_payload_within_weight_limit(cargo, max_weight)
+  local collection = {}
+  local current_weight, not_empty_cargo = 0, false
+  for i = 1, #cargo do
+    local stack = cargo[i]
+    if not(stack and stack.valid_for_read) then
+      goto continue
+    end
+    not_empty_cargo = true
+    local proto = prototypes.item[stack.name]
+    local unit_weight = proto and proto.weight or 1000001 -- 没设定重量就不允许发射
+    local allowed_cnt = stack.count
+    -- 计算能发射的数量
+    if unit_weight > 0 then
+      local cnt_by_weight = math.floor((max_weight - current_weight) / unit_weight)
+      allowed_cnt = math.min(stack.count, cnt_by_weight)
+    end
+    if allowed_cnt > 0 then
+      table.insert(collection, {
+        name = stack.name, count = allowed_cnt, quality = stack.quality
+      })
+      current_weight = current_weight + (allowed_cnt * unit_weight)
+    end
+
+    -- 如果这一格的物品没拿完或达到重量限制则停止拿取（没拿完表示再拿就超重了）
+    if allowed_cnt < stack.count or current_weight >= max_weight then
+      break
+    end
+    ::continue::
+  end
+  return collection, not_empty_cargo
+end
+
+
 function lars_rapid_rocket.get_hub_inventory(platform)
   if not (platform and platform.hub and platform.hub.valid) then return nil end
   local inv = platform.hub.get_inventory(defines.inventory.chest)
@@ -450,22 +495,11 @@ end
 
 ---判断target inventory是否有空间接受cargo中的物品
 ---@param target any target inventory (hub)
----@param cargo any launcher cargo inventory
+---@param payload any 选取要发射的物品列表
 ---@return boolean can_fit
-function lars_rapid_rocket.inventory_can_fit(target, cargo)
-  if not (target and cargo) then return false end
-  local need = {}
-  for _, items in pairs(cargo.get_contents()) do
-    local key = items.name .. "|" .. tostring(items.quality)
-    need[key] = need[key] or {
-      name = items.name,
-      quality = items.quality,
-      count = 0,
-    }
-    need[key].count = need[key].count + items.count
-  end
-
-  for _, entry in pairs(need) do
+function lars_rapid_rocket.inventory_can_fit(target, payload)
+  if not (target and payload) then return false end
+  for _, entry in ipairs(payload) do
     if target.get_insertable_count{name = entry.name, quality = entry.quality} < entry.count then
       return false
     end
@@ -477,12 +511,12 @@ end
 ---移动整舱物品
 ---@param target any 太空平台目标inventory
 ---@param cargo any 发射器inventory
----@return boolean all_moved 是否全部转移
+---@param payload table 选取即将发射的载荷
 ---@return integer moved_count 转移物品数量
-function lars_rapid_rocket.inventory_move(target, cargo)
-  if not (target and cargo) then return false, 0 end
+function lars_rapid_rocket.inventory_move(target, cargo, payload)
+  if not (target and cargo and payload) then return 0 end
   local is_all, moved_cnt = true, 0
-  for _, items in pairs(cargo.get_contents()) do
+  for _, items in ipairs(payload) do
     local insert_cnt = target.insert{
       name = items.name,
       quality = items.quality,
@@ -495,9 +529,8 @@ function lars_rapid_rocket.inventory_move(target, cargo)
     }
     moved_cnt = moved_cnt + insert_cnt
     log("SFL: move inv :" .. items.name .. " " .. insert_cnt)
-    if insert_cnt < items.count then is_all = false end
   end
-  return is_all, moved_cnt
+  return moved_cnt
 end
 
 
@@ -505,41 +538,44 @@ end
 ---@param launcher any launcher entity
 ---@return string status
 ---@return any platform
+---@return table payload 根据载重选择的发射载荷
 function lars_rapid_rocket.get_status(launcher)
   if not (launcher and launcher.valid) then
-    return Status_Error, nil
+    return Status_Error, nil, {}
   end
   local RO_info = get_READ_ONLY_rocket_info(launcher)
   if not RO_info.container then
-    return Status_Error, nil
+    return Status_Error, nil, {}
   end
   local container_inv = RO_info.container.get_inventory(defines.inventory.chest)
   if not container_inv then
-    return Status_Error, nil
+    return Status_Error, nil, {}
   end
 
   if not (RO_info and RO_info.target_platform_name) then
-    return Status_No_Target, nil
+    return Status_No_Target, nil, {}
   end
   local platform = lars_rapid_rocket.get_platform_by_name(launcher.force, launcher.surface, RO_info.target_platform_name)
   if not platform then
-    return Status_No_Target, nil
+    return Status_No_Target, nil, {}
   end
 
-  if lars_rapid_rocket.is_payload_empty(launcher) then
-    return Status_Empty, platform
+  local max_weight = lars_rapid_rocket.get_payload_max_weight(launcher.name)
+  local payload, not_empty = lars_rapid_rocket.collect_payload_within_weight_limit(container_inv, max_weight)
+  if not not_empty then
+    return Status_Empty, platform, {}
   end
 
-  local max_weight = rocket_payload_weight[launcher.name] or default_payload_weight
-  if lars_rapid_rocket.payload_weight(launcher) > max_weight then
-    return Status_Overweight, platform
+  if #payload == 0 then
+    -- 货舱有物品但选取数量为0，表示货舱里的物品超重
+    return Status_Overweight, platform, {}
   end
 
   local hub_inv = lars_rapid_rocket.get_hub_inventory(platform)
-  if not lars_rapid_rocket.inventory_can_fit(hub_inv, container_inv) then
-    return Status_Hub_Full, platform
+  if not lars_rapid_rocket.inventory_can_fit(hub_inv, payload) then
+    return Status_Hub_Full, platform, {}
   end
-  return Status_Waiting, platform
+  return Status_Waiting, platform, payload
 end
 
 
@@ -548,8 +584,8 @@ end
 ---@return boolean is_success 是否成功发射
 function lars_rapid_rocket.try_launch(launcher_info)
   if not (launcher_info and launcher_info.launcher_entity and launcher_info.container) then return false end
-  --log("SFL: try launch")
-  local status, platform = lars_rapid_rocket.get_status(launcher_info.launcher_entity)
+  log("SFL: try launch")
+  local status, platform, payload = lars_rapid_rocket.get_status(launcher_info.launcher_entity)
   log("SFL: status ensure: " .. status)
   local launcher_id = launcher_info.launcher_entity.unit_number
   storage.lars_rocket_info[launcher_id].status = status -- 更新状态
@@ -559,8 +595,8 @@ function lars_rapid_rocket.try_launch(launcher_info)
   local container_inv = launcher_info.container.get_inventory(defines.inventory.chest)
   if not (hub_inv and container_inv) then return false end
   log("SFL: do launch")
-  local ok, moved_cnt = lars_rapid_rocket.inventory_move(hub_inv, container_inv)
-  log("SFL: launched, ok: " .. tostring(ok) .. ", moved count " .. moved_cnt)
+  local moved_cnt = lars_rapid_rocket.inventory_move(hub_inv, container_inv, payload)
+  log("SFL: launched, moved count " .. moved_cnt)
   if moved_cnt <= 0 then
     storage.lars_rocket_info[launcher_id].status = Status_Hub_Full
     return false
@@ -569,11 +605,8 @@ function lars_rapid_rocket.try_launch(launcher_info)
   storage.lars_rocket_info[launcher_id].status = Status_Done
   storage.lars_rocket_info[launcher_id].launch_count = (storage.lars_rocket_info[launcher_id].launch_count or 0) + 1
 
-  -- 绘制烟雾
-  launcher_info.launcher_entity.surface.create_trivial_smoke{
-    name = "smoke-fast",
-    position = launcher_info.launcher_entity.position,
-  }
+  -- 播放发射特效
+  lars_rapid_rocket.play_launch_effect(launcher_info.launcher_entity, platform)
   return true
 end
 
@@ -605,6 +638,53 @@ function lars_rapid_rocket.scan_for_launch(event)
 end
 
 
+function lars_rapid_rocket.play_launch_effect(launcher, platform)
+  if not (launcher and launcher.valid and platform and platform.valid and platform.hub and platform.hub.valid) then
+    return
+  end
+  local launch_surface = launcher.surface
+  local target_surface = platform.hub.surface
+  local target_position = platform.hub.position
+  local fall_altitude = 80
+  local fall_time = 60 -- 1秒
+  local speed = fall_altitude / fall_time
+
+  -- 播放音效
+  launch_surface.play_sound{
+    path = "lars-rocket-launcher-vulcanus-launch-sound",
+    position = launcher.position,
+  }
+
+  -- 生成光束和烟雾
+  launch_surface.create_entity{
+    name = "lars-rocket-launcher-vulcanus-beam",
+    position = {x = launcher.position.x-0.4, y = launcher.position.y-6},
+    target = {x = launcher.position.x-0.4, y = launcher.position.y-100},
+  }
+  launcher.create_build_effect_smoke()
+
+  -- 生成下落胶囊
+  local projectile_start_position = {x = target_position.x, y = target_position.y - fall_altitude}
+  local shadow_start_position = {x = target_position.x + fall_altitude, y = target_position.y}
+  target_surface.create_entity{
+    name = "lars-rocket-launcher-vulcanus-capsule-artillery-projectile",
+    position = projectile_start_position,
+    target = target_position,
+    force = launcher.force,
+    speed = speed
+  }
+  
+  target_surface.create_entity{
+    name = "lars-rocket-launcher-vulcanus-capsule-shadow",
+    position = shadow_start_position,
+    target = target_position,
+    force = launcher.force,
+    speed = speed
+  }
+  target_surface.request_to_generate_chunks(target_position, 2)
+end
+
+
 -- >>>事件注册<<<
 script.on_init(function()
   storage.lars_rocket_info = {}
@@ -625,7 +705,7 @@ script.on_event(defines.events.on_entity_died, lars_rapid_rocket.on_remove)
 script.on_event(defines.events.script_raised_destroy, lars_rapid_rocket.on_remove)
 -- 3. 定时
 script.on_nth_tick(10, function(event)
-  lars_rapid_rocket.check_inventory_changed(event)
+  --lars_rapid_rocket.check_inventory_changed(event)
   lars_rapid_rocket.scan_for_launch(event)
 end)
 
