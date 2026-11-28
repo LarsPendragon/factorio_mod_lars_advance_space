@@ -14,10 +14,10 @@ data:extend({
   {
     type = "item",
     name = "lars-rocket-launcher-vulcanus",
-    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-rocket-launch-pad.png",
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-delivery-cannon.png",
     icon_size = 64,
     subgroup = "space-interactors",
-    order = "a[rocket-silo]-c",
+    order = "a[rocket-silo]-d",
     inventory_move_sound = mechanical_large_inventory_move,
     pick_sound = mechanical_large_inventory_pickup,
     drop_sound = mechanical_large_inventory_move,
@@ -26,405 +26,239 @@ data:extend({
     stack_size = 1
   },
   {
-    type = "rocket-silo",
+    type = "assembling-machine",
     name = "lars-rocket-launcher-vulcanus",
+    minable = {
+      mining_time = 0.5,
+      result = "lars-rocket-launcher-vulcanus",
+    },
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-delivery-cannon.png",
+    icon_size = 64,
     subgroup = "space-interactors",
-    rocket_entity = "lars-cargo-rocket",
+    order = "a[rocket-silo]-d",
+    max_health = 1500,
+    flags = {"placeable-neutral","placeable-player", "player-creation"},
     fixed_recipe = "lars-rocket-part-vulcanus",
-    order = "a[rocket-silo]-c",
-    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-rocket-launch-pad.png",
-    flags = {"placeable-player", "player-creation"},
-    minable = {mining_time = 1, result = "lars-rocket-launcher-vulcanus"},
-    selectable_in_game = true,
-    selection_box = {{-4.65, -4.65}, {4.65, 4.65}},
-    collision_box = {{-4.65, -4.65}, {4.65, 4.65}},
-    collision_mask = {layers={}},
-    crafting_categories = {"lars-special-rocket"},
-    rocket_parts_required = 1,
-    lift_weight = 50 * kg,
-    launch_to_space_platforms = true,
-    to_be_inserted_to_rocket_inventory_size = 2,
-    logistic_trash_inventory_size = 2,
-    surface_conditions = {{property = "solar-power", min = 400}},
-    crafting_speed = 2.5,
-    rocket_result_inventory_size = 0,
-    show_recipe_icon = false,
-    --module_slots = 2,
-    max_health = 3000,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-    hole_clipping_box = { {-2.75, -1.15 + silo_offset_px/32}, {2.75, 2.25 + silo_offset_px/32} },
-    rocket_quick_relaunch_start_offset = -0.625,
-    cargo_station_parameters =
-    {
-      hatch_definitions = {
-          {
-            hatch_graphics = nil,
-            offset = {0, 0},
-            pod_shadow_offset = {0, 0}; --flush with ground
-            cargo_unit_entity_to_spawn = nil, --silo defines the lift pod
-            receiving_cargo_units = {}
-          }
-       },
-    },
-    fluid_boxes = {
-      {
-        volume = 100,
-        pipe_covers = pipecoverspictures(),
-        filter = "lars-photon",
-        production_type = "input",
-        pipe_connections =
-        {
-          { flow_direction = "input", position = { 0, -4.6}, direction = defines.direction.north },
-        },
-      },
-      {
-        volume = 100,
-        pipe_covers = pipecoverspictures(),
-        production_type = "output",
-        pipe_connections =
-        {
-          { flow_direction = "output", position = { 0, 4.6}, direction = defines.direction.south },
-        },
-      },
-    },
+    alert_icon_shift = util.by_pixel(0, -12),
+    collision_box = {{-2.3, -2.3}, {2.3, 2.3}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    drawing_box_vertical_extension = 5,
+    se_allow_in_space = true,
     resistances =
     {
+      { type = "explosion", percent = 99 },
+      { type = "impact", percent = 99 },
+      { type = "fire", percent = 99 },
+    },
+    open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.5},
+    close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.5},
+    impact_category = "metal-large",
+    fluid_boxes = {
       {
-        type = "fire",
-        percent = 60
+        production_type = "input",
+        pipe_picture = particlelaboratory_pipe_pictures,
+        pipe_covers = pipecoverspictures(),
+        volume = 500,
+        pipe_connections = {{ flow_direction="input", position = {0, 2.3}, direction = defines.direction.south }},
+        --secondary_draw_orders = { north = -1 }
       },
-      {
-        type = "impact",
-        percent = 60
+    },
+    working_sound = {
+      apparent_volume = 1.5,
+      idle_sound = {
+        filename = "__base__/sound/idle1.ogg",
+        volume = 0.6
+      },
+      sound = {
+        {
+          filename = "__base__/sound/assembling-machine-t1-1.ogg",
+          volume = 0.8
+        },
+        {
+          filename = "__base__/sound/assembling-machine-t1-2.ogg",
+          volume = 0.8
+        }
       }
     },
-
-    energy_source = {
-      type = "electric",
-      usage_priority = "secondary-input",
+    collision_mask = {
+      layers = {
+        water_tile = true,
+        item = true,
+        object = true,
+        player = true,
+      },
     },
-    active_energy_usage = "1750kW",
-    energy_usage = "250kW",
-    idle_energy_usage = "100kW",
-    lamp_energy_usage = "0kW",
-
-    times_to_blink = 3,
-    light_blinking_speed = 1 / (3 * 60),
-    door_opening_speed = 1,
-    silo_fade_out_start_distance = 9, --8,
-    silo_fade_out_end_distance = 16, --15,
-    rocket_rising_delay = 1,
-    launch_wait_time = 1,
-
-    base_engine_light =
+    graphics_set = {
+      animation =
+      {
+        layers =
+        {
+          {
+            filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon.png",
+            frame_count = 1,
+            line_length = 1,
+            width = 320,
+            height = 640,
+            shift = {0,-2.5},
+            scale = 0.5,
+          },
+          {
+            draw_as_shadow = true,
+            filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-shadow.png",
+            shift = { 1.25, 1/32 },
+            width = 470,
+            height = 306,
+            scale = 0.5,
+          }
+        }
+      },
+    },
+    crafting_categories = {"delivery-cannon", "lars-special-rocket"},
+    crafting_speed = 1,
+    energy_source =
     {
+      type = "void",
+    },
+    energy_usage = "100kW",
+  },
+  {
+    -- 隐藏箱，用于存放发射器的发射载荷
+    type = "logistic-container",
+    name = "lars-rocket-payload-container-vulcanus",
+    icon = "__base__/graphics/icons/steel-chest.png",
+    flags = {"placeable-neutral", "not-on-map", "hide-alt-info"},
+    collision_box = {{0, 0}, {0, 0}},
+    selection_box = {{0, 0}, {0, 0}},
+    hidden = true,
+    inventory_size = 5,
+    logistic_mode = "requester",
+    picture = {
+      filename = "__core__/graphics/empty.png",
+      width = 1,
+      height = 1,
+    },
+  },
+  {
+    -- 代理箱，用于处理机械臂交互
+    type = "proxy-container",
+    name = "lars-rocket-payload-container-vulcanus_proxy",
+    icon = "__base__/graphics/icons/steel-chest.png",
+    flags = {"placeable-neutral", "not-on-map", "hide-alt-info"},
+    hidden = true,
+    collision_box = {{-2.3, -2.3}, {2.3, 2.3}},
+    selection_box = {{0, 0}, {0, 0}},
+    picture = { filename = "__core__/graphics/empty.png", width = 1, height = 1 },
+    draw_inventory_content = false,
+  },
+  {
+    -- 发射器的发射特效（光束）
+    type = "explosion",
+    name = "lars-rocket-launcher-vulcanus-beam",
+    subgroup = "ammo-effects",
+    hidden = true,
+    animations = {
+      {
+        filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-beam.png",
+        frame_count = 6,
+        height = 1,
+        priority = "extra-high",
+        width = 187
+      }
+    },
+    beam = true,
+    flags = { "not-on-map", "placeable-off-grid"},
+    light = {
+      color = {
+        b = 0.8,
+        g = 1,
+        r = 0.9
+      },
       intensity = 1,
-      size = 25,
-      shift = {0, 1.5 + silo_offset_px/32}
+      size = 20
     },
-
-
-    shadow_sprite = 
+    rotate = true,
+    smoke = "smoke-fast",
+    smoke_count = 2,
+    smoke_slow_down_factor = 1,
+    sound = {
+      {
+        filename = "__base__/sound/fight/old/huge-explosion.ogg",
+        volume = 1
+      }
+    },
+  },
+  {
+    -- 发射器载荷降落
+    type = "artillery-projectile",
+    name = "lars-rocket-launcher-vulcanus-capsule-artillery-projectile",
+    subgroup = "ammo-effects",
+    hidden = true,
+    icon = "__lars_advance_space__/graphics/from-other-mods/space-exploration/icon-delivery-cannon-capsule.png",
+    icon_size = 64,
+    acceleration = 0,
+    rotatable = false,
+    picture = {
+      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-capsule.png",
+      width = 58,
+      height = 94,
+      priority = "high",
+      shift = { 0, 0 },
+      scale = 0.25,
+    },
+    reveal_map = false,
+    map_color = {r=0.3, g=0.6, b=0.1},
+    chart_picture =
     {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/00-rocket-silo-shadow.png",
-      priority = "medium",
-      width = 410,
-      height = 510,
+      filename = "__base__/graphics/entity/artillery-projectile/artillery-shoot-map-visualization.png",
+      flags = { "icon" },
+      frame_count = 1,
+      width = 64,
+      height = 64,
+      priority = "high",
+      scale = 0.20,
+      tint = {r=0.3, g=0.6, b=0.1},
+    },
+    flags = { "not-on-map", "placeable-off-grid"},
+    light = { intensity = 0.2, size = 10},
+    smoke = {
+      {
+        deviation = {
+          0.15,
+          0.15
+        },
+        frequency = 1,
+        name = "smoke-fast",
+        --name = "smoke-explosion-particle",
+        --name = "soft-fire-smoke", -- lasts longer
+        position = {0,0},
+        slow_down_factor = 1,
+        starting_frame = 3,
+        starting_frame_deviation = 5,
+        starting_frame_speed = 0,
+        starting_frame_speed_deviation = 5
+      }
+    },
+  },
+  {
+    type = "projectile",
+    name = "lars-rocket-launcher-vulcanus-capsule-shadow",
+    subgroup = "ammo-effects",
+    hidden = true,
+    acceleration = 0,
+    rotatable = false,
+    animation = {
       draw_as_shadow = true,
-      slice = 2,
-      shift = util.by_pixel(174, 36),
-      scale = 0.5
+      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/delivery-cannon/delivery-cannon-capsule-shadow.png",
+      frame_count = 1,
+      width = 98,
+      height = 50,
+      line_length = 1,
+      priority = "high",
+      shift = { 0, 0 },
+      scale = 0.5,
     },
-
-    hole_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/01-rocket-silo-hole.png",
-      width = 400,
-      height = 270,
-      shift = util.by_pixel(-5, 16 + silo_offset_px),
-      scale = 0.5
-    },
-    hole_light_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/01-rocket-silo-hole-light.png",
-      width = 400,
-      height = 270,
-      shift = util.by_pixel(-5, 16 + silo_offset_px),
-      tint = {1,1,1,0},
-      scale = 0.5
-    },
-
-    rocket_shadow_overlay_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/03-rocket-over-shadow-over-rocket.png",
-      width = 426,
-      height = 288,
-      shift = util.by_pixel(-2, 21 + silo_offset_px),
-      scale = 0.5
-    },
-    rocket_glow_overlay_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/03-rocket-over-glow.png",
-      blend_mode = "additive",
-      width = 434,
-      height = 446,
-      shift = util.by_pixel(-3, 36 + silo_offset_px),
-      scale = 0.5
-    },
-
-
-    door_back_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/04-door-back.png",
-      width = 312,
-      height = 286,
-      shift = util.by_pixel(28.5, 4 + silo_offset_px),
-      scale = 0.5
-    },
-    door_back_open_offset = {1.8, -1.8 * 0.43299225},
-    door_front_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/05-door-front.png",
-      width = 332,
-      height = 300,
-      shift = util.by_pixel(-34.5, 24.5 + silo_offset_px),
-      scale = 0.5
-    },
-    door_front_open_offset = {-1.8, 1.8 * 0.43299225},
-
-    base_day_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/06-rocket-silo.png",
-      width = 704,
-      height = 736,
-      shift = util.by_pixel(0, -8),
-      scale = 0.5
-    },
-
-
-    red_lights_back_sprites =
-    {
-      layers =
-      {
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {1.34375, 0.28125-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {2.3125, 0.9375-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {2.65625, 1.90625-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {-2.65625, 1.90625-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {-2.3125, 0.9375-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {-1.34375, 0.28125-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {0, 0-1.375 + silo_offset_px/32},
-          scale = 0.5
-        }
-      }
-    },
-
-    red_lights_front_sprites =
-    {
-      layers =
-      {
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {2.3125, 2.8125-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {1.34375, 3.40625-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {0, 3.75-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {0, 3.75-1.375 + silo_offset_px/32},
-          scale = 0.5
-        },
-        {
-          filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/07-red-lights-back/red-light.png",
-          width = 32,
-          height = 32,
-          shift = {-2.3125, 2.8125-1.375 + silo_offset_px/32},
-          scale = 0.5
-        }
-      }
-    },
-    satellite_animation =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/15-rocket-silo-turbine.png",
-      priority = "medium",
-      width = 392/4,
-      height = 288/8,
-      frame_count = 4,
-      line_length = 4,
-      animation_speed = 0.4,
-      shift = util.by_pixel(-114, -4),
-      scale = 0.5
-    },
-
-    arm_01_back_animation =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/08-rocket-silo-arms-back.png",
-      priority = "medium",
-      width = 128,
-      height = 150,
-      frame_count = 32,
-      line_length = 32,
-      animation_speed = 0.3,
-      shift = util.by_pixel(-53.5, -84 + silo_offset_px),
-      scale = 0.5
-    },
-
-    arm_02_right_animation =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/08-rocket-silo-arms-right.png",
-      priority = "medium",
-      width = 182,
-      height = 188,
-      frame_count = 32,
-      line_length = 32,
-      animation_speed = 0.3,
-      shift = util.by_pixel(101, -38 + silo_offset_px),
-      scale = 0.5
-    },
-
-    arm_03_front_animation =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/13-rocket-silo-arms-front.png",
-      priority = "medium",
-      width = 126,
-      height = 228,
-      frame_count = 32,
-      line_length = 32,
-      animation_speed = 0.3,
-      shift = util.by_pixel(-50.5, 15.5 + silo_offset_px),
-      scale = 0.5
-    },
-
-    base_front_sprite =
-    {
-      filename = "__lars_advance_space__/graphics/from-other-mods/space-exploration/entity/rocket-launch-pad/14-rocket-silo-front.png",
-      width = 704,
-      height = 448,
-      shift = util.by_pixel(0, 64),
-      scale = 0.5
-    },
-
-    alarm_trigger =
-    {
-      {
-        type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/silo-alarm.ogg",
-            volume = 1.0
-          }
-        }
-      }
-    },
-    clamps_on_trigger =
-    {
-      {
-        type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/silo-clamps-on.ogg",
-            volume = 1.0
-          }
-        }
-      }
-    },
-    clamps_off_trigger =
-    {
-      {
-        type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/silo-clamps-off.ogg",
-            volume = 1.0
-          }
-        }
-      }
-    },
-    doors_trigger =
-    {
-      {
-        type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/silo-doors.ogg",
-            volume = 1.0
-          }
-        }
-      }
-    },
-    raise_rocket_trigger =
-    {
-      {
-        type = "play-sound",
-        sound =
-        {
-          {
-            filename = "__base__/sound/silo-raise-rocket.ogg",
-            volume = 1.0
-          }
-        }
-      }
-    }
+    flags = { "not-on-map", "placeable-off-grid"},
   },
 })

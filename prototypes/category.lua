@@ -66,55 +66,35 @@ data:extend({
     group = "bob-resource-products",
     order = "h-d[lava-casting]"
   },
+  {
+    type = "item-subgroup",
+    name = "ammo-effects",
+    group = "effects",
+    order = "b-b"
+  },
 })
 
 -- RECIPE CATEGORY
-data:extend({
-  {
+local recipe_categories = {
+  "lars-liquid-gas", -- 空气液化相关
+  "lars-air-process", -- 空气液化相关
+  "lars-air-emission", -- 
+  "lars-rocket-silo", -- 修改火箭配方
+  "lars-rocket-silo-2", -- 修改火箭配方
+  "lars-special-rocket", -- test
+  "radiator", -- 太空散热
+  "lars-metallurgy", -- 岩浆处理
+  "lars-ray-receiver", -- 射线接收
+  "lars-particle-process", -- 粒子物理
+  "lars-particle-accelerator", -- 粒子加速器
+  "delivery-cannon", -- test
+}
+for _, category in pairs(recipe_categories) do
+  data:extend({{
     type = "recipe-category",
-    name = "lars-liquid-gas"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-air-process"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-air-emission"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-rocket-silo"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-rocket-silo-2"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-special-rocket"
-  },
-  {
-    type = "recipe-category",
-    name = "radiator"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-metallurgy"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-ray-receiver"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-particle-process"
-  },
-  {
-    type = "recipe-category",
-    name = "lars-particle-accelerator"
-  },
-})
+    name = category
+  }})
+end
 
 -- 火箭发射井类别
 table.insert(data.raw["rocket-silo"]["rocket-silo"].crafting_categories, "lars-rocket-silo")
